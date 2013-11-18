@@ -11,6 +11,9 @@
 \usepackage{float}
 \fancyhf{}
 
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 %\usepackage[a4paper]{geometry}
 
@@ -28,8 +31,8 @@
 
 \part*{Návod na pořízení dat}
 
-
-\newpage
+\section*{Aktuální verze}
+\verb|https://github.com/michalneoral/collect_data_documentation/blob/master/navod.pdf?raw=true|\\
 
 \section*{Úvod}
 
@@ -53,7 +56,7 @@ Druhou polohou ramene r2 je poloha, ve které je připraveno k provedení experi
 	\centering  	
   	\includegraphics[height=7cm]{pictures/obrazek1.eps}
   	\includegraphics[height=7cm]{pictures/obrazek2.eps}
-  	\caption{Magický trojúhelník se čtyřmi vnitřními úhly a pěti stranami.}
+  	\caption{Nastínění pohybů chapadla s textilií.}
   	\label{fig:obrazek1}
 \end{figure}
 Externí osa (osa č.: 13) je otočena tak, aby v pozadí snímané textilie bylo co nejméně rušivých předmětů. Nejlépe jednobarevný rovný povrch.
@@ -82,6 +85,10 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
   \end{itemize}
   
   \item V balíčku \verb|clopema_collect_model_data| ve složce src upraven scritp \verb|local_options.py| pro místní nastavení počítače.
+  \begin{itemize}
+  	\item \verb|pcglocate| pro umístění složky se zdrojovými kódy
+  	\item \verb|savefolder| umístění složky, kam se budou ukládat získaná data.
+  \end{itemize}  
 \end{itemize}
 
 
@@ -131,10 +138,10 @@ obrázek3 \\
 \end{enumerate}
 
 \section*{Uložení dat}
-Data se ukládají pomocí rosbag ve formátu “.bag“ do předem určené složky uložené v souboru local\_options.py (path\_to\_workspace/clopema\_collect\_model\_data/src/local\_options.py).\\
+Data se ukládají pomocí rosbag ve formátu “.bag“ do předem určené složky uložené v souboru local\_options.py (\verb|path_to_workspace/clopema_collect\_model_data/src/local_options.py|).\\
 \\
 
-Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topic), která jsou uložena v souboru topics.txt  (path\_to\_workspace/clopema\_collect\_model\_data/matlab/topics.txt). Pro tento experiment jsem vybral tyto témata (topic):\\
+Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topic), která jsou uložena v souboru topics.txt  (\verb|path_to_workspace/clopema_collect_model_data/matlab/topics.txt|). Pro tento experiment jsem vybral tyto témata (topic):\\
 \\
 \indent \indent \indent \verb|/joint_states| \\
 \indent \indent \indent \verb|/tf| \\
@@ -150,6 +157,13 @@ Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouz
 
 Seznam témat je možné libovolně měnit. Zaznamenáno je 7 vteřin dat.\\
 \\
+Zaznamenané soubory jsou ve tvaru: \verb|name_speed_axis.bag|
+
+\begin{itemize}
+\item \itab{name}  \tab{vámi zadaný název}
+\item \itab{speed} \tab{nastavená rychlost manipulátoru} 
+\item \itab{axis} \tab{osa, kterou bylo vykonáno "třepání"}  
+\end{itemize}
 
 \section*{Načtení dat pro další zpracování}
 \subsection*{Předpoklady:}
@@ -175,13 +189,12 @@ Načítání souborů spustíte příkazem \verb|loader|, který vypíše soubor
 Tento příkaz dále spustí skript \verb|reader|, který převede soubor .bag na čitelnější strukturu \verb|msgs| (provede rovněž i pro „čisté“ pozadí \verb|msgs_bag|) a předpřipravý RGB obrázek „čistého“ pozadí - \verb|rgb_back| (takto předpřipravené data lze zobrazovat pomocí imshow(data) nebo image(data) jako 2D obrazy). \\
 \\
 Příkaz loader dále předpřipraví data z RGB i hloubkové kamery do zásobníku obrazu \verb|front|, která je seřazená tak, aby si obrazy odpovídaly časovými značkami. První řádek obsahuje původní RGB obrazy, druhý řádek obsahuje RGB obrazy s odfiltrovaným pozadím a třetí řádek obsahuje data z hloubkové kamery v metrech.
-Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v obsahuje tyto údaje:\\
-\\
+Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v obsahuje tyto údaje:
 
-$\begin{bmatrix}
-\verb|pořadové číslo hloubkového snímku| & \verb|čas od začátku měření| & \verb|pořadové číslo tématu v msgs| \\
-  \verb|pořadové číslo rgb snímku| & \verb|časový rozdíl mezi snímky| & \verb|pořadové číslo tématu v msgs|
-\end{bmatrix} $
+$$\begin{bmatrix}
+\verb|pořad. číslo hloubkového snímku| & \verb|čas od začátku měření| & \verb|pořad. číslo tématu v msgs| \\
+  \verb|pořad. číslo rgb snímku| & \verb|časový rozdíl mezi snímky| & \verb|pořad. číslo tématu v msgs|
+\end{bmatrix} $$
 
 \section*{Provedení experimentu}
 
