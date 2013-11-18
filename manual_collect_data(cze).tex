@@ -31,8 +31,6 @@
 
 \part*{Návod na pořízení dat}
 
-\section*{Aktuální verze}
-\verb|https://github.com/michalneoral/collect_data_documentation/blob/master/navod.pdf?raw=true|\\
 
 \section*{Úvod}
 
@@ -48,7 +46,7 @@ Předpokládá se významný přínos projektu v oblasti průmyslové automatiza
 \section*{Způsob pořízení dat}
 Ramena robota najedou za pomocí skriptu \verb|collect_data.py| (viz. kapitola Pořízení dat) do polohy, kdy rameno r1 je v takové pozici, ve které je rovina snímače kamery kolmá na rovinu podlahy a zároveň rotace kamery, kolem osy kolmé na rovinu snímače, je nulová.\\
 \\
-Rameno r2 nabývá dvou základních poloh. Poloha jedna je pro odfiltrování pozadí snímků (viz. kapitola Načtení dat pro další zpracování). V této poloze je rameno zcela mimo snímaný úsek obrazu.\\
+Rameno r2 nabývá dvou základních poloh. Poloha jedna je pro odfiltrování pozadí snímků (viz. kapitola \textit{Načtení dat pro další zpracování}). V této poloze je rameno zcela mimo snímaný úsek obrazu.\\
 \\ 
 Druhou polohou ramene r2 je poloha, ve které je připraveno k provedení experimentu. Rameno je v takové poloze, aby textilie do něj zachycená byla v takové výšce, aby byla kamerou uchycenou na ramenu r1 zachycen ten kus textilie, který nás zajímá nejvíce. Zároveň musí být v takové pozici, aby, při pohybu charakteristického pro experiment (dále jen „třepání“), mohl hýbat jak ve směru dopředu/dozadu, tak i vlevo/vpravo. Volené směry jsou brány vzhledem k rovině snímače kamery, tedy dopředu/dozadu je pohyb k/od roviny snímače kamery apod. (viz. Obrázek 1).\\
 \\
@@ -115,12 +113,16 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
   
 \end{itemize}
 
-
-obrázek3 \\
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[scale=0.6]{pictures/obrazek3.eps}
+  	\caption{Náhled menu skriptu}
+  	\label{fig:obrazek3}
+\end{figure}
 
 \subsection*{Postup pro nasnímání obrazu pro odfiltrování pozadí:}
 \begin{enumerate}
-  \item Využijeme funkci \textbf{(6)} – Camera default record.
+  \item Využijeme funkci \textbf{(6)} – \textit{Camera default record}.
 \end{enumerate}
 
 \subsection*{Postup pořízení dat – manuální vkládání textilie:}
@@ -157,12 +159,13 @@ Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouz
 
 Seznam témat je možné libovolně měnit. Zaznamenáno je 7 vteřin dat.\\
 \\
-Zaznamenané soubory jsou ve tvaru: \verb|name_speed_axis.bag|
+Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 
 \begin{itemize}
 \item \itab{name}  \tab{vámi zadaný název}
 \item \itab{speed} \tab{nastavená rychlost manipulátoru} 
-\item \itab{axis} \tab{osa, kterou bylo vykonáno "třepání"}  
+\item \itab{A} \tab{osa, kterou bylo vykonáno "třepání" - \textit{R} nebo \textit{B}}
+\item \itab{X}  \tab{číslo souboru s tématy, která jsou zaznamenána}  
 \end{itemize}
 
 \section*{Načtení dat pro další zpracování}
@@ -173,8 +176,8 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_axis.bag|
   	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
   \end{itemize}
   
-  \item Nainstalovaný Matlab (odzkoušeno ve verzi 2012b).
-  \item Nainstalovaný toolbox pro matlab „rosbag“ a přidána cesta pro tento toolbox. Toolbox je dostupný ke stáhnutí na adrese:
+  \item Nainstalovaný Matlab (odzkoušeno ve verzi 2012b i 2013a).
+  \item Nainstalovaný toolbox pro matlab „rosbag“ a přidána cesta pro tento toolbox. Toolbox je dostupný i s návodem k instalaci na adrese:
   \begin{itemize}
      \item \verb|https://github.com/bcharrow/matlab_rosbag|
   \end{itemize}
@@ -184,9 +187,9 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_axis.bag|
 
 V proměnné \verb|path_to_bag_files| je potřeba mít uloženou cestu k uloženým .bag souborům s daty a v proměnné \verb|topics| je načten soubor \verb|topics.txt| s názvy požadovaných témat (viz. \verb|startup.m|).\\
 \\
-Načítání souborů spustíte příkazem \verb|loader|, který vypíše soubory v zadané složce (\verb|path_to_bag_files|) a nechá vybrat soubor pro načtení do Matlabu a vypíše informace o souboru. Pro správnou funkci tohoto skriptu je třeba mít nasnímáno a uloženo „čisté“ pozadí (popsáno v kapitole Návod na pořízení dat).\\
+Načítání souborů spustíte příkazem \verb|loader|, který vypíše soubory v zadané složce (\verb|path_to_bag_files|) a nechá vybrat soubor pro načtení do Matlabu a vypíše informace o souboru. Pro správnou funkci tohoto skriptu je třeba mít nasnímáno a uloženo „čisté“ pozadí (popsáno v kapitole \textit{Návod na pořízení dat}).\\
 \\
-Tento příkaz dále spustí skript \verb|reader|, který převede soubor .bag na čitelnější strukturu \verb|msgs| (provede rovněž i pro „čisté“ pozadí \verb|msgs_bag|) a předpřipravý RGB obrázek „čistého“ pozadí - \verb|rgb_back| (takto předpřipravené data lze zobrazovat pomocí imshow(data) nebo image(data) jako 2D obrazy). \\
+Tento příkaz dále spustí skript \verb|reader|, který převede soubor .bag na čitelnější strukturu \verb|msgs| (provede rovněž i pro „čisté“ pozadí \verb|msgs_bag|) a předpřipravý RGB obrázek „čistého“ pozadí - \verb|rgb_back| (takto předpřipravené data lze zobrazovat pomocí \verb|imshow(data)| nebo \verb|image(data)| jako 2D obrazy). \\
 \\
 Příkaz loader dále předpřipraví data z RGB i hloubkové kamery do zásobníku obrazu \verb|front|, která je seřazená tak, aby si obrazy odpovídaly časovými značkami. První řádek obsahuje původní RGB obrazy, druhý řádek obsahuje RGB obrazy s odfiltrovaným pozadím a třetí řádek obsahuje data z hloubkové kamery v metrech.
 Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v obsahuje tyto údaje:
@@ -194,9 +197,15 @@ Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v ob
 $$\begin{bmatrix}
 \verb|pořad. číslo hloubkového snímku| & \verb|čas od začátku měření| & \verb|pořad. číslo tématu v msgs| \\
   \verb|pořad. číslo rgb snímku| & \verb|časový rozdíl mezi snímky| & \verb|pořad. číslo tématu v msgs|
-\end{bmatrix} $$
+\end{bmatrix} $$\\
+\\
 
-\section*{Provedení experimentu}
+Další pokračování existuje, ale je potřeba ho konzultovat.
+%\section*{Provedení experimentu}
+
+\section*{Aktuální verze tohoto návodu}
+\verb|https://github.com/michalneoral/collect_data_documentation/|\\
+\verb|raw/master/manual_collect_data(cze).pdf|\\
 
 \begin{thebibliography}{NEO}    
   \bibitem[1]{homesim} Neovision:
