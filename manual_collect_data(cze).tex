@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper,titlepage,oneside]{book}
+\documentclass[10pt,a4paper,titlepage,oneside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 
@@ -29,21 +29,18 @@
 
 \thispagestyle{fancy}
 
-\part*{Návod na pořízení dat}
+\chapter{Úvod}
 
-
-\section*{Úvod}
-
+\section{O projektu}
 Tato práce je součástí mezinárodního projektu CloPeMa (Clothes Perception Manipulation). Tento dokument obsahuje postup a popis sběru dat pro tvorbu dynamického modelu textilie.\\
-\\
-CLoPeMa je tříletý výzkumný projekt zaměřený na výzkum a vývoj v oblasti autonomního snímání a manipulace s textiliemi a oděvy. Systém je postaven na základě operačního systému ROS (Robot Operating System) a jako hlavní programovací jazyky jsou vybrány C++, Python a Java [1].\\
-\\
-Cílem projektu je prohloubit vědecké a praktické znalosti v této oblasti. Významnou části projektu je řešení problému integrace a fúze dat z oblasti kamerového snímání, rozpoznávání, učení, mechaniky a robotiky [1].\\
-\\
-Předpokládá se významný přínos projektu v oblasti průmyslové automatizace a robotického 3D snímání pro technologicky náročné aplikace. Výzkum vedoucí k těmto výsledkům byl podporován Evropskou unií v Sedmém Rámcovém Programu (FP7/2012-2014) grantem číslo 288553 CloPeMa [1].\\
-\\
+\textbf{přidat odkaz}
 
-\section*{Způsob pořízení dat}
+\section{Popis manipulátoru a robotického pracoviště}
+\textbf{přidat odkaz + obrázky}
+
+
+\chapter{Způsob pořízení dat}
+
 Ramena robota najedou za pomocí skriptu \verb|collect_data.py| (viz. kapitola Pořízení dat) do polohy, kdy rameno r1 je v takové pozici, ve které je rovina snímače kamery kolmá na rovinu podlahy a zároveň rotace kamery, kolem osy kolmé na rovinu snímače, je nulová.\\
 \\
 Rameno r2 nabývá dvou základních poloh. Poloha jedna je pro odfiltrování pozadí snímků (viz. kapitola \textit{Načtení dat pro další zpracování}). V této poloze je rameno zcela mimo snímaný úsek obrazu.\\
@@ -67,8 +64,8 @@ Do chapadla je uchycena textilie. Rameno manipulátoru poté provede pohyb – z
 Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
 \\
 
-\section*{Pořízení dat}
-\subsection*{Předpoklady:}
+\chapter{Pořízení dat}
+\section{Předpoklady:}
 
 \begin{itemize}
   \item Nainstalovaný ROS Hydro a balíčky Clopema:
@@ -90,7 +87,7 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
 \end{itemize}
 
 
-\subsection*{Postup spouštění:}
+\section{Postup spouštění:}
 
 \begin{itemize}
   \item Spustíme robota: 
@@ -120,12 +117,12 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
   	\label{fig:obrazek3}
 \end{figure}
 
-\subsection*{Postup pro nasnímání obrazu pro odfiltrování pozadí:}
+\section{Postup pro nasnímání obrazu pro odfiltrování pozadí:}
 \begin{enumerate}
   \item Využijeme funkci \textbf{(6)} – \textit{Camera default record}.
 \end{enumerate}
 
-\subsection*{Postup pořízení dat – manuální vkládání textilie:}
+\section{Postup pořízení dat – manuální vkládání textilie:}
 \begin{enumerate}
   \item Umístíme robota do polohy, ve které je připraven k měření \textbf{(2)} - \textit{Move to READY TO MEASURE position}.
   \item Otevřeme chapadlo \textbf{(4)} – \textit{Open Gripper}.
@@ -139,7 +136,7 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
   \item Program ukončíme pomocí \textbf{(exit)}.
 \end{enumerate}
 
-\section*{Uložení dat}
+\chapter{Uložení dat}
 Data se ukládají pomocí rosbag ve formátu “.bag“ do předem určené složky uložené v souboru local\_options.py (\verb|path_to_workspace/clopema_collect\_model_data/src/local_options.py|).\\
 \\
 
@@ -168,8 +165,8 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 \item \itab{X}  \tab{číslo souboru s tématy, která jsou zaznamenána}  
 \end{itemize}
 
-\section*{Načtení dat pro další zpracování}
-\subsection*{Předpoklady:}
+\chapter{Načtení dat pro další zpracování}
+\section{Předpoklady:}
 \begin{itemize}
    \item Stahnutý archív se zdrojovými kódy
   \begin{itemize}
@@ -201,9 +198,9 @@ $$\begin{bmatrix}
 \\
 
 Další pokračování existuje, ale je potřeba ho konzultovat.
-%\section*{Provedení experimentu}
+%\chapter{Provedení experimentu}
 
-\section*{Aktuální verze tohoto návodu}
+\chapter{Aktuální verze tohoto návodu}
 \verb|https://github.com/michalneoral/collect_data_documentation/|\\
 \verb|raw/master/manual_collect_data(cze).pdf|\\
 
