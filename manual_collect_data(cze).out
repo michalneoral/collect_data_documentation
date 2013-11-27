@@ -1,0 +1,25 @@
+\BOOKMARK [0][-]{chapter.1}{\332vod}{}% 1
+\BOOKMARK [1][-]{section.1.1}{O projektu}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Aktu\341ln\355 verze tohoto n\341vodu}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Popis manipul\341toru a robotick\351ho pracovi\235te}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.3.1}{Manipul\341tor}{section.1.3}% 5
+\BOOKMARK [2][-]{subsection.1.3.2}{Chapadlo}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.3}{Kamera}{section.1.3}% 7
+\BOOKMARK [1][-]{section.1.4}{Po\236adavky na experiment}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.4.1}{Vodorovn\375 pohyb zn\341m\351 d\351lky - kolmo k optick\351 ose.}{section.1.4}% 9
+\BOOKMARK [2][-]{subsection.1.4.2}{Vodorovn\375 pohyb zn\341m\351 d\351lky - pod\351l optick\351 osy.}{section.1.4}% 10
+\BOOKMARK [0][-]{chapter.2}{Zpusob por\355zen\355 dat}{}% 11
+\BOOKMARK [1][-]{section.2.1}{Realizace}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{Por\355zen\355 dat}{}% 13
+\BOOKMARK [1][-]{section.3.1}{Predpoklady}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{Postup spou\235ten\355}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.3}{Ovl\341d\341n\355 skriptu collect\137data.py pro sn\355m\341n\355 dat}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.3.1}{Popis ovl\341d\341n\355}{section.3.3}% 17
+\BOOKMARK [2][-]{subsection.3.3.2}{Postup pro nasn\355m\341n\355 obrazu pro odfiltrov\341n\355 pozad\355}{section.3.3}% 18
+\BOOKMARK [2][-]{subsection.3.3.3}{Postup por\355zen\355 dat \205 manu\341ln\355 vkl\341d\341n\355 textilie:}{section.3.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Ulo\236en\355 dat}{}% 20
+\BOOKMARK [1][-]{section.4.1}{Form\341t dat}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{T\351mata \(topic\)}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.3}{Form\341t n\341zvu}{chapter.4}% 23
+\BOOKMARK [0][-]{chapter.5}{Nacten\355 dat pro dal\235\355 zpracov\341n\355}{}% 24
+\BOOKMARK [1][-]{section.5.1}{Predpoklady:}{chapter.5}% 25

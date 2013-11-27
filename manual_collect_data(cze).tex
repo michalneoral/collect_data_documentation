@@ -9,17 +9,25 @@
 \usepackage{fancyhdr}
 \usepackage{mathtools}
 \usepackage{float}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[justification=centering]{caption}
+
 \fancyhf{}
 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+\newcommand{\red}[1]{\textbf{\rlap{\color{red}#1}}}
 
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 %\usepackage[a4paper]{geometry}
 
 \providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 
-
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 
 \begin{document}
 \title{Realizace experimentů pro odhad parametrů dynamického modelu látky}
@@ -29,19 +37,126 @@
 
 \thispagestyle{fancy}
 
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
 \chapter{Úvod}
+\label{chap:intro}
+
+
 
 \section{O projektu}
-Tato práce je součástí mezinárodního projektu CloPeMa (Clothes Perception Manipulation). Tento dokument obsahuje postup a popis sběru dat pro tvorbu dynamického modelu textilie.\\
-\textbf{přidat odkaz}
+\label{sec:about}
+Tato práce je součástí mezinárodního projektu CloPeMa (Clothes Perception Manipulation). Tento dokument popisuje sběr dat a postup realizace experimentů pro odhad parametrů dynamického modelu textilie.\\
+\\
+Více informací o projektu CloPeMa na internetových stránkách: \verb|http://clopemaweb.felk.cvut.cz/| a na wikipedii projektu: \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki|
+\\
+
+
+
+\section{Aktuální verze tohoto návodu}
+\verb|https://github.com/michalneoral/collect_data_documentation/|\\
+\verb|raw/master/manual_collect_data(cze).pdf|\\
+
+
+
 
 \section{Popis manipulátoru a robotického pracoviště}
-\textbf{přidat odkaz + obrázky}
+\label{sec:desription}
 
+V této části jsou popsány nejdůležitější části manipulátoru pro tento experiment.
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[height=7cm]{pictures/docasny.eps}
+  	\caption[]{Manipulátor projektu CloPeMa umístěný na ČVUT v Praze.}
+  	\label{fig:manipulatorCVUT}
+\end{figure}
+
+\subsection{Manipulátor}
+\label{subsec:manipulator}
+
+Základ manipulátoru tvoří dvě robotická ramena Motoman~MA1400. Rameno jedna je označeno jako \verb|r1| (nebo se také objevuje \verb|R1|). Rameno dvě je obdobně značeno \verb|r2| (\verb|R2|). Ramena \verb|r1| a \verb|r2| jsou umístěna na otočném stole. Otočný stůl se otáčí kolem osy označované jako \verb|Externí osa| (nebo také \verb|Ext.| případně jako \verb|13| osa). Umístění ramen a otáčení \verb|Ext.| osy lze lépe vyčíst z obrázku~\ref{fig:motomanAndTable}. Každé rameno manipulátoru má 6 os, okolo kterých je schopen se otáčet. Osy jsou nazvány písmeny \verb|S|, \verb|L|, \verb|U|, \verb|R|, \verb|T| a \verb|B| (obrázek~\ref{fig:motomanAxis}). Toto označení nestačí a k písmennému názvu je třeba přiřadit i číslo ramena, na kterém se tato osa nachází. Např.: osa \verb|S| nacházející se na rameni \verb|r1| se bude nazývat \verb|S1| apod. Obdobně jako u označení ramen se můžeme setkat i s použitím malých písmen.
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[height=7cm]{pictures/motomanCelek.eps}
+  	\caption[]{Označení ramen a umístění Externí osy.\\
+	Arm r1 - rameno r1,\\
+	Arm r2 - rameno r2,\\
+	Gripper - chapadlo,\\
+	Ext.Axis (13th) - externí (třináctá) osa.	  	
+  	}
+  	\label{fig:motomanAndTable}
+\end{figure}
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[height=8cm]{pictures/motomanMA1400axis.eps}
+  	\caption[]{Popis os robotického ramena Motoman MA1400.\\ 
+  	S-Axis (červená) - osa S,\\ L-Axis (fialová) - osa L,\\ U-Axis (oranžová) - osa U,\\ R-Axis (modrá) - osa R,\\ T-Axis (zelená) - osa T,\\ B-Axis (žlutá) - osa B.}
+  	\label{fig:motomanAxis}
+\end{figure}
+
+\subsection{Chapadlo}
+\label{subsec:gripper}
+Každé z ramen \verb|r1| i \verb|r2| je zakončeno elektrickým chapadlem obrázek~\ref{fig:gripper}. Chapadla slouží k držení textilií.
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[height=7cm]{pictures/gripper.eps}
+  	\caption[]{Chapadlo.\\a) Chapadlo,\\b) Konec ramena, na kterém je chapadlo namontováno.	  	
+  	}
+  	\label{fig:gripper}
+\end{figure}
+
+\subsection{Kamera}
+\label{subsec:camera}
+Další důležitou částí manipulátoru je pro nás 3D~kamera Asus Xtion. Jedná se kameru, která je schopná zaznamenávat jak obrazové snímky (označované taky jako \verb|RGB| snímky), tak i mapu vzdáleností - hloubkové snímky (\verb|depth|). 
+
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[height=6cm]{pictures/xtion.eps}
+  	\caption[]{Asus Xtion namontovaný na ramenu manipulátoru.  	
+  	}
+  	\label{fig:xtion}
+\end{figure}
+
+\noindent Tento popis obsahuje pouze vybrané části, které jsou důležité pro tento experiment. Podrobnější popis robota naleznete na \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Technical_Stuff|. \\
+
+
+
+
+\newpage
+
+\section{Požadavky na experiment}
+\label{sec:experiment}
+Pro zjištění parametrů, které budou sloužit k odhadu parametrů dynamického modelu látky, jsme se rozhodli sledovat pohyb a chování textilie při známém a opakovatelném pohybu. 
+Podle našeho názoru máme dvě možnosti snímání pohybu.
+
+\subsection{Vodorovný pohyb známé délky - kolmo k optické ose.}
+Standardní kamerou sledujeme siluetu, případně samotnou látku proti stálému pozadí.
+
+\subsection{Vodorovný pohyb známé délky - podél optické osy.}
+Při tomto pohybu by standardní kamera viděla jen vzdalující se (přibližující se) siluetu, proto použijeme hloubkovou mapu.
+
+
+
+
+
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 
 \chapter{Způsob pořízení dat}
 
-Ramena robota najedou za pomocí skriptu \verb|collect_data.py| (viz. kapitola Pořízení dat) do polohy, kdy rameno r1 je v takové pozici, ve které je rovina snímače kamery kolmá na rovinu podlahy a zároveň rotace kamery, kolem osy kolmé na rovinu snímače, je nulová.\\
+\section{Realizace}
+Už při prvních pokusech jsme zjistili, že dynamika manipulátoru není natolik rychlá, aby s ním bylo možné provádět požadované pohyby (kapitola~\ref{sec:experiment}) po úsečce potřebnou rychlostí. Proto jsme s omezením robota museli požadavky z kapitoly~\ref{sec:experiment} realizovat takto:
+
+Ramena robota najedou za pomocí skriptu \verb|collect_data.py| (viz.~kapitola~Pořízení dat) do polohy, kdy rameno r1 je v takové pozici, ve které je rovina snímače kamery kolmá na rovinu podlahy a zároveň rotace kamery, kolem osy kolmé na rovinu snímače, je nulová.\\
 \\
 Rameno r2 nabývá dvou základních poloh. Poloha jedna je pro odfiltrování pozadí snímků (viz. kapitola \textit{Načtení dat pro další zpracování}). V této poloze je rameno zcela mimo snímaný úsek obrazu.\\
 \\ 
@@ -49,8 +164,8 @@ Druhou polohou ramene r2 je poloha, ve které je připraveno k provedení experi
 \\
 \begin{figure}[H]
 	\centering  	
-  	\includegraphics[height=7cm]{pictures/obrazek1.eps}
-  	\includegraphics[height=7cm]{pictures/obrazek2.eps}
+  	\includegraphics[height=7cm]{pictures/move2.eps}
+  	\includegraphics[height=7cm]{pictures/move1.eps}
   	\caption{Nastínění pohybů chapadla s textilií.}
   	\label{fig:obrazek1}
 \end{figure}
@@ -64,11 +179,18 @@ Do chapadla je uchycena textilie. Rameno manipulátoru poté provede pohyb – z
 Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
 \\
 
-\chapter{Pořízení dat}
-\section{Předpoklady:}
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 
-\begin{itemize}
-  \item Nainstalovaný ROS Hydro a balíčky Clopema:
+\chapter{Pořízení dat}
+
+\section{Předpoklady}
+
+\begin{enumerate}
+
+   \item Nainstalovaný ROS Hydro a balíčky CloPeMa:
   \begin{itemize} 
   
   	\item \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/CloPeMa_Packages|
@@ -79,50 +201,65 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
   	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
   \end{itemize}
   
-  \item V balíčku \verb|clopema_collect_model_data| ve složce src upraven scritp \verb|local_options.py| pro místní nastavení počítače.
+  \item V balíčku \verb|clopema_collect_model_data| ve složce \verb|src| uprav script \verb|local_options.py| pro místní nastavení počítače. Po otevření v příslušném textovém editoru upravte obsah proměnných pro Vaše umístění. 
   \begin{itemize}
   	\item \verb|pcglocate| pro umístění složky se zdrojovými kódy
   	\item \verb|savefolder| umístění složky, kam se budou ukládat získaná data.
-  \end{itemize}  
-\end{itemize}
+  \end{itemize}
+\end{enumerate}
 
 
-\section{Postup spouštění:}
+\section{Postup spouštění}
+\label{sec:runScript}
 
-\begin{itemize}
-  \item Spustíme robota: 
-  \begin{itemize} 
+\begin{enumerate}
+ 
+  \item Odstranění omezení rychlosti robota 
+  	\begin{itemize}
+   		\item \red{tato kapitola bude dopsána po konzultaci s panem Wágnerem}
+  	\end{itemize}
+   
   
-  	\item \verb|roslaunch clopema_launch start_robot.launch|
-  \end{itemize}
+  \item \label{itm:robOn} Spustíme robota: 
+  	\begin{itemize}  
+  		\item \verb|roslaunch clopema_launch start_robot.launch|
+  	\end{itemize}
   
-  \item Spustíme kameru na ramenu r1:
-  \begin{itemize}
-  	\item \verb|roslaunch clopema_launch xtion1.launch|
-  \end{itemize}
+  \item \label{itm:camOn} Spustíme kameru na ramenu \verb|r1|:
+  	\begin{itemize}
+  		\item \verb|roslaunch clopema_launch xtion1.launch|
+ 	\end{itemize}
   
-  \item Poté, co se tyto věci úspěšně spustí můžeme spustit vlastní skript pro sběr dat:
-  \begin{itemize}
-  	\item \verb|rosrun clopema_collect_model_data collect_data.py|
-  \end{itemize}
+  \item Poté, co se body \ref{itm:robOn} a \ref{itm:camOn} úspěšně spustí můžeme spustit vlastní skript pro sběr dat:
+  	\begin{itemize}
+  		\item \verb|rosrun clopema_collect_model_data collect_data.py|
+  	\end{itemize}
   
-  \item Program je ovládán z příkazové řádky:
+  \item Program je ovládán z příkazové řádky.
   
-\end{itemize}
+\end{enumerate}
+
+
+\section{Ovládání skriptu collect\_data.py pro snímání dat}
+\label{sec:program}
+
+\subsection{Popis ovládání}
+Skript již máme spuštěn podle návodu v kapitole~\ref{sec:runScript}. Po spuštění se nám zobrazí úvodní menu zobrazené na obrázku \ref{fig:menu}.
+Čísla v závorkách \textbf{(číslo)} značí pozici funkce v menu programu. Např.~funkci~\textbf{(4)}~\textit{Open~Gripper} (otevření chapadla) spustíme vepsáním čísla \verb|4| a potvrzením klávesy \verb|Enter|. Obdobně postupujeme při spouštění i dalších funkcí. Pro ukončení programu vepíšeme slovo \verb|stop| a potvrdíme klávesou \verb|Enter|. Program \textbf{nedoporučuji} ukončit stiskem \verb|ctrl+c|.
 
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[scale=0.6]{pictures/obrazek3.eps}
   	\caption{Náhled menu skriptu}
-  	\label{fig:obrazek3}
+  	\label{fig:menu}
 \end{figure}
 
-\section{Postup pro nasnímání obrazu pro odfiltrování pozadí:}
+\subsection{Postup pro nasnímání obrazu pro odfiltrování pozadí}
 \begin{enumerate}
   \item Využijeme funkci \textbf{(6)} – \textit{Camera default record}.
 \end{enumerate}
 
-\section{Postup pořízení dat – manuální vkládání textilie:}
+\subsection{Postup pořízení dat – manuální vkládání textilie:}
 \begin{enumerate}
   \item Umístíme robota do polohy, ve které je připraven k měření \textbf{(2)} - \textit{Move to READY TO MEASURE position}.
   \item Otevřeme chapadlo \textbf{(4)} – \textit{Open Gripper}.
@@ -136,36 +273,53 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
   \item Program ukončíme pomocí \textbf{(exit)}.
 \end{enumerate}
 
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
 \chapter{Uložení dat}
-Data se ukládají pomocí rosbag ve formátu “.bag“ do předem určené složky uložené v souboru local\_options.py (\verb|path_to_workspace/clopema_collect\_model_data/src/local_options.py|).\\
+
+\section{Formát dat}
+Data se ukládají pomocí rosbag ve formátu “.bag“ do předem určené složky uložené v souboru \verb|local_options.py| (\verb|path_to_workspace/clopema_collect_model_data/src/local_options.py|).
 \\
 
-Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topic), která jsou uložena v souboru topics.txt  (\verb|path_to_workspace/clopema_collect_model_data/matlab/topics.txt|). Pro tento experiment jsem vybral tyto témata (topic):\\
+\section{Témata (topic)}
+Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topic), která jsou uložena v souboru \verb|topics.txt|  (\verb|path_to_workspace/clopema_collect_model_data/matlab/topics.txt|). Pro tento experiment jsem vybral tyto témata (topic):\\
 \\
 \indent \indent \indent \verb|/joint_states| \\
 \indent \indent \indent \verb|/tf| \\
-\indent \indent \indent \verb|/xtion1/depth/camera\_info| \\
+\indent \indent \indent \verb|/xtion1/depth/camera_info| \\
 \indent \indent \indent \verb|/xtion1/depth_registered/camera_info| \\
-\indent \indent \indent \verb|/xtion1/projector/camera\_info| \\
+\indent \indent \indent \verb|/xtion1/projector/camera_info| \\
 \indent \indent \indent \verb|/xtion1/rgb/camera_info| \\
 \indent \indent \indent \verb|/xtion1/depth/image_raw| \\
 \indent \indent \indent \verb|/xtion1/rgb/image_raw |\\
 \indent \indent \indent \verb|/xtion1/depth/disparity |\\
 \indent \indent \indent \verb|/xtion1/depth/points|\\
+
+\noindent Seznam témat je možné libovolně měnit. Zaznamenáno je 7 vteřin dat.
+\red{Popsat proč 7 vteřin}
 \\
 
-Seznam témat je možné libovolně měnit. Zaznamenáno je 7 vteřin dat.\\
-\\
+\section{Formát názvu}
 Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 
 \begin{itemize}
 \item \itab{name}  \tab{vámi zadaný název}
 \item \itab{speed} \tab{nastavená rychlost manipulátoru} 
-\item \itab{A} \tab{osa, kterou bylo vykonáno "třepání" - \textit{R} nebo \textit{B}}
+\item \itab{A} \tab{osa, kterou bylo vykonáno "třepání" - \textit{R} nebo \textit{B}}\\
+					\red{odkaz na popis robota v úvodu}
 \item \itab{X}  \tab{číslo souboru s tématy, která jsou zaznamenána}  
 \end{itemize}
 
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
 \chapter{Načtení dat pro další zpracování}
+
 \section{Předpoklady:}
 \begin{itemize}
    \item Stahnutý archív se zdrojovými kódy
@@ -198,17 +352,34 @@ $$\begin{bmatrix}
 \\
 
 Další pokračování existuje, ale je potřeba ho konzultovat.
+
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
 %\chapter{Provedení experimentu}
 
-\chapter{Aktuální verze tohoto návodu}
-\verb|https://github.com/michalneoral/collect_data_documentation/|\\
-\verb|raw/master/manual_collect_data(cze).pdf|\\
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 
-\begin{thebibliography}{NEO}    
+\begin{thebibliography}{CPM}    
   \bibitem[1]{homesim} Neovision:
     \emph{Industrial Vision System} [online]. [cit. 2013-11-12].\\
-    Dostupné z: \verb|http://www.neovision.cz/cz/sols/clopema.html|
+    Dostupné z: \verb|http://www.neovision.cz/cz/sols/clopema.html|    
+  
+  \bibitem[2]{gripperPic} Václav Jahoda:
+    \emph{CloPeMa} [online]. [cit. 2013-11-27].\\
+    Technický výkres \verb|12010_00_04_Robot.pdf| - UPRAVENO\\
+    Dostupné z: \verb|clopema.felk.cvut.cz/redmine/attachments/download/121/12010_00_04_Robot.pdf|    
     
+  \bibitem[1]{motoman} Motoman:
+    \emph{YASKAWA Electric Corporation} [online]. [cit. 2013-11-27].\\
+    Technický výkres robotického ramena MA1400 - UPRAVENO
+    Dostupné z: \verb|http://www.motoman.com.tr/index.php?eID=tx_nawsecuredl&u=0&file=uploads/|\\
+    \verb|tx_catalogrobot/MA1400_15.pdf&t=1385654785&hash=ba1cae139705f02080bcf1f7c60f741c8df7434c| 
 \end{thebibliography}
 
 \end{document}
