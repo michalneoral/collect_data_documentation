@@ -10,16 +10,23 @@
 \BOOKMARK [2][-]{subsection.1.4.2}{Vodorovn\375 pohyb zn\341m\351 d\351lky - pod\351l optick\351 osy.}{section.1.4}% 10
 \BOOKMARK [0][-]{chapter.2}{Zpusob por\355zen\355 dat}{}% 11
 \BOOKMARK [1][-]{section.2.1}{Realizace}{chapter.2}% 12
-\BOOKMARK [0][-]{chapter.3}{Por\355zen\355 dat}{}% 13
-\BOOKMARK [1][-]{section.3.1}{Predpoklady}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.2}{Postup spou\235ten\355}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.3}{Ovl\341d\341n\355 skriptu collect\137data.py pro sn\355m\341n\355 dat}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.3.1}{Popis ovl\341d\341n\355}{section.3.3}% 17
-\BOOKMARK [2][-]{subsection.3.3.2}{Postup pro nasn\355m\341n\355 obrazu pro odfiltrov\341n\355 pozad\355}{section.3.3}% 18
-\BOOKMARK [2][-]{subsection.3.3.3}{Postup por\355zen\355 dat \205 manu\341ln\355 vkl\341d\341n\355 textilie:}{section.3.3}% 19
-\BOOKMARK [0][-]{chapter.4}{Ulo\236en\355 dat}{}% 20
-\BOOKMARK [1][-]{section.4.1}{Form\341t dat}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.2}{T\351mata \(topic\)}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.3}{Form\341t n\341zvu}{chapter.4}% 23
-\BOOKMARK [0][-]{chapter.5}{Nacten\355 dat pro dal\235\355 zpracov\341n\355}{}% 24
-\BOOKMARK [1][-]{section.5.1}{Predpoklady:}{chapter.5}% 25
+\BOOKMARK [1][-]{section.2.2}{Pozice ramen}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.1}{Rameno s textili\355}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.2}{Rameno s kamerou}{section.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.3}{Otocen\355 Ext.osy}{section.2.2}% 16
+\BOOKMARK [1][-]{section.2.3}{Pohyby ramen}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.3.1}{Pohyb ramena kolmo k optick\351 ose}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.2}{Pohyb ramena pod\351l optick\351 osy}{section.2.3}% 19
+\BOOKMARK [0][-]{chapter.3}{Por\355zen\355 dat}{}% 20
+\BOOKMARK [1][-]{section.3.1}{Predpoklady}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.2}{Postup spou\235ten\355}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.3}{Ovl\341d\341n\355 skriptu collect\137data.py pro sn\355m\341n\355 dat}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.3.1}{Popis ovl\341d\341n\355}{section.3.3}% 24
+\BOOKMARK [2][-]{subsection.3.3.2}{Postup pro nasn\355m\341n\355 obrazu pro odfiltrov\341n\355 pozad\355}{section.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.3}{Postup por\355zen\355 dat \205 manu\341ln\355 vkl\341d\341n\355 textilie:}{section.3.3}% 26
+\BOOKMARK [0][-]{chapter.4}{Ulo\236en\355 dat}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Form\341t dat}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.2}{T\351mata \(topic\)}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.3}{Form\341t n\341zvu}{chapter.4}% 30
+\BOOKMARK [0][-]{chapter.5}{Nacten\355 dat pro dal\235\355 zpracov\341n\355}{}% 31
+\BOOKMARK [1][-]{section.5.1}{Predpoklady:}{chapter.5}% 32

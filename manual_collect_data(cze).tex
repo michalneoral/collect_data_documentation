@@ -113,7 +113,7 @@ Každé z ramen \verb|r1| i \verb|r2| je zakončeno elektrickým chapadlem obrá
 
 \subsection{Kamera}
 \label{subsec:camera}
-Další důležitou částí manipulátoru je pro nás 3D~kamera Asus Xtion. Jedná se kameru, která je schopná zaznamenávat jak obrazové snímky (označované taky jako \verb|RGB| snímky), tak i mapu vzdáleností - hloubkové snímky (\verb|depth|). 
+Další důležitou částí manipulátoru je pro nás 3D~kamera Asus Xtion. Jedná se kameru, která je schopná zaznamenávat jak obrazové snímky (označované taky jako \verb|RGB| snímky), tak i mapu vzdáleností - hloubkové snímky (\verb|depth|). Kamera namontovaná na ramenu \verb|r1| nese označení \verb|xtion1|, kamera namontovaná na ramenu \verb|r2| nese označení \verb|xtion2|.
 
 
 \begin{figure}[H]
@@ -154,28 +154,53 @@ Při tomto pohybu by standardní kamera viděla jen vzdalující se (přibližuj
 \chapter{Způsob pořízení dat}
 
 \section{Realizace}
-Už při prvních pokusech jsme zjistili, že dynamika manipulátoru není natolik rychlá, aby s ním bylo možné provádět požadované pohyby (kapitola~\ref{sec:experiment}) po úsečce potřebnou rychlostí. Proto jsme s omezením robota museli požadavky z kapitoly~\ref{sec:experiment} realizovat takto:
+Už při prvních pokusech jsme zjistili, že dynamika manipulátoru není natolik rychlá, aby s ním bylo možné provádět požadované pohyby (kapitola~\ref{sec:experiment}) po úsečce potřebnou rychlostí. Proto jsme s omezením robota museli požadavky z kapitoly~\ref{sec:experiment} realizovat tak, že pohyb po úsečce je aproximován pohybem po obloučku.\\
 
-Ramena robota najedou za pomocí skriptu \verb|collect_data.py| (viz.~kapitola~Pořízení dat) do polohy, kdy rameno r1 je v takové pozici, ve které je rovina snímače kamery kolmá na rovinu podlahy a zároveň rotace kamery, kolem osy kolmé na rovinu snímače, je nulová.\\
-\\
-Rameno r2 nabývá dvou základních poloh. Poloha jedna je pro odfiltrování pozadí snímků (viz. kapitola \textit{Načtení dat pro další zpracování}). V této poloze je rameno zcela mimo snímaný úsek obrazu.\\
-\\ 
-Druhou polohou ramene r2 je poloha, ve které je připraveno k provedení experimentu. Rameno je v takové poloze, aby textilie do něj zachycená byla v takové výšce, aby byla kamerou uchycenou na ramenu r1 zachycen ten kus textilie, který nás zajímá nejvíce. Zároveň musí být v takové pozici, aby, při pohybu charakteristického pro experiment (dále jen „třepání“), mohl hýbat jak ve směru dopředu/dozadu, tak i vlevo/vpravo. Volené směry jsou brány vzhledem k rovině snímače kamery, tedy dopředu/dozadu je pohyb k/od roviny snímače kamery apod. (viz. Obrázek 1).\\
+
+
+\section{Pozice ramen}
+Abychom mohli provést experiment musíme chapadlem jednoho ramena držet textilii a kamerou druhého ramena pozorovat a nahrávat data.
+
+\subsection{Rameno s textilií}
+Textilie je držena pomocí chapadla namontovaného na ramenu \verb|r2|. Rameno \verb|r2| nabývá dvou základních poloh. 
+\subsubsection{Poloha pro měření}
+Rameno \verb|r2| je v poloze, ve které je připraveno k provedení experimentu. Rameno \verb|r2| drží textilii v chapadle. Rameno \verb|r2| je výšce, ve které je kamerou \verb|xtion1| zaznamenán ten kus textilie, který nás zajímá nejvíce. Rameno \verb|r2| je také v pozici, aby mohlo provádět pohyb potřebný pro experiment (kapitola~\ref{sec:experiment} a kapitola~\ref{sec:moveArm}).
+\subsubsection{Poloha pro referenční snímek}
+Tato poloha slouží k záznamu referenčního snímku pozadí. Slouží k odfiltrování rušivého pozadí pro zlepšení přesnosti výsledků experimentu. V této poloze je rameno \verb|r2| zcela mimo oblast záznamu kamery \verb|xtion1|.
+
+\subsection{Rameno s kamerou}
+Záznam je pořízen kamerou namontovanou na ramenu \verb|r1|. Rameno \verb|r1| najede do polohy, ve které je optická osa kamery \verb|xtion1| rovnoběžná s podlahou. Zároveň je optická osa kamery \verb|xtion1|... \\
+\red{nevím, jak korektně popsat, že snímek není přetočen a látka je ve středu snímku}.
+
+\subsection{Otočení Ext.osy}
+\verb|Externí osa| (osa č.: 13) je otočena tak, aby v pozadí snímané textilie bylo co nejméně rušivých předmětů. Nejlépe jednobarevný rovný povrch.
+
+\section{Pohyby ramen}
+\label{sec:moveArm}
+
+\subsection{Pohyb ramena kolmo k optické ose}
+\red{pohyb + odkaz}
 \\
 \begin{figure}[H]
 	\centering  	
-  	\includegraphics[height=7cm]{pictures/move2.eps}
   	\includegraphics[height=7cm]{pictures/move1.eps}
   	\caption{Nastínění pohybů chapadla s textilií.}
-  	\label{fig:obrazek1}
+  	\label{fig:kolmoOptOsy}
 \end{figure}
-Externí osa (osa č.: 13) je otočena tak, aby v pozadí snímané textilie bylo co nejméně rušivých předmětů. Nejlépe jednobarevný rovný povrch.
+
+\subsection{Pohyb ramena podél optické osy}
+\red{pohyb + odkaz}
 \\
-\\
-Jak již bylo naznačeno v předchozím odstavci je třeba nasnímat obraz pro odfiltrování pozadí.\\
-\\
-Do chapadla je uchycena textilie. Rameno manipulátoru poté provede pohyb – zatřepe s látkou. Nejdříve ve směru k dopředu/dozadu, následně se chapadlo otočí a provede se pohyb vlevo/vpravo.\\
-\\
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[height=7cm]{pictures/move2.eps}
+  	\caption{Nastínění pohybů chapadla s textilií.}
+  	\label{fig:rovnoOptOsy}
+\end{figure}
+
+
+
 Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
 \\
 
