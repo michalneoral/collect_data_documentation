@@ -11,9 +11,17 @@
 \usepackage{float}
 \usepackage{color}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \usepackage[justification=centering]{caption}
 
-\fancyhf{}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
@@ -35,7 +43,6 @@
 \date{\today{}}
 \maketitle
 
-\thispagestyle{fancy}
 
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
@@ -70,7 +77,7 @@ V této části jsou popsány nejdůležitější části manipulátoru pro tent
 
 \begin{figure}[H]
 	\centering  	
-  	\includegraphics[height=7cm]{pictures/docasny.eps}
+  	\includegraphics[height=7cm]{pictures/robotCTU.eps}
   	\caption[]{Manipulátor projektu CloPeMa umístěný na ČVUT v Praze.}
   	\label{fig:manipulatorCVUT}
 \end{figure}
@@ -83,9 +90,9 @@ Základ manipulátoru tvoří dvě robotická ramena Motoman~MA1400. Rameno jedn
 	\centering  	
   	\includegraphics[height=7cm]{pictures/motomanCelek.eps}
   	\caption[]{Označení ramen a umístění Externí osy.\\
-	Arm r1 - rameno r1,\\
-	Arm r2 - rameno r2,\\
-	Gripper - chapadlo,\\
+	Arm r1 - rameno r1,
+	Arm r2 - rameno r2,
+	Gripper - chapadlo,
 	Ext.Axis (13th) - externí (třináctá) osa.	  	
   	}
   	\label{fig:motomanAndTable}
@@ -95,7 +102,12 @@ Základ manipulátoru tvoří dvě robotická ramena Motoman~MA1400. Rameno jedn
 	\centering  	
   	\includegraphics[height=8cm]{pictures/motomanMA1400axis.eps}
   	\caption[]{Popis os robotického ramena Motoman MA1400.\\ 
-  	S-Axis (červená) - osa S,\\ L-Axis (fialová) - osa L,\\ U-Axis (oranžová) - osa U,\\ R-Axis (modrá) - osa R,\\ T-Axis (zelená) - osa T,\\ B-Axis (žlutá) - osa B.}
+  	S-Axis (červená) - osa S, 
+  	L-Axis (fialová) - osa L, 
+  	U-Axis (oranžová) - osa U, 
+  	R-Axis (modrá) - osa R, 
+  	B-Axis (žlutá) - osa B,
+  	T-Axis (zelená) - osa T.}
   	\label{fig:motomanAxis}
 \end{figure}
 
@@ -105,41 +117,38 @@ Každé z ramen \verb|r1| i \verb|r2| je zakončeno elektrickým chapadlem obrá
 
 \begin{figure}[H]
 	\centering  	
-  	\includegraphics[height=7cm]{pictures/gripper.eps}
-  	\caption[]{Chapadlo.\\a) Chapadlo,\\b) Konec ramena, na kterém je chapadlo namontováno.	  	
+  	\includegraphics[height=7cm]{pictures/gripperXtion.eps}
+  	\caption[]{Chapadlo.\\a) chapadlo, b) kamera Asus Xtion, c) konec ramena, na kterém je chapadlo namontováno.	  	
   	}
   	\label{fig:gripper}
 \end{figure}
 
 \subsection{Kamera}
 \label{subsec:camera}
-Další důležitou částí manipulátoru je pro nás 3D~kamera Asus Xtion. Jedná se kameru, která je schopná zaznamenávat jak obrazové snímky (označované taky jako \verb|RGB| snímky), tak i mapu vzdáleností - hloubkové snímky (\verb|depth|). Kamera namontovaná na ramenu \verb|r1| nese označení \verb|xtion1|, kamera namontovaná na ramenu \verb|r2| nese označení \verb|xtion2|.
+Další důležitou částí manipulátoru je pro nás 3D~kamera Asus Xtion. Jedná se kameru, která je schopná zaznamenávat jak obrazové snímky (označované taky jako \verb|RGB| snímky), tak i mapu vzdáleností - hloubkové snímky (\verb|depth|). Kamera namontovaná na ramenu \verb|r1| nese označení \verb|xtion1|, kamera namontovaná na ramenu \verb|r2| nese označení \verb|xtion2|. Umístění kamery je patrné na obrázku \ref{fig:gripper}.\\
+\\
 
 
-\begin{figure}[H]
-	\centering  	
-  	\includegraphics[height=6cm]{pictures/xtion.eps}
-  	\caption[]{Asus Xtion namontovaný na ramenu manipulátoru.  	
-  	}
-  	\label{fig:xtion}
-\end{figure}
+%\begin{figure}[H]
+%	\centering  	
+%  	\includegraphics[height=6cm]{pictures/xtion.eps}
+%  	\caption[]{Asus Xtion namontovaný na ramenu manipulátoru.  	
+%  	}
+%  	\label{fig:xtion}
+%\end{figure}
 
 \noindent Tento popis obsahuje pouze vybrané části, které jsou důležité pro tento experiment. Podrobnější popis robota naleznete na \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Technical_Stuff|. \\
 
-
-
-
-\newpage
 
 \section{Požadavky na experiment}
 \label{sec:experiment}
 Pro zjištění parametrů, které budou sloužit k odhadu parametrů dynamického modelu látky, jsme se rozhodli sledovat pohyb a chování textilie při známém a opakovatelném pohybu. 
 Podle našeho názoru máme dvě možnosti snímání pohybu.
 
-\subsection{Vodorovný pohyb známé délky - kolmo k optické ose.}
+\subsection*{Vodorovný pohyb známé délky - kolmo k optické ose.}
 Standardní kamerou sledujeme siluetu, případně samotnou látku proti stálému pozadí.
 
-\subsection{Vodorovný pohyb známé délky - podél optické osy.}
+\subsection*{Vodorovný pohyb známé délky - podél optické osy.}
 Při tomto pohybu by standardní kamera viděla jen vzdalující se (přibližující se) siluetu, proto použijeme hloubkovou mapu.
 
 
@@ -152,7 +161,7 @@ Při tomto pohybu by standardní kamera viděla jen vzdalující se (přibližuj
 %------------------------------------------------------------------------------------
 
 \chapter{Způsob pořízení dat}
-
+\label{chap:proveData}
 \section{Realizace}
 Už při prvních pokusech jsme zjistili, že dynamika manipulátoru není natolik rychlá, aby s ním bylo možné provádět požadované pohyby (kapitola~\ref{sec:experiment}) po úsečce potřebnou rychlostí. Proto jsme s omezením robota museli požadavky z kapitoly~\ref{sec:experiment} realizovat tak, že pohyb po úsečce je aproximován pohybem po obloučku.\\
 
@@ -161,16 +170,22 @@ Už při prvních pokusech jsme zjistili, že dynamika manipulátoru není natol
 \section{Pozice ramen}
 Abychom mohli provést experiment musíme chapadlem jednoho ramena držet textilii a kamerou druhého ramena pozorovat a nahrávat data.
 
+\subsection{Rameno s kamerou}
+\label{sec:posArmR1}
+Záznam je pořízen kamerou \verb|xtion1| namontovanou na ramenu \verb|r1|. Rameno~\verb|r1| najede do polohy, ve které je optická osa kamery \verb|xtion1| rovnoběžná s podlahou. Zároveň je optická osa kamery \verb|xtion1| orientovaná směrem k ramenu \verb|r2| (obrázek \ref{fig:OptOsa}). \\
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[height=7cm]{pictures/opOsa.eps}
+  	\caption{Pozice ramena s kamerou.\\a) Optická osa kamery xtion1, b) Kamera xtion1, c) rameno r1, d) rameno r2.}
+  	\label{fig:OptOsa}
+\end{figure}
+
 \subsection{Rameno s textilií}
 Textilie je držena pomocí chapadla namontovaného na ramenu \verb|r2|. Rameno \verb|r2| nabývá dvou základních poloh. 
 \subsubsection{Poloha pro měření}
-Rameno \verb|r2| je v poloze, ve které je připraveno k provedení experimentu. Rameno \verb|r2| drží textilii v chapadle. Rameno \verb|r2| je výšce, ve které je kamerou \verb|xtion1| zaznamenán ten kus textilie, který nás zajímá nejvíce. Rameno \verb|r2| je také v pozici, aby mohlo provádět pohyb potřebný pro experiment (kapitola~\ref{sec:experiment} a kapitola~\ref{sec:moveArm}).
+Rameno~\verb|r2| je v poloze, ve které je připraveno k provedení experimentu. Rameno \verb|r2| drží textilii v chapadle. Rameno \verb|r2| je ve výšce, ve které je kamerou~\verb|xtion1| zaznamenán ten kus textilie, který nás zajímá nejvíce. Rameno~\verb|r2| je také v pozici, aby mohlo provádět pohyb potřebný pro experiment (kapitola~\ref{sec:experiment} a kapitola~\ref{sec:moveArm}).
 \subsubsection{Poloha pro referenční snímek}
-Tato poloha slouží k záznamu referenčního snímku pozadí. Slouží k odfiltrování rušivého pozadí pro zlepšení přesnosti výsledků experimentu. V této poloze je rameno \verb|r2| zcela mimo oblast záznamu kamery \verb|xtion1|.
-
-\subsection{Rameno s kamerou}
-Záznam je pořízen kamerou namontovanou na ramenu \verb|r1|. Rameno \verb|r1| najede do polohy, ve které je optická osa kamery \verb|xtion1| rovnoběžná s podlahou. Zároveň je optická osa kamery \verb|xtion1|... \\
-\red{nevím, jak korektně popsat, že snímek není přetočen a látka je ve středu snímku}.
+Tato poloha slouží k záznamu referenčního snímku pozadí. Slouží k odfiltrování rušivého pozadí pro zlepšení přesnosti výsledků experimentu. V této poloze je rameno \verb|r2| zcela mimo oblast záznamu kamery~\verb|xtion1|.
 
 \subsection{Otočení Ext.osy}
 \verb|Externí osa| (osa č.: 13) je otočena tak, aby v pozadí snímané textilie bylo co nejméně rušivých předmětů. Nejlépe jednobarevný rovný povrch.
@@ -179,30 +194,35 @@ Záznam je pořízen kamerou namontovanou na ramenu \verb|r1|. Rameno \verb|r1| 
 \label{sec:moveArm}
 
 \subsection{Pohyb ramena kolmo k optické ose}
-\red{pohyb + odkaz}
+Rameno \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle ramena \verb|r2| je držena textilie. Rameno \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|B| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:kolmoOptOsy}.
 \\
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=7cm]{pictures/move1.eps}
-  	\caption{Nastínění pohybů chapadla s textilií.}
+  	\caption{Nastínění pohybů chapadla s textilií kolmo k optické ose.\\
+  	a) naznačení zorného pole kamery xtion1, b) textilie, c) rameno r1, d) rameno r2.
+  	}
   	\label{fig:kolmoOptOsy}
 \end{figure}
 
+\newpage
 \subsection{Pohyb ramena podél optické osy}
-\red{pohyb + odkaz}
+Rameno \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle ramena \verb|r2| je držena textilie. Rameno \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|R| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:rovnoOptOsy}.
 \\
 
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=7cm]{pictures/move2.eps}
-  	\caption{Nastínění pohybů chapadla s textilií.}
+  	\caption{Nastínění pohybů chapadla s textilií podél optické osy\\
+  	a) naznačení zorného pole kamery xtion1, b) textilie, c) rameno r1, d) rameno r2.}
   	\label{fig:rovnoOptOsy}
 \end{figure}
 
 
 
-Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
+\noindent Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
 \\
+Přesné polohy a pohyby ramen je možné vyčíst ze souboru:\\ \verb|path_to_workspace/clopema_collect_model_data/src/_pos.py|. Pro nahlédnutí do tohoto souboru je nutné splnit předpoklady z kapitoly~\ref{sec:prd}.
 
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
@@ -212,7 +232,7 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
 \chapter{Pořízení dat}
 
 \section{Předpoklady}
-
+\label{sec:prd}
 \begin{enumerate}
 
    \item Nainstalovaný ROS Hydro a balíčky CloPeMa:
@@ -239,9 +259,10 @@ Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
 
 \begin{enumerate}
  
-  \item Odstranění omezení rychlosti robota 
+  \item Před měřením odstraňte omezení rychlosti robota na TEACH-PENDANTu na 10000 dle návodu: 
   	\begin{itemize}
-   		\item \red{tato kapitola bude dopsána po konzultaci s panem Wágnerem}
+   		\item \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Robot_configuration|
+   		\item Po měření uveďte do původního stavu.
   	\end{itemize}
    
   
@@ -281,18 +302,18 @@ Skript již máme spuštěn podle návodu v kapitole~\ref{sec:runScript}. Po spu
 
 \subsection{Postup pro nasnímání obrazu pro odfiltrování pozadí}
 \begin{enumerate}
-  \item Využijeme funkci \textbf{(6)} – \textit{Camera default record}.
+  \item Využijeme funkci \textbf{(6)} – \textit{Camera default record} (obrázek \ref{fig:menu}).
 \end{enumerate}
 
 \subsection{Postup pořízení dat – manuální vkládání textilie:}
 \begin{enumerate}
-  \item Umístíme robota do polohy, ve které je připraven k měření \textbf{(2)} - \textit{Move to READY TO MEASURE position}.
+  \item Umístíme robota do polohy, ve které je připraven k měření \textbf{(2)} - \textit{Move to READY TO MEASURE position} (obrázek \ref{fig:menu}).
   \item Otevřeme chapadlo \textbf{(4)} – \textit{Open Gripper}.
   \item Zavřeme chapadlo \textbf{(5)} – \textit{Close Gripper}. Po stisknutí máme 5 vteřin pro vložení textilie do chapadla než se chapadlo sevře.
-  \item Po sevření chapadlo ustoupíme do bezpečné vzdálenosti od robota.
+  \item Po sevření chapadla ustoupíme do bezpečné vzdálenosti od robota.
   \item Zahájíme měření a záznám \textbf{(3)} - \textit{Move and record}.
   \item Budeme vyzvání k pojmenování souboru. Doporučuji nazývat souboru názvem textilie, případně i pořadovým číslem.
-  \item Po schválení názvu souboru bude provedeno měření způsobem, který je popsán v předchozí kapitole \textit{(Způsob pořízení dat)}.
+  \item Po schválení názvu souboru bude provedeno měření způsobem, který je popsán v předchozí kapitole \nameref{chap:proveData} (kapitola \ref{chap:proveData}).
   \item Postup 2. až 7. můžeme opakovat pro další měření.
   \item Před ukončením programu můžeme pomocí \textbf{(1)} umístit robota do výchozí polohy.
   \item Program ukončíme pomocí \textbf{(exit)}.
@@ -306,11 +327,11 @@ Skript již máme spuštěn podle návodu v kapitole~\ref{sec:runScript}. Po spu
 \chapter{Uložení dat}
 
 \section{Formát dat}
-Data se ukládají pomocí rosbag ve formátu “.bag“ do předem určené složky uložené v souboru \verb|local_options.py| (\verb|path_to_workspace/clopema_collect_model_data/src/local_options.py|).
+Data se ukládají pomocí rosbag (nástroj ROSu) ve formátu “.bag“ do předem určené složky uložené v souboru \verb|local_options.py| (\verb|path_to_workspace/clopema_collect_model_data/src/local_options.py|).
 \\
 
 \section{Témata (topic)}
-Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topic), která jsou uložena v souboru \verb|topics.txt|  (\verb|path_to_workspace/clopema_collect_model_data/matlab/topics.txt|). Pro tento experiment jsem vybral tyto témata (topic):\\
+Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topic), která jsou uložena v souboru \verb|path_to_workspace/clopema_collect_model_data/matlab/topics/topics.txt|.\\ Pro~tento experiment jsem vybral tyto témata (topic):\\
 \\
 \indent \indent \indent \verb|/joint_states| \\
 \indent \indent \indent \verb|/tf| \\
@@ -321,20 +342,21 @@ Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouz
 \indent \indent \indent \verb|/xtion1/depth/image_raw| \\
 \indent \indent \indent \verb|/xtion1/rgb/image_raw |\\
 \indent \indent \indent \verb|/xtion1/depth/disparity |\\
-\indent \indent \indent \verb|/xtion1/depth/points|\\
+%\indent \indent \indent \verb|/xtion1/depth/points|\\
 
 \noindent Seznam témat je možné libovolně měnit. Zaznamenáno je 7 vteřin dat.
-\red{Popsat proč 7 vteřin}
+%\red{Popsat proč 7 vteřin}
 \\
 
 \section{Formát názvu}
+\label{sec:nameform}
 Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 
 \begin{itemize}
 \item \itab{name}  \tab{vámi zadaný název}
 \item \itab{speed} \tab{nastavená rychlost manipulátoru} 
-\item \itab{A} \tab{osa, kterou bylo vykonáno "třepání" - \textit{R} nebo \textit{B}}\\
-					\red{odkaz na popis robota v úvodu}
+\item \itab{A} \tab{osa, kterou bylo vykonáno "třepání"} \begin{center}
+					\verb|R| nebo \verb|B| (obrázek \ref{fig:motomanAxis}).~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\end{center}					
 \item \itab{X}  \tab{číslo souboru s tématy, která jsou zaznamenána}  
 \end{itemize}
 
@@ -345,9 +367,9 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 
 \chapter{Načtení dat pro další zpracování}
 
-\section{Předpoklady:}
-\begin{itemize}
-   \item Stahnutý archív se zdrojovými kódy
+\section{Předpoklady}
+\begin{enumerate}
+  \item Stahnutý archív se zdrojovými kódy
   \begin{itemize}
   	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
   \end{itemize}
@@ -357,18 +379,59 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
   \begin{itemize}
      \item \verb|https://github.com/bcharrow/matlab_rosbag|
   \end{itemize}
-  \item Nacházet se ve složce se zdrojovými kódy pro Matlab.
-  \item Soubor \verb|topics.txt| musí být stejný jako v době nahrávání .bag souboru.
-\end{itemize}
+  \item Nacházejte se ve složce se zdrojovými kódy pro Matlab.
+  \item Soubor \verb|topics/topics.txt| musí být stejný jako v době nahrávání .bag souboru.
+  \item Soubor \verb|local_options.m| přizpůsobte nastavení Vašemu nastavení (blíže popsáno přímo v souboru po otevření souboru v editoru).
+\end{enumerate}
 
-V proměnné \verb|path_to_bag_files| je potřeba mít uloženou cestu k uloženým .bag souborům s daty a v proměnné \verb|topics| je načten soubor \verb|topics.txt| s názvy požadovaných témat (viz. \verb|startup.m|).\\
-\\
-Načítání souborů spustíte příkazem \verb|loader|, který vypíše soubory v zadané složce (\verb|path_to_bag_files|) a nechá vybrat soubor pro načtení do Matlabu a vypíše informace o souboru. Pro správnou funkci tohoto skriptu je třeba mít nasnímáno a uloženo „čisté“ pozadí (popsáno v kapitole \textit{Návod na pořízení dat}).\\
-\\
-Tento příkaz dále spustí skript \verb|reader|, který převede soubor .bag na čitelnější strukturu \verb|msgs| (provede rovněž i pro „čisté“ pozadí \verb|msgs_bag|) a předpřipravý RGB obrázek „čistého“ pozadí - \verb|rgb_back| (takto předpřipravené data lze zobrazovat pomocí \verb|imshow(data)| nebo \verb|image(data)| jako 2D obrazy). \\
-\\
-Příkaz loader dále předpřipraví data z RGB i hloubkové kamery do zásobníku obrazu \verb|front|, která je seřazená tak, aby si obrazy odpovídaly časovými značkami. První řádek obsahuje původní RGB obrazy, druhý řádek obsahuje RGB obrazy s odfiltrovaným pozadím a třetí řádek obsahuje data z hloubkové kamery v metrech.
-Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v obsahuje tyto údaje:
+\section{Načtení souborů}
+\begin{enumerate}
+  \item Spusťte skript \verb|startup.m|. Skript připraví prostředí a načte proměnné ze souboru \verb|local_options.m|.
+    \begin{itemize}
+  	\item \verb|startup|
+  \end{itemize}
+  \item Pomocí funkce \verb|loadBagFile()| načtěte požadovaný .bag soubor.
+	\label{itm:load1}    
+    \begin{itemize}
+  	\item \verb|msgs = loadBagFile( path_to_bag_files, topics, bagfile)|
+    \end{itemize}
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|path_to_bag_files| (\textit{řetězec}) - obsahuje umístění složky ve které jsou uloženy .bag soubory.
+  			\item \verb|topics| (\textit{matice buněk s řetězci}) - obsahuje názvy témat (topic), která se mají vybrat z .bag souboru pro zpracování.
+  			\item \verb|bagfile| (\textit{řetězec}) - název požadovaného .bag souboru. Způsob nazývání souborů byl popsán v kapitole \ref{sec:nameform}.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|msgs| (\textit{matice buněk}) - obsahuje témata (topic) z požadovaného .bag souboru (data a informace).
+    			\end{itemize}
+    \item Pomocí funkce \verb|loadBackgroundRGB()| načtěte referenční snímek pro odfiltrování pozadí při snímání RGB kamerou.
+	\label{itm:load2} 
+    \begin{itemize}
+  	\item \verb|rgb_back = loadBackgroundRGB( path_to_bag_files, bagfile_backgroung)|
+    \end{itemize}
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|path_to_bag_files| (\textit{řetězec}) - obsahuje umístění složky ve které jsou uloženy .bag soubory.
+  			\item \verb|bagfile_backgroung| (\textit{řetězec}) - název požadovaného .bag souboru s nasnímaným pozadím. Název pro výchozí souboru je \verb|camera_default_0.bag|.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|rgb_back| (\textit{matice}) - obsahuje RGB obrázek pozadí ve formátu \textit{double}. Možno zobrazit pomocí \verb|image(rgb_back)|.
+    			\end{itemize}
+Funkce z bodu \ref{itm:load1} a \ref{itm:load2} lze také spustit pomocí příkazu \verb|loader|.   
+\end{enumerate}
+%V proměnné \verb|path_to_bag_files| je potřeba mít uloženou cestu k uloženým \verb|*.bag| souborům s daty a v proměnné \verb|topics| je načten soubor \verb|topics.txt| s názvy požadovaných témat (viz. %\verb|startup.m|).\\
+%\\
+%Načítání souborů spustíte příkazem \verb|loader|, který vypíše soubory v zadané složce (\verb|path_to_bag_files|) a nechá vybrat soubor pro načtení do Matlabu a vypíše informace o souboru. Pro správnou %funkci tohoto skriptu je třeba mít nasnímáno a uloženo „čisté“ pozadí (popsáno v kapitole \textit{Návod na pořízení dat}).\\
+%\\
+%Tento příkaz dále spustí skript \verb|reader|, který převede soubor .bag na čitelnější strukturu \verb|msgs| (provede rovněž i pro „čisté“ pozadí \verb|msgs_bag|) a předpřipravý RGB obrázek „čistého“ %pozadí - \verb|rgb_back| (takto předpřipravené data lze zobrazovat pomocí \verb|imshow(data)| nebo \verb|image(data)| jako 2D obrazy). \\
+%\\
+%Příkaz loader dále předpřipraví data z RGB i hloubkové kamery do zásobníku obrazu \verb|front|, která je seřazená tak, aby si obrazy odpovídaly časovými značkami. První řádek obsahuje původní RGB %obrazy, druhý řádek obsahuje RGB obrazy s odfiltrovaným pozadím a třetí řádek obsahuje data z hloubkové kamery v metrech.
+%Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v obsahuje tyto údaje:
+%
+\section{Předzpracování dat}
+\red{Dále budu pokračovat po konzultaci}
 
 $$\begin{bmatrix}
 \verb|pořad. číslo hloubkového snímku| & \verb|čas od začátku měření| & \verb|pořad. číslo tématu v msgs| \\
