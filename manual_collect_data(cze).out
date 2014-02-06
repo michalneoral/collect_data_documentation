@@ -12,8 +12,8 @@
 \BOOKMARK [2][-]{subsection.2.2.2}{Pa\236e s textili\355}{section.2.2}% 12
 \BOOKMARK [2][-]{subsection.2.2.3}{Otocen\355 Ext.osy}{section.2.2}% 13
 \BOOKMARK [1][-]{section.2.3}{Pohyby pa\236\355}{chapter.2}% 14
-\BOOKMARK [2][-]{subsection.2.3.1}{Pohyb pa\236e kolmo k optick\351 ose}{section.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.3.2}{Pohyb pa\236e pod\351l optick\351 osy}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.1}{Pohyb pa\236e, aby se l\341tka pohybovala kolmo k optick\351 ose}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.2}{Pohyb pa\236e tak, aby se l\341tka pohybovala pod\351l optick\351 osy}{section.2.3}% 16
 \BOOKMARK [0][-]{chapter.3}{Por\355zen\355 dat}{}% 17
 \BOOKMARK [1][-]{section.3.1}{Predpoklady}{chapter.3}% 18
 \BOOKMARK [1][-]{section.3.2}{Postup spou\235ten\355}{chapter.3}% 19
@@ -27,6 +27,9 @@
 \BOOKMARK [1][-]{section.4.3}{Form\341t n\341zvu}{chapter.4}% 27
 \BOOKMARK [0][-]{chapter.5}{Nacten\355 dat pro dal\235\355 zpracov\341n\355}{}% 28
 \BOOKMARK [1][-]{section.5.1}{Predpoklady}{chapter.5}% 29
-\BOOKMARK [1][-]{section.5.2}{Nacten\355 souboru}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.2}{Nacten\355 souboru do Matlabu}{chapter.5}% 30
 \BOOKMARK [1][-]{section.5.3}{Predzpracov\341n\355 dat}{chapter.5}% 31
-\BOOKMARK [1][-]{section.5.4}{Aktu\341ln\355 verze tohoto n\341vodu}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.4}{Zpracov\341n\355 RGB dat}{chapter.5}% 32
+\BOOKMARK [2][-]{subsection.5.4.1}{Filtrov\341n\355 RGB sn\355mku pomoc\355 referencn\355ho sn\355mku}{section.5.4}% 33
+\BOOKMARK [1][-]{section.5.5}{Zpracov\341n\355 dat ze senzoru hloubkov\351 mapy}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.6}{Aktu\341ln\355 verze tohoto n\341vodu}{chapter.5}% 35

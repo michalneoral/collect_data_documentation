@@ -209,7 +209,7 @@ Paže~\verb|r2| je v poloze, ve které je připravena k provedení experimentu. 
 
 \subsubsection{Poloha pro referenční snímek}
 \label{subsec:refRGB}
-Tato poloha slouží k záznamu referenčního snímku pozadí, který slouží k odfiltrování pozadí z RGB snímků pro zlepšení přesnosti výsledků experimentu. Referenční snímek pozadí se nasnímá tak, že paže \verb|r2|, v jejímž chapadle je držena látka, změní pozici tak, aby byla zcela mimo oblast záznamu kamery~\verb|xtion1|. V této pozici se provede záznam pozadí a paže \verb|r2| s látkou se následně vrátí zpět do polohy pro měření. Více se odfiltrování pozadí budu věnovat v kapitole~\ref{chap:matlab}.
+Tato poloha slouží k záznamu referenčního snímku pozadí, který slouží k odfiltrování pozadí z RGB snímků pro zlepšení přesnosti výsledků experimentu. Referenční snímek pozadí se nasnímá tak, že paže \verb|r2|, v jejímž chapadle je držena látka, změní pozici tak, aby byla zcela mimo oblast záznamu kamery~\verb|xtion1|. V této pozici se provede záznam pozadí a paže \verb|r2| s látkou se následně vrátí zpět do polohy pro měření. Více se odfiltrování pozadí budu věnovat v kapitole~\ref{subsec:matfiltr}.
 
 \subsection{Otočení Ext.osy}
 \verb|Externí osa| (osa č.: 13) je otočena tak, aby v pozadí snímané textilie bylo co nejméně rušivých předmětů. Nejlépe jednobarevný rovný povrch.
@@ -217,7 +217,7 @@ Tato poloha slouží k záznamu referenčního snímku pozadí, který slouží 
 \section{Pohyby paží}
 \label{sec:moveArm}
 
-\subsection{Pohyb paže kolmo k optické ose}
+\subsection{Pohyb paže, aby se látka pohybovala kolmo k optické ose}
 Paže \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle paže \verb|r2| je držena textilie. Paže \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|B| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:kolmoOptOsy}. Tento pohyb je vhodný ke snímání RGB kamerou.
 \\
 \begin{figure}[H]
@@ -230,7 +230,7 @@ Paže \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \re
 \end{figure}
 
 \newpage
-\subsection{Pohyb paže podél optické osy}
+\subsection{Pohyb paže tak, aby se látka pohybovala podél optické osy}
 Paže \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle paže \verb|r2| je držena textilie. Paže \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|R| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:rovnoOptOsy}. Tento pohyb je vhodný ke snímání hloubkové mapy.
 \\
 
@@ -337,6 +337,7 @@ Skript již máme spuštěn podle návodu v kapitole~\ref{sec:runScript}. Po spu
 \end{figure}
 
 \subsection{Postup pro nasnímání obrazu pro odfiltrování pozadí}
+\label{subsec:processFiltrSave}
 \begin{enumerate}
   \item Využijeme funkci \textbf{(6)} – \textit{Camera default record} (obrázek \ref{fig:menu}).
 \end{enumerate}
@@ -403,7 +404,7 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 \begin{itemize}
 \item \itab{name}  \tab{vámi zadaný název}
 \item \itab{speed} \tab{nastavená rychlost manipulátoru} 
-\item \itab{A} \tab{osa, kterou bylo vykonáno "třepání"} \begin{center}
+\item \itab{A} \tab{osa, kterou byl vykonán pohyb} \begin{center}
 					\verb|R| nebo \verb|B| (obrázek \ref{fig:motomanAxis}).~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\end{center}					
 \item \itab{X}  \tab{číslo souboru s tématy, která jsou zaznamenána}  
 \end{itemize}
@@ -445,13 +446,14 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
   \item Soubor \verb|local_options.m| přizpůsobte vašemu nastavení (blíže popsáno přímo v souboru po otevření souboru v editoru).
 \end{enumerate}
 
-\section{Načtení souborů}
+\section{Načtení souborů do Matlabu}
+\label{sec:loadBag}
 \begin{enumerate}
   \item Spusťte skript \verb|startup.m|. Skript připraví prostředí a načte proměnné ze souboru \verb|local_options.m|.
     \begin{itemize}
   	\item \verb|startup|
   \end{itemize}
-  \item Pomocí funkce \verb|loadBagFile()|\footnote{načítání si je možno zjednodušit pomocí skriptu loader, který obsahuje tuto funkci i funkci pro načtení do fronty obrázků} načtěte požadovaný .bag soubor.
+  \item Pomocí funkce \verb|loadBagFile()| načtěte požadovaný .bag soubor.
 	\label{itm:load1}    
     \begin{itemize}
   	\item \verb|msgs = loadBagFile( path_to_bag_files, topics, bagfile)|
@@ -492,15 +494,67 @@ Funkce z bodu \ref{itm:load1} a \ref{itm:load2} lze také spustit pomocí přík
 %Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v obsahuje tyto údaje:
 %
 \section{Předzpracování dat}
-\red{Dále budu pokračovat po konzultaci}
+Jak jsem uvedl v kapitole~\ref{sec:moveArm}~a~\ref{sec:nameform} je záznam pohybu chapadla s látkou rozdělen do dvou souborů. Záznamy končící písmenem \verb|R| jsou určeny pro následné zpracování dat ze senzoru hloubkové mapy a záznamy končící písmenem \verb|B| jsou určeny pro zpracování RGB snímků. Další zpracování se tedy bude lišit podle toho, zda chceme extrahovat matematické příznaky látky z hloubkové mapy~(\ref{sec:procDepth}) nebo z RGB snímků~(\ref{sec:procRgb}).
 
-$$\begin{bmatrix}
-\verb|pořad. číslo hloubkového snímku| & \verb|čas od začátku měření| & \verb|pořad. číslo tématu v msgs| \\
-  \verb|pořad. číslo rgb snímku| & \verb|časový rozdíl mezi snímky| & \verb|pořad. číslo tématu v msgs|
-\end{bmatrix} $$\\
+\section{Zpracování RGB dat}
+\label{sec:procRgb}
+Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|msgs|. Z této matice buněk extrahujeme pouze data, která se týkají RGB obrázku a vytvoříme si posloupnost nasnímaných RGB obrázků s časy ve kterých byly zachyceny. Posloupnost vytvoříme pomocí funkce \verb|makeFrontOfRGB()|.
+\begin{itemize}
+  	\item \verb|frontOfRGB = makeFrontOfRGB( msgs )|
+
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|msgs| (\textit{matice buněk}) - je výstup z funkce popsané v~\ref{sec:loadBag}.\ref{itm:load1}.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|frontOfRGB| (\textit{matice buněk}) - obsahuje posloupnost RGB obrázků (\textit{double} 640x480x3) a čas zachycení obrázku v \textit{s} (\textit{double}). 
+    			\end{itemize}
+    \end{itemize}
+
+\subsection{Filtrování RGB snímků pomocí referenčního snímku}
+\label{subsec:matfiltr}
+Na RGB snímcích jsou mi pohybující se látku i věci nedůležité pro experiment (stále pozadí, části manipulátoru...). Tyto části obrazu je potřeba odstranit. Odstraněním části obrazu mimo pohybující se látku nám pomůže snáze sledovat pohybující se siluetu látky. Látku odstraníme pomocí referenčního snímku, jehož způsob pořízení jsme si uvedli v kapitolách~\ref{subsec:refRGB}~a~\ref{subsec:processFiltrSave}. Funkce \verb|filtrReferenceFrame()| slouží k tomuto filtrování.
+\begin{itemize}
+  	\item \verb|[filtredFrontOfRGB, maskFrontOfRGB] =|\\ \verb|filtrReferenceFrame(frontOfRGB,referenceFrame,sizeMorpMask)|\\
 \\
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|frontOfRGB| (\textit{matice buněk}) - matice buňek obsahující obrázky.
+  			\item \verb|referenceFrame| (\textit{matice double} 640x480x3) - obsahuje referenční snímek.
+  			\item \verb|sizeMorpMask| (\textit{integer}) - \textit{nepovinný} parametr, kterým se nastavuje velikost masky pro morfologickou  operaci "opening"\cite{hlavacOpen}.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+        		\item \verb|filtredFrontOfRGB| (\textit{matice buněk}) - obsahuje filtrované obrazy RGB a časovou značku původních snímků.
+  			\item \verb|maskFrontOfRGB| (\textit{matice buněk}) - obsahuje filtry obrazů RGB a časovou značku původních snímků.
+    			\end{itemize}
+    \end{itemize}
 
-Další pokračování existuje, ale je potřeba ho konzultovat.
+
+\section{Zpracování dat ze senzoru hloubkové mapy}
+\label{sec:procDepth}
+Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|msgs|. Z této matice buněk extrahujeme pouze data, která se týkají hloubkové mapy a vytvoříme si posloupnost nasnímaných hloubkových map s časy ve kterých byly zachyceny. Posloupnost vytvoříme pomocí funkce \verb|makeFrontOfDepth()|.
+\begin{itemize}
+  	\item \verb|frontOfDepth = makeFrontOfDepth( msgs )|
+
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|msgs| (\textit{matice buněk}) - je výstup z funkce popsané v~\ref{sec:loadBag}.\ref{itm:load1}.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|frontOfDepth| (\textit{matice buněk}) - obsahuje posloupnost hloubkových map (\textit{double} 640x480) a čas zachycení mapy v \textit{s} (\textit{double}). 
+    			\end{itemize}
+    \end{itemize}
+
+%$$\begin{bmatrix}
+%\verb|pořad. číslo hloubkového snímku| & \verb|čas od začátku měření| & \verb|pořad. číslo tématu v msgs| \\
+%  \verb|pořad. číslo rgb snímku| & \verb|časový rozdíl mezi snímky| & \verb|pořad. číslo tématu v msgs|
+%\end{bmatrix} $$\\
+%\\
+
+
 
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
@@ -572,7 +626,12 @@ Další pokračování existuje, ale je potřeba ho konzultovat.
     \emph{YASKAWA Electric Corporation} [online]. [cit. 2013-11-27].\\
     Technický výkres robotického ramena MA1400 - UPRAVENO
     Dostupné z: \verb|http://www.motoman.com.tr/index.php?eID=tx_nawsecuredl&u=0&file=uploads/|\\
-    \verb|tx_catalogrobot/MA1400_15.pdf&t=1385654785&hash=ba1cae139705f02080bcf1f7c60f741c8df7434c| 
+    \verb|tx_catalogrobot/MA1400_15.pdf&t=1385654785&hash=ba1cae139705f02080bcf1f7c60f741c8df7434c|
+    
+\stepcounter{lit}    
+  \bibitem[\arabic{lit}]{hlavacOpen} ŠONKA, Milan, Václav HLAVÁČ.
+    \emph{Image processing, analysis, and machine vision: a MATLAB companion.} 3rd ed. Toronto: Thomson, 2008. STRANU DODÁM, ISBN 978-0-495-08252-1. 
+
 \end{thebibliography}
 
 \end{document}
