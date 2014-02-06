@@ -1,32 +1,32 @@
 \BOOKMARK [0][-]{chapter.1}{\332vod}{}% 1
 \BOOKMARK [1][-]{section.1.1}{O projektu}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Aktu\341ln\355 verze tohoto n\341vodu}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{Popis manipul\341toru a robotick\351ho pracovi\235te}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.3.1}{Manipul\341tor}{section.1.3}% 5
-\BOOKMARK [2][-]{subsection.1.3.2}{Chapadlo}{section.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.3.3}{Kamera}{section.1.3}% 7
-\BOOKMARK [1][-]{section.1.4}{Po\236adavky na experiment}{chapter.1}% 8
-\BOOKMARK [0][-]{chapter.2}{Zpusob por\355zen\355 dat}{}% 9
-\BOOKMARK [1][-]{section.2.1}{Realizace}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.2}{Pozice ramen}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.1}{Rameno s kamerou}{section.2.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.2}{Rameno s textili\355}{section.2.2}% 13
-\BOOKMARK [2][-]{subsection.2.2.3}{Otocen\355 Ext.osy}{section.2.2}% 14
-\BOOKMARK [1][-]{section.2.3}{Pohyby ramen}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.3.1}{Pohyb ramena kolmo k optick\351 ose}{section.2.3}% 16
-\BOOKMARK [2][-]{subsection.2.3.2}{Pohyb ramena pod\351l optick\351 osy}{section.2.3}% 17
-\BOOKMARK [0][-]{chapter.3}{Por\355zen\355 dat}{}% 18
-\BOOKMARK [1][-]{section.3.1}{Predpoklady}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.2}{Postup spou\235ten\355}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.3}{Ovl\341d\341n\355 skriptu collect\137data.py pro sn\355m\341n\355 dat}{chapter.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.1}{Popis ovl\341d\341n\355}{section.3.3}% 22
-\BOOKMARK [2][-]{subsection.3.3.2}{Postup pro nasn\355m\341n\355 obrazu pro odfiltrov\341n\355 pozad\355}{section.3.3}% 23
-\BOOKMARK [2][-]{subsection.3.3.3}{Postup por\355zen\355 dat \205 manu\341ln\355 vkl\341d\341n\355 textilie:}{section.3.3}% 24
-\BOOKMARK [0][-]{chapter.4}{Ulo\236en\355 dat}{}% 25
-\BOOKMARK [1][-]{section.4.1}{Form\341t dat}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.2}{T\351mata \(topic\)}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.3}{Form\341t n\341zvu}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter.5}{Nacten\355 dat pro dal\235\355 zpracov\341n\355}{}% 29
-\BOOKMARK [1][-]{section.5.1}{Predpoklady}{chapter.5}% 30
-\BOOKMARK [1][-]{section.5.2}{Nacten\355 souboru}{chapter.5}% 31
-\BOOKMARK [1][-]{section.5.3}{Predzpracov\341n\355 dat}{chapter.5}% 32
+\BOOKMARK [1][-]{section.1.2}{Popis pracovi\235te}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Manipul\341tor}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Chapadlo}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{Kamera}{section.1.2}% 6
+\BOOKMARK [1][-]{section.1.3}{Po\236adavky na experiment}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Zpusob por\355zen\355 dat}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Realizace}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{V\375choz\355 pozice pa\236\355 a cel\351ho manipul\341toru}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.2.1}{Pa\236e s kamerou}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.2}{Pa\236e s textili\355}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.3}{Otocen\355 Ext.osy}{section.2.2}% 13
+\BOOKMARK [1][-]{section.2.3}{Pohyby pa\236\355}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.3.1}{Pohyb pa\236e kolmo k optick\351 ose}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.2}{Pohyb pa\236e pod\351l optick\351 osy}{section.2.3}% 16
+\BOOKMARK [0][-]{chapter.3}{Por\355zen\355 dat}{}% 17
+\BOOKMARK [1][-]{section.3.1}{Predpoklady}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.2}{Postup spou\235ten\355}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.3}{Ovl\341d\341n\355 skriptu collect\137data.py pro sn\355m\341n\355 dat}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.3.1}{Popis ovl\341d\341n\355}{section.3.3}% 21
+\BOOKMARK [2][-]{subsection.3.3.2}{Postup pro nasn\355m\341n\355 obrazu pro odfiltrov\341n\355 pozad\355}{section.3.3}% 22
+\BOOKMARK [2][-]{subsection.3.3.3}{Postup por\355zen\355 dat \205 manu\341ln\355 vkl\341d\341n\355 textilie:}{section.3.3}% 23
+\BOOKMARK [0][-]{chapter.4}{Ulo\236en\355 dat}{}% 24
+\BOOKMARK [1][-]{section.4.1}{Form\341t dat}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.2}{T\351mata \(topics\)}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.3}{Form\341t n\341zvu}{chapter.4}% 27
+\BOOKMARK [0][-]{chapter.5}{Nacten\355 dat pro dal\235\355 zpracov\341n\355}{}% 28
+\BOOKMARK [1][-]{section.5.1}{Predpoklady}{chapter.5}% 29
+\BOOKMARK [1][-]{section.5.2}{Nacten\355 souboru}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.3}{Predzpracov\341n\355 dat}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.4}{Aktu\341ln\355 verze tohoto n\341vodu}{chapter.5}% 32

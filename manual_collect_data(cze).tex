@@ -48,6 +48,18 @@
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 
 \chapter{Úvod}
 \label{chap:intro}
@@ -56,24 +68,13 @@
 
 \section{O projektu}
 \label{sec:about}
-Tato práce je součástí mezinárodního projektu CloPeMa (Clothes Perception Manipulation). Tento dokument popisuje sběr dat a postup realizace experimentů pro odhad parametrů dynamického modelu textilie.\\
-\\
-Více informací o projektu CloPeMa na internetových stránkách: \verb|http://clopemaweb.felk.cvut.cz/| a na wikipedii projektu: \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki|
+Tato práce je součástí mezinárodního projektu CloPeMa (Clothes Perception Manipulation). Tento dokument popisuje sběr dat a postup realizace experimentů pro odhad parametrů dynamického modelu textilie. Více informací o projektu CloPeMa na internetových stránkách projektu~\cite{projekt} a na wikipedii projektu~\cite{wiki} 
 \\
 
-
-
-\section{Aktuální verze tohoto návodu}
-\verb|https://github.com/michalneoral/collect_data_documentation/|\\
-\verb|raw/master/manual_collect_data(cze).pdf|\\
-
-
-
-
-\section{Popis manipulátoru a robotického pracoviště}
+\section{Popis pracoviště}
 \label{sec:desription}
 
-V této části jsou popsány nejdůležitější části manipulátoru pro tento experiment.
+%V této části jsou popsány nejdůležitější části manipulátoru pro tento experiment.
 
 \begin{figure}[H]
 	\centering  	
@@ -85,13 +86,13 @@ V této části jsou popsány nejdůležitější části manipulátoru pro tent
 \subsection{Manipulátor}
 \label{subsec:manipulator}
 
-Základ manipulátoru tvoří dvě robotická ramena Motoman~MA1400. Rameno jedna je označeno jako \verb|r1| (nebo se také objevuje \verb|R1|). Rameno dvě je obdobně značeno \verb|r2| (\verb|R2|). Ramena \verb|r1| a \verb|r2| jsou umístěna na otočném stole. Otočný stůl se otáčí kolem osy označované jako \verb|Externí osa| (nebo také \verb|Ext.| případně jako \verb|13| osa). Umístění ramen a otáčení \verb|Ext.| osy lze lépe vyčíst z obrázku~\ref{fig:motomanAndTable}. Každé rameno manipulátoru má 6 os, okolo kterých je schopen se otáčet. Osy jsou nazvány písmeny \verb|S|, \verb|L|, \verb|U|, \verb|R|, \verb|T| a \verb|B| (obrázek~\ref{fig:motomanAxis}). Toto označení nestačí a k písmennému názvu je třeba přiřadit i číslo ramena, na kterém se tato osa nachází. Např.: osa \verb|S| nacházející se na rameni \verb|r1| se bude nazývat \verb|S1| apod. Obdobně jako u označení ramen se můžeme setkat i s použitím malých písmen.
+Základ manipulátoru tvoří dvě robotické paže Motoman~MA1400. Paže jedna je označena jako \verb|r1| (nebo se také objevuje \verb|R1|). Paže dvě je obdobně značena \verb|r2| (\verb|R2|). Paže \verb|r1| a \verb|r2| jsou umístěny na otočném stole. Otočný stůl se otáčí kolem osy označované jako \verb|Externí osa| (nebo také \verb|Ext.| případně jako \verb|13| osa). Umístění paží a otáčení \verb|Ext.| osy lze lépe vyčíst z obrázku~\ref{fig:motomanAndTable}. Každá paže manipulátoru má 6 os, okolo kterých je schopna se otáčet. Osy jsou dle výrobce označeny písmeny \verb|S|, \verb|L|, \verb|U|, \verb|R|, \verb|T| a \verb|B| (obrázek~\ref{fig:motomanAxis}). Toto označení nestačí a k písmennému názvu je třeba přiřadit i číslo paže, na které se tato osa nachází. Např.: osa \verb|S| nacházející se na paži \verb|r1| se bude nazývat \verb|S1| apod. Obdobně jako u označení paží se můžeme setkat i s použitím malých písmen.
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=7cm]{pictures/motomanCelek.eps}
   	\caption[]{Označení ramen a umístění Externí osy.\\
-	Arm r1 - rameno r1,
-	Arm r2 - rameno r2,
+	Arm r1 - paže r1,
+	Arm r2 - paže r2,
 	Gripper - chapadlo,
 	Ext.Axis (13th) - externí (třináctá) osa.	  	
   	}
@@ -101,7 +102,7 @@ Základ manipulátoru tvoří dvě robotická ramena Motoman~MA1400. Rameno jedn
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=8cm]{pictures/motomanMA1400axis.eps}
-  	\caption[]{Popis os robotického ramena Motoman MA1400.\\ 
+  	\caption[]{Popis os robotické paže Motoman MA1400.\\ 
   	S-Axis (červená) - osa S, 
   	L-Axis (fialová) - osa L, 
   	U-Axis (oranžová) - osa U, 
@@ -113,19 +114,19 @@ Základ manipulátoru tvoří dvě robotická ramena Motoman~MA1400. Rameno jedn
 
 \subsection{Chapadlo}
 \label{subsec:gripper}
-Každé z ramen \verb|r1| i \verb|r2| je zakončeno elektrickým chapadlem obrázek~\ref{fig:gripper}. Chapadla slouží k držení textilií.
+Každá z paží \verb|r1| i \verb|r2| je zakončena elektricky ovládaným chapadlem obrázek~\ref{fig:gripper}. Chapadla slouží k držení textilií.
 
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=7cm]{pictures/gripperXtion.eps}
-  	\caption[]{Chapadlo.\\a) chapadlo, b) kamera Asus Xtion, c) konec ramena, na kterém je chapadlo namontováno.	  	
+  	\caption[]{Chapadlo.\\a) chapadlo, b) kamera Asus Xtion, c) konec paže, na které je chapadlo namontováno.	  	
   	}
   	\label{fig:gripper}
 \end{figure}
 
 \subsection{Kamera}
 \label{subsec:camera}
-Další důležitou částí manipulátoru je pro nás 3D~kamera Asus Xtion. Jedná se kameru, která je schopná zaznamenávat jak obrazové snímky (označované taky jako \verb|RGB| snímky), tak i mapu vzdáleností - hloubkové snímky (\verb|depth|). Kamera namontovaná na ramenu \verb|r1| nese označení \verb|xtion1|, kamera namontovaná na ramenu \verb|r2| nese označení \verb|xtion2|. Umístění kamery je patrné na obrázku \ref{fig:gripper}.\\
+Další důležitou částí manipulátoru je 3D~kamera Asus Xtion. Jedná se kameru, která je schopná zaznamenávat jak RGB snímky\footnote{Pro lepší manipulaci s RGB snímky je vhodné odfiltrovat pozadí. Způsobu provedení tohoto odfiltrování je naznačen v kapitolách~\ref{subsec:refRGB}~a~\ref{chap:matlab}.}, tak i hloubkovou mapu (\verb|depth|). Kamera namontovaná na paži \verb|r1| nese označení \verb|xtion1|, kamera namontovaná na paži \verb|r2| nese označení \verb|xtion2|. Umístění kamery je patrné na obrázku~\ref{fig:gripper}.\\
 \\
 
 
@@ -137,24 +138,47 @@ Další důležitou částí manipulátoru je pro nás 3D~kamera Asus Xtion. Jed
 %  	\label{fig:xtion}
 %\end{figure}
 
-\noindent Tento popis obsahuje pouze vybrané části, které jsou důležité pro tento experiment. Podrobnější popis robota naleznete na \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Technical_Stuff|. \\
+\noindent Tento popis obsahuje pouze vybrané části, které jsou důležité pro tento experiment. Podrobnější popis robota naleznete na Wikipedii projektu CloPeMa~\cite{wikiDes}. \\
 
 
 \section{Požadavky na experiment}
 \label{sec:experiment}
-Pro zjištění parametrů, které budou sloužit k odhadu parametrů dynamického modelu látky, jsme se rozhodli sledovat pohyb a chování textilie při známém a opakovatelném pohybu. 
-Podle našeho názoru máme dvě možnosti snímání pohybu.
+%Pro zjištění dat, které budou sloužit k odhadu parametrů dynamického modelu látky, jsme se rozhodli sledovat pohyb a chování textilie při %známém a opakovatelném pohybu. 
+%Podle našeho názoru máme dvě možnosti snímání pohybu.
+%Navrhněte metodu měření a získání matematických příznaků, které budou použity pro odhad parametrů dynamického fyzikálního modelu látky.
+Požadavkem na experiment je získání matematických příznaků, podle kterých by se daly odhadnout parametry dynamického fyzikálního modelu látky. Tyto příznaky chceme určit na základě sledování pohybu visící látky. Pohyb visící látky bude vyvolán pohybem chapadla manipulátoru, které látku drží.\\ Na základě senzorů, které máme k dispozici, jsme si zvolili:
+\begin{itemize}
+\item nejjednodušeji pohyb, o kterém si myslíme, že by nám mohl poskytnout potřebná data k získání parametrů dynamického modelu látky. Tímto pohybem je pohyb látky v rovině, ideálně vybuzený pohybem chapadla s látkou po přímce (úsečce). 
+\item dva typy sledování tohoto pohybu:
+	\begin{itemize}
+		\item Standardní RGB kamerou sledujeme siluetu, případně samotnou látku proti stálému pozadí při pohybu \textbf{kolmo k optické ose}.
+		\item Senzorem snímající hloubkovou mapu sledujeme látku při pohybu \textbf{podél optické osy}.
+		\end{itemize}
+\end{itemize}
 
-\subsection*{Vodorovný pohyb známé délky - kolmo k optické ose.}
-Standardní kamerou sledujeme siluetu, případně samotnou látku proti stálému pozadí.
 
-\subsection*{Vodorovný pohyb známé délky - podél optické osy.}
-Při tomto pohybu by standardní kamera viděla jen vzdalující se (přibližující se) siluetu, proto použijeme hloubkovou mapu.
-
-
-
+%\subsection*{Vodorovný pohyb známé délky - kolmo k optické ose.}
+%Standardní kamerou sledujeme siluetu, případně samotnou látku proti stálému pozadí při pohybu \textbf{kolmo k optické ose}.
+%
+%\subsection*{Vodorovný pohyb známé délky - podél optické osy.}
+%Při tomto pohybu by standardní kamera viděla jen vzdalující se (přibližující se) siluetu, proto použijeme hloubkovou mapu.
 
 
+
+
+
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
@@ -163,67 +187,79 @@ Při tomto pohybu by standardní kamera viděla jen vzdalující se (přibližuj
 \chapter{Způsob pořízení dat}
 \label{chap:proveData}
 \section{Realizace}
-Už při prvních pokusech jsme zjistili, že dynamika manipulátoru není natolik rychlá, aby s ním bylo možné provádět požadované pohyby (kapitola~\ref{sec:experiment}) po úsečce potřebnou rychlostí. Proto jsme s omezením robota museli požadavky z kapitoly~\ref{sec:experiment} realizovat tak, že pohyb po úsečce je aproximován pohybem po obloučku.\\
+Už při prvních pokusech jsme zjistili, že dynamika manipulátoru není natolik rychlá, aby s ním bylo možné provádět požadovaný pohyb  chapadlem s látkou po úsečce potřebnou rychlostí (kapitola~\ref{sec:experiment}). Je ovšem možné dosáhnou potřebné rychlosti, jestliže pohyb bude vycházet pouze z jednoho kloubu. Proto jsme s omezením robota museli pohyb chapadla s látkou realizovat tak, že pohyb chapadla po úsečce je aproximován pohybem chapadla po části kružnice. Dalším omezením je prostorové omezení a to takové, že není možné umístit kameru \verb|xtion| do pozice vhodné ke snímání RGB kamerou (tedy do pozice, kdy se chapadlo s látkou pohybuje kolmo k optické ose) a následně kameru \verb|xtion| přesunout do pozice vhodné ke snímání hloubkové mapy (tedy do pozice, kdy se chapadlo s látkou pohybuje podél optické osy). Toto omezení jsme vyřešili pomocí toho, že pozice kamery \verb|xtion|, tedy pozice paže s kamerou, je neměnná pro snímání záznamu RGB i pro snímání hloubkové mapy. Místo toho provede paže s textilií požadovaný pohyb chapadlem dvěma různými způsoby tak, aby byly splněny správné podmínky pro snímání jednotlivými senzory (kap.~\ref{sec:experiment} - pozice kolmo vs. podél optické osy).
 
+\section{Výchozí pozice paží a celého manipulátoru}
 
-
-\section{Pozice ramen}
-Abychom mohli provést experiment musíme chapadlem jednoho ramena držet textilii a kamerou druhého ramena pozorovat a nahrávat data.
-
-\subsection{Rameno s kamerou}
+\subsection{Paže s kamerou}
 \label{sec:posArmR1}
-Záznam je pořízen kamerou \verb|xtion1| namontovanou na ramenu \verb|r1|. Rameno~\verb|r1| najede do polohy, ve které je optická osa kamery \verb|xtion1| rovnoběžná s podlahou. Zároveň je optická osa kamery \verb|xtion1| orientovaná směrem k ramenu \verb|r2| (obrázek \ref{fig:OptOsa}). \\
+Záznam je pořízen kamerou \verb|xtion1| namontovanou na paži \verb|r1|. Paže~\verb|r1| najede do polohy, ve které směřuje optická osa kamery \verb|xtion1| vodorovně. Zároveň je optická osa kamery \verb|xtion1| orientovaná směrem k paži \verb|r2| (obrázek \ref{fig:OptOsa}). \\
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=7cm]{pictures/opOsa.eps}
-  	\caption{Pozice ramena s kamerou.\\a) Optická osa kamery xtion1, b) Kamera xtion1, c) rameno r1, d) rameno r2.}
+  	\caption{Pozice paže s kamerou.\\a) Optická osa kamery xtion1, b) Kamera xtion1, c) paže r1, d) paže r2.}
   	\label{fig:OptOsa}
 \end{figure}
 
-\subsection{Rameno s textilií}
-Textilie je držena pomocí chapadla namontovaného na ramenu \verb|r2|. Rameno \verb|r2| nabývá dvou základních poloh. 
+\newpage
+\subsection{Paže s textilií}
+Textilie je držena pomocí chapadla namontovaného na paži \verb|r2|. Paže \verb|r2| nabývá dvou základních poloh. 
 \subsubsection{Poloha pro měření}
-Rameno~\verb|r2| je v poloze, ve které je připraveno k provedení experimentu. Rameno \verb|r2| drží textilii v chapadle. Rameno \verb|r2| je ve výšce, ve které je kamerou~\verb|xtion1| zaznamenán ten kus textilie, který nás zajímá nejvíce. Rameno~\verb|r2| je také v pozici, aby mohlo provádět pohyb potřebný pro experiment (kapitola~\ref{sec:experiment} a kapitola~\ref{sec:moveArm}).
+Paže~\verb|r2| je v poloze, ve které je připravena k provedení experimentu. Paže \verb|r2| drží textilii v chapadle. Paže \verb|r2| je ve výšce, ve které je kamerou~\verb|xtion1| zaznamenána textilie. Paže~\verb|r2| je také v pozici, aby mohla provádět pohyb potřebný pro experiment (kapitola~\ref{sec:experiment} a kapitola~\ref{sec:moveArm}).
+
 \subsubsection{Poloha pro referenční snímek}
-Tato poloha slouží k záznamu referenčního snímku pozadí. Slouží k odfiltrování rušivého pozadí pro zlepšení přesnosti výsledků experimentu. V této poloze je rameno \verb|r2| zcela mimo oblast záznamu kamery~\verb|xtion1|.
+\label{subsec:refRGB}
+Tato poloha slouží k záznamu referenčního snímku pozadí, který slouží k odfiltrování pozadí z RGB snímků pro zlepšení přesnosti výsledků experimentu. Referenční snímek pozadí se nasnímá tak, že paže \verb|r2|, v jejímž chapadle je držena látka, změní pozici tak, aby byla zcela mimo oblast záznamu kamery~\verb|xtion1|. V této pozici se provede záznam pozadí a paže \verb|r2| s látkou se následně vrátí zpět do polohy pro měření. Více se odfiltrování pozadí budu věnovat v kapitole~\ref{chap:matlab}.
 
 \subsection{Otočení Ext.osy}
 \verb|Externí osa| (osa č.: 13) je otočena tak, aby v pozadí snímané textilie bylo co nejméně rušivých předmětů. Nejlépe jednobarevný rovný povrch.
 
-\section{Pohyby ramen}
+\section{Pohyby paží}
 \label{sec:moveArm}
 
-\subsection{Pohyb ramena kolmo k optické ose}
-Rameno \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle ramena \verb|r2| je držena textilie. Rameno \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|B| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:kolmoOptOsy}.
+\subsection{Pohyb paže kolmo k optické ose}
+Paže \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle paže \verb|r2| je držena textilie. Paže \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|B| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:kolmoOptOsy}. Tento pohyb je vhodný ke snímání RGB kamerou.
 \\
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=7cm]{pictures/move1.eps}
   	\caption{Nastínění pohybů chapadla s textilií kolmo k optické ose.\\
-  	a) naznačení zorného pole kamery xtion1, b) textilie, c) rameno r1, d) rameno r2.
+  	a) naznačení zorného pole kamery xtion1, b) textilie, c) paže r1, d) paže r2.
   	}
   	\label{fig:kolmoOptOsy}
 \end{figure}
 
 \newpage
-\subsection{Pohyb ramena podél optické osy}
-Rameno \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle ramena \verb|r2| je držena textilie. Rameno \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|R| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:rovnoOptOsy}.
+\subsection{Pohyb paže podél optické osy}
+Paže \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \ref{sec:posArmR1}. V chapadle paže \verb|r2| je držena textilie. Paže \verb|r2| provede požadovaný pohyb s touto textilií tak, že se otočí okolo osy \verb|R| o určitý úhel a vrátí se zpátky do výchozí polohy. Pro lepší popsání pohybu je pohyb naznačen i na obrázku \ref{fig:rovnoOptOsy}. Tento pohyb je vhodný ke snímání hloubkové mapy.
 \\
 
 \begin{figure}[H]
 	\centering  	
   	\includegraphics[height=7cm]{pictures/move2.eps}
   	\caption{Nastínění pohybů chapadla s textilií podél optické osy\\
-  	a) naznačení zorného pole kamery xtion1, b) textilie, c) rameno r1, d) rameno r2.}
+  	a) naznačení zorného pole kamery xtion1, b) textilie, c) paže r1, d) paže r2.}
   	\label{fig:rovnoOptOsy}
 \end{figure}
 
 
 
-\noindent Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
-\\
-Přesné polohy a pohyby ramen je možné vyčíst ze souboru:\\ \verb|path_to_workspace/clopema_collect_model_data/src/_pos.py|. Pro nahlédnutí do tohoto souboru je nutné splnit předpoklady z kapitoly~\ref{sec:prd}.
+%\noindent Po skončení snímání je možné vyměnit látku a postup zopakovat.\\
+%\\
+\noindent Přesné polohy a pohyby paží je možné vyčíst ze souboru:\\ \verb|path_to_workspace/clopema_collect_model_data/src/_pos.py|. Pro nahlédnutí do tohoto souboru je nutné splnit předpoklady z kapitoly~\ref{sec:prd}.
 
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
@@ -235,13 +271,13 @@ Přesné polohy a pohyby ramen je možné vyčíst ze souboru:\\ \verb|path_to_w
 \label{sec:prd}
 \begin{enumerate}
 
-   \item Nainstalovaný ROS Hydro a balíčky CloPeMa:
-  \begin{itemize} 
+   \item Nainstalovaný ROS Hydro a balíčky CloPeMa dle návodu z Wikipedie projektu~\cite{wikiPack}.
+%  \begin{itemize} 
+%  
+%  	\item \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/CloPeMa_Packages|
+%  \end{itemize}
   
-  	\item \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/CloPeMa_Packages|
-  \end{itemize}
-  
-  \item Stáhnutý archív se zdrojovými kódy:
+  \item Stáhnutý archív se zdrojovými kódy \red{Presun na CloPeMu}:
   \begin{itemize}
   	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
   \end{itemize}
@@ -259,11 +295,11 @@ Přesné polohy a pohyby ramen je možné vyčíst ze souboru:\\ \verb|path_to_w
 
 \begin{enumerate}
  
-  \item Před měřením odstraňte omezení rychlosti robota na TEACH-PENDANTu na 10000 dle návodu: 
-  	\begin{itemize}
-   		\item \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Robot_configuration|
-   		\item Po měření uveďte do původního stavu.
-  	\end{itemize}
+  \item Před měřením nastavte omezení rychlosti robota na TEACH-PENDANTu na 10000 dle návodu~\cite{robotConf}. Po měření uveďte nastavení omezení do původního stavu. 
+%  	\begin{itemize}
+%   		\item \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Robot_configuration|
+%   		\item Po měření uveďte do původního stavu.
+%  	\end{itemize}
    
   
   \item \label{itm:robOn} Spustíme robota: 
@@ -271,7 +307,7 @@ Přesné polohy a pohyby ramen je možné vyčíst ze souboru:\\ \verb|path_to_w
   		\item \verb|roslaunch clopema_launch start_robot.launch|
   	\end{itemize}
   
-  \item \label{itm:camOn} Spustíme kameru na ramenu \verb|r1|:
+  \item \label{itm:camOn} Spustíme kameru na paži \verb|r1|:
   	\begin{itemize}
   		\item \verb|roslaunch clopema_launch xtion1.launch|
  	\end{itemize}
@@ -323,6 +359,18 @@ Skript již máme spuštěn podle návodu v kapitole~\ref{sec:runScript}. Po spu
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
 
 \chapter{Uložení dat}
 
@@ -330,8 +378,8 @@ Skript již máme spuštěn podle návodu v kapitole~\ref{sec:runScript}. Po spu
 Data se ukládají pomocí rosbag (nástroj ROSu) ve formátu “.bag“ do předem určené složky uložené v souboru \verb|local_options.py| (\verb|path_to_workspace/clopema_collect_model_data/src/local_options.py|).
 \\
 
-\section{Témata (topic)}
-Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topic), která jsou uložena v souboru \verb|path_to_workspace/clopema_collect_model_data/matlab/topics/topics.txt|.\\ Pro~tento experiment jsem vybral tyto témata (topic):\\
+\section{Témata (topics)}
+Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topics), která jsou uložena v souboru \verb|path_to_workspace/clopema_collect_model_data/matlab/topics/topics.txt|.\\ Pro~tento experiment jsem vybral tyto témata (topics):\\
 \\
 \indent \indent \indent \verb|/joint_states| \\
 \indent \indent \indent \verb|/tf| \\
@@ -364,24 +412,37 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------
+
 
 \chapter{Načtení dat pro další zpracování}
-
+\label{chap:matlab}
 \section{Předpoklady}
 \begin{enumerate}
-  \item Stahnutý archív se zdrojovými kódy
+  \item Stahnutý archív se zdrojovými kódy \red{přesun na CloPeMu}
   \begin{itemize}
   	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
   \end{itemize}
   
-  \item Nainstalovaný Matlab (odzkoušeno ve verzi 2012b i 2013a).
-  \item Nainstalovaný toolbox pro matlab „rosbag“ a přidána cesta pro tento toolbox. Toolbox je dostupný i s návodem k instalaci na adrese:
-  \begin{itemize}
-     \item \verb|https://github.com/bcharrow/matlab_rosbag|
-  \end{itemize}
+  \item Nainstalujte Matlab (odzkoušeno ve verzi 2012b i 2013a).
+  \item Nainstalujte toolbox~\cite{toolbox} pro matlab „rosbag“ a přidána cesta pro tento toolbox. %Toolbox je dostupný i s návodem k instalaci na adrese:
+%  \begin{itemize}
+%     \item \verb|https://github.com/bcharrow/matlab_rosbag|
+%  \end{itemize}
   \item Nacházejte se ve složce se zdrojovými kódy pro Matlab.
   \item Soubor \verb|topics/topics.txt| musí být stejný jako v době nahrávání .bag souboru.
-  \item Soubor \verb|local_options.m| přizpůsobte nastavení Vašemu nastavení (blíže popsáno přímo v souboru po otevření souboru v editoru).
+  \item Soubor \verb|local_options.m| přizpůsobte vašemu nastavení (blíže popsáno přímo v souboru po otevření souboru v editoru).
 \end{enumerate}
 
 \section{Načtení souborů}
@@ -390,7 +451,7 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
     \begin{itemize}
   	\item \verb|startup|
   \end{itemize}
-  \item Pomocí funkce \verb|loadBagFile()| načtěte požadovaný .bag soubor.
+  \item Pomocí funkce \verb|loadBagFile()|\footnote{načítání si je možno zjednodušit pomocí skriptu loader, který obsahuje tuto funkci i funkci pro načtení do fronty obrázků} načtěte požadovaný .bag soubor.
 	\label{itm:load1}    
     \begin{itemize}
   	\item \verb|msgs = loadBagFile( path_to_bag_files, topics, bagfile)|
@@ -452,18 +513,62 @@ Další pokračování existuje, ale je potřeba ho konzultovat.
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------
+\newcounter{lit}
+\begin{thebibliography}{00}
 
-\begin{thebibliography}{CPM}    
-  \bibitem[1]{homesim} Neovision:
+\section{Aktuální verze tohoto návodu}
+
+
+  \bibitem[\arabic{lit}]{version} Neoral Michal:
+    \emph{Aktuální verze tohoto návodu} [online]. \\
+    Dostupné z: \verb|https://github.com/michalneoral/collect_data_documentation/|\\
+	\verb|raw/master/manual_collect_data(cze).pdf|
+
+\stepcounter{lit}  
+  \bibitem[\arabic{lit}]{projekt} CloPeMa:
+    \emph{Stránky projektu CLoPeMa} [online]. [cit. 2014-02-02].\\
+    Dostupné z: \verb|http://clopemaweb.felk.cvut.cz/|
+
+\stepcounter{lit}
+  \bibitem[\arabic{lit}]{wiki} CloPeMa:
+    \emph{Wikipedie projektu CLoPeMa} [online]. [cit. 2014-02-02].\\
+    Dostupné z: \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki|
+    
+\stepcounter{lit}
+  \bibitem[\arabic{lit}]{wikiDes} CloPeMa:
+    \emph{Wikipedie projektu CLoPeMa - technické záležitosti} [online]. [cit. 2014-02-02].\\
+    Dostupné z: \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Technical_Stuff|
+    
+\stepcounter{lit}
+  \bibitem[\arabic{lit}]{wikiPack} CloPeMa:
+    \emph{Wikipedie projektu CLoPeMa - Balíčky projektu CloPeMa} [online]. [cit. 2014-02-02].\\
+    Dostupné z: \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/CloPeMa_Packages|    
+
+\stepcounter{lit}
+  \bibitem[\arabic{lit}]{robotConf} CloPeMa:
+    \emph{Wikipedie projektu CLoPeMa - Nastavení omezení rychlosti} [online]. [cit. 2014-02-02].\\
+    Dostupné z: \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Robot_configuration|  
+
+\stepcounter{lit}
+  \bibitem[\arabic{lit}]{toolbox} Ben Charrow:
+    \emph{Toolbox pro Matlab určený ke čtení rosbag souborů} [online]. [cit. 2014-02-02].\\
+    Dostupné z: \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/Robot_configuration|  
+
+\verb|https://github.com/bcharrow/matlab_rosbag|
+
+\stepcounter{lit}    
+  \bibitem[\arabic{lit}]{homesim} Neovision:
     \emph{Industrial Vision System} [online]. [cit. 2013-11-12].\\
     Dostupné z: \verb|http://www.neovision.cz/cz/sols/clopema.html|    
-  
-  \bibitem[2]{gripperPic} Václav Jahoda:
+
+\stepcounter{lit}  
+  \bibitem[\arabic{lit}]{gripperPic} Václav Jahoda:
     \emph{CloPeMa} [online]. [cit. 2013-11-27].\\
     Technický výkres \verb|12010_00_04_Robot.pdf| - UPRAVENO\\
     Dostupné z: \verb|clopema.felk.cvut.cz/redmine/attachments/download/121/12010_00_04_Robot.pdf|    
-    
-  \bibitem[1]{motoman} Motoman:
+
+\stepcounter{lit}    
+  \bibitem[\arabic{lit}]{motoman} Motoman:
     \emph{YASKAWA Electric Corporation} [online]. [cit. 2013-11-27].\\
     Technický výkres robotického ramena MA1400 - UPRAVENO
     Dostupné z: \verb|http://www.motoman.com.tr/index.php?eID=tx_nawsecuredl&u=0&file=uploads/|\\
