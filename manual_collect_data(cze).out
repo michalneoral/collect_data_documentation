@@ -31,5 +31,9 @@
 \BOOKMARK [1][-]{section.5.3}{Predzpracov\341n\355 dat}{chapter.5}% 31
 \BOOKMARK [1][-]{section.5.4}{Zpracov\341n\355 RGB dat}{chapter.5}% 32
 \BOOKMARK [2][-]{subsection.5.4.1}{Filtrov\341n\355 RGB sn\355mku pomoc\355 referencn\355ho sn\355mku}{section.5.4}% 33
-\BOOKMARK [1][-]{section.5.5}{Zpracov\341n\355 dat ze senzoru hloubkov\351 mapy}{chapter.5}% 34
-\BOOKMARK [1][-]{section.5.6}{Aktu\341ln\355 verze tohoto n\341vodu}{chapter.5}% 35
+\BOOKMARK [2][-]{subsection.5.4.2}{Nalezen\355 kostry obrazu}{section.5.4}% 34
+\BOOKMARK [2][-]{subsection.5.4.3}{Z\355sk\341n\355 matematick\375ch pr\355znaku l\341tky z kostry obrazu v case}{section.5.4}% 35
+\BOOKMARK [1][-]{section.5.5}{Zpracov\341n\355 dat ze senzoru hloubkov\351 mapy}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.5.1}{Filtrov\341n\355 hloubkov\351 mapy dle vzd\341lenosti z\341jmov\351 oblasti}{section.5.5}% 37
+\BOOKMARK [2][-]{subsection.5.5.2}{Nalezen\355 bodu \(oblast\355\) na povrchu l\341tky}{section.5.5}% 38
+\BOOKMARK [2][-]{subsection.5.5.3}{Z\355sk\341n\355 matematick\375ch pr\355znaku l\341tky ze vzd\341lenost\355 bodu v case}{section.5.5}% 39

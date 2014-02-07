@@ -494,7 +494,7 @@ Funkce z bodu \ref{itm:load1} a \ref{itm:load2} lze také spustit pomocí přík
 %Spolu se strukturou \verb|front| se tvoří i struktura \verb|queue|, jenž v obsahuje tyto údaje:
 %
 \section{Předzpracování dat}
-Jak jsem uvedl v kapitole~\ref{sec:moveArm}~a~\ref{sec:nameform} je záznam pohybu chapadla s látkou rozdělen do dvou souborů. Záznamy končící písmenem \verb|R| jsou určeny pro následné zpracování dat ze senzoru hloubkové mapy a záznamy končící písmenem \verb|B| jsou určeny pro zpracování RGB snímků. Další zpracování se tedy bude lišit podle toho, zda chceme extrahovat matematické příznaky látky z hloubkové mapy~(\ref{sec:procDepth}) nebo z RGB snímků~(\ref{sec:procRgb}).
+Jak jsem uvedl v kapitole~\ref{sec:moveArm}~a~\ref{sec:nameform} je záznam pohybu chapadla s látkou rozdělen do dvou souborů. Záznamy končící písmenem \verb|R| jsou určeny pro následné zpracování dat ze senzoru hloubkové mapy a záznamy končící písmenem \verb|B| jsou určeny pro zpracování RGB snímků (písmena označují, kterou osou je na daném záznamu pohybováno pro vytvoření pohybu látky). Další zpracování se tedy bude lišit podle toho, zda chceme extrahovat matematické příznaky látky z hloubkové mapy~(\ref{sec:procDepth}) nebo z RGB snímků~(\ref{sec:procRgb}). 
 
 \section{Zpracování RGB dat}
 \label{sec:procRgb}
@@ -511,6 +511,8 @@ Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|
   			\item \verb|frontOfRGB| (\textit{matice buněk}) - obsahuje posloupnost RGB obrázků (\textit{double} 640x480x3) a čas zachycení obrázku v \textit{s} (\textit{double}). 
     			\end{itemize}
     \end{itemize}
+
+\red{Zde vložit obrázky - příklad zobrazení RGB obrázku}
 
 \subsection{Filtrování RGB snímků pomocí referenčního snímku}
 \label{subsec:matfiltr}
@@ -531,6 +533,33 @@ Na RGB snímcích jsou mi pohybující se látku i věci nedůležité pro exper
     			\end{itemize}
     \end{itemize}
 
+\red{Zde vložit obrázky - příklad zobrazení vyfiltrovaného RGB obrázku}
+
+
+
+
+
+\subsection{Nalezení kostry obrazů}
+
+\red{Zde vložit popis}\\
+
+\red{Zde vložit obrázky - příklad zobrazení získané kostry z vyfiltrovaného RGB obrázku}
+
+
+
+
+
+\subsection{Získání matematických příznaků látky z kostry obrazů v čase}
+
+\red{Zde vložit popis}\\
+
+\red{Zde vložit ukázku získaných dat}
+
+
+%-HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH-
+%-HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH-
+%-HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH-
+%-HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH-
 
 \section{Zpracování dat ze senzoru hloubkové mapy}
 \label{sec:procDepth}
@@ -547,6 +576,35 @@ Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|
   			\item \verb|frontOfDepth| (\textit{matice buněk}) - obsahuje posloupnost hloubkových map (\textit{double} 640x480) a čas zachycení mapy v \textit{s} (\textit{double}). 
     			\end{itemize}
     \end{itemize}
+
+\red{Zde vložit obrázky - příklad zobrazení hloubkové mapy zachycené senzorem}
+
+
+
+
+\subsection{Filtrování hloubkové mapy dle vzdálenosti zájmové oblasti}
+
+\red{Zde vložit popis}\\
+
+\red{Zde vložit obrázky - odfiltrování nežádoucích vzdáleností}
+
+
+
+
+\subsection{Nalezení bodů (oblastí) na povrchu látky}
+
+\red{Zde vložit popis}\\
+
+\red{Zde vložit obrázky - příklad nalezených bodů}
+
+
+
+
+\subsection{Získání matematických příznaků látky ze vzdáleností bodů v čase}
+
+\red{Zde vložit popis}\\
+
+\red{Zde vložit ukázku získaných dat}
 
 %$$\begin{bmatrix}
 %\verb|pořad. číslo hloubkového snímku| & \verb|čas od začátku měření| & \verb|pořad. číslo tématu v msgs| \\
@@ -570,10 +628,7 @@ Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|
 \newcounter{lit}
 \begin{thebibliography}{00}
 
-\section{Aktuální verze tohoto návodu}
-
-
-  \bibitem[\arabic{lit}]{version} Neoral Michal:
+\bibitem[\arabic{lit}]{version} Neoral Michal:
     \emph{Aktuální verze tohoto návodu} [online]. \\
     Dostupné z: \verb|https://github.com/michalneoral/collect_data_documentation/|\\
 	\verb|raw/master/manual_collect_data(cze).pdf|
