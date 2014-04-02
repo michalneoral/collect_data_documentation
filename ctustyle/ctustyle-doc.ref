@@ -1,0 +1,91 @@
+%% OPmac - REF file
+\Xpage{-1}
+\Xpage{-2}
+\Xpage{-3}
+\Xpage{-4}
+\Xpage{-5}
+\Xpage{-6}
+\Xpage{1}
+\Xchap{1}{Úvod }{1}
+\Xfnote
+\Xfnote
+\Xfnote
+\Xsec{1.1}{Minimální dokument }{1}
+\Xpage{2}
+\Xsec{1.2}{Deklarační příkazy vymezující údaje o~dokumentu }{2}
+\Xpage{3}
+\Xtab{deklarace}{1.1}{Seznam deklaračních příkazů}
+\Xlabel{deklarace}{1.1}
+\Xsec{1.3}{Rozvržení zdrojového textu dokumentu }{3}
+\Xpage{4}
+\Xsec{1.4}{Pracovní prostředí }{4}
+\Xsec{1.5}{Řešení problémů }{4}
+\Xfnote
+\Xfnote
+\Xpage{5}
+\Xpage{6}
+\Xchap{2}{Části dokumentu }{6}
+\Xsec{2.1}{Kapitoly, sekce, podsekce, přílohy }{6}
+\Xsec{2.2}{Povinné části závěrečné práce }{6}
+\Xsecc{2.2.1}{Rozvržení dokumentu }{6}
+\Xsecc{2.2.2}{Literatura }{6}
+\Xpage{7}
+\Xsecc{2.2.3}{Zadání práce }{7}
+\Xsec{2.3}{Obrázky, tabulky, listingy a další }{7}
+\Xsecc{2.3.1}{Obrázky }{7}
+\Xfig{logo}{2.1}{Ukázka vložení obrázku na střed}
+\Xlabel{logo}{2.1}
+\Xpage{8}
+\Xsecc{2.3.2}{Tabulky }{8}
+\Xtab{absolventiFEL}{2.1}{Počet absolventů FEL}
+\Xlabel{absolventiFEL}{2.1}
+\Xsecc{2.3.3}{Automaticky číslované objekty }{8}
+\Xpage{9}
+\Xsecc{2.3.4}{Listingy, výpisy kódů }{9}
+\Xpage{10}
+\Xsecc{2.3.5}{Poznámky pod čarou }{10}
+\Xfnote
+\Xsecc{2.3.6}{Zvýrazňování textů }{10}
+\Xlabel{uvozovky}{2.3.7}
+\Xsecc{2.3.7}{Uvozovky, pomlčky, nezlomitelné mezery }{10}
+\Xfnote
+\Xsecc{2.3.8}{Odkazy do internetu. }{10}
+\Xpage{11}
+\Xsecc{2.3.9}{Seznamy }{11}
+\Xsecc{2.3.10}{Rejstřík }{11}
+\Xlabel{citlit}{2.4}
+\Xsec{2.4}{Citace na literaturu, poznámky k~bib\TeX {}u }{11}
+\Xfnote
+\Xfnote
+\Xfnote
+\Xpage{12}
+\Xlabel{ozadani}{2.5}
+\Xsec{2.5}{Jak vložit přílohu A }{12}
+\Xsec{2.6}{Pracovní verze dokumentu }{12}
+\Xpage{13}
+\Xpage{14}
+\Xchap{3}{Poznámky k~typografii }{14}
+\Xbib{prvni}{1}
+\Xbib{jemny}{2}
+\Xbib{tbn}{3}
+\Xbib{tst}{4}
+\Xbib{texbook}{5}
+\Xbib{opmac}{6}
+\Xbib{zyka}{7}
+\Xbib{grafman}{8}
+\Xbib{CVUT-FEL:zaverecne-prace}{9}
+\Xbib{CVUT-FEL:smernice}{10}
+\Xbib{CSN:016910}{11}
+\Xpage{15}
+\Xchap{!1}{Literatura}{15}
+\Xcite{CVUT-FEL:zaverecne-prace}
+\Xcite{CVUT-FEL:smernice}
+\Xcite{CSN:016910}
+\Xpage{17}
+\Xlabel{zadani}{A}
+\Xchap{A}{Zadání práce }{17}
+\Xpage{18}
+\Xlabel{zkratky}{B}
+\Xchap{B}{Zkratky a symboly }{18}
+\Xsec{B.1}{Zkratky }{18}
+\Xsec{B.2}{Symboly }{18}

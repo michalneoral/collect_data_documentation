@@ -1,0 +1,4 @@
+%\input opmac \genbbl{mybase}{czechiso}\end
+
+\input opmac \genbbl{mybase}{plain} \end
+

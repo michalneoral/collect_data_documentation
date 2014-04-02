@@ -1,0 +1,45 @@
+\chap Introduction
+
+text...
+
+\sec Motivations
+
+%	Tato bakalářká práce je součástí mezinárodního projektu CloPeMa (Clothes Perception Manipulation). Tento do-
+%	kument popisuje sběr dat a postup realizace experimentů pro odhad parametrů dynamického modelu
+%	textilie. Více informací o projektu CloPeMa na internetových stránkách projektu [odkaz] a na wikipedii pro-
+%	jektu [odkaz] 
+%CloPeMa is a 3 year open-source EU-FP7 research project which aims to advance the state of the art in the autonomous perception and manipulation of fabrics, textiles and garments. The CLoPeMa robot will learn to manipulate, perceive and fold a variety of textiles. The operating-software is based on ROS (Robot Operating System) and written in C++, Python and Java.
+%    CloPeMa “Clothes Perception and Manipulation”
+%    Funded by the European Commision, DG Information Society and Media, Unit A2 (Robotics) under the contract No. 288553; Instrument: STREP = Specific targeted research projects
+%    Project start: February 1, 2012
+%    Project end: January 31, 2015
+%    Coordinator: Dr. Sotiris Malassiotis, ITI – Information Technology Institute, Thessaloniki, Greece
+
+
+This bachelor thesis is part of~Clothes Perception and Manipulation project (CloPeMa, 2012-2015) funded by~the~European Commision~\cite[clopema]. CloPeMa is research project which aims to~advance the~state of~the~art in~the~autonomous perception and manipulation of fabrics, textiles and garments. The CLoPeMa robot will learn to manipulate, perceive and fold a~variety of textiles. This bachelor thesis describes the design of method of measurement and extraction of image features.
+
+
+
+\sec Goals
+
+text...
+
+\sec Description of workplace
+
+\medskip
+\picw=8cm \cinspic pictures/robotCTU-eps-converted-to.pdf
+\caption/f Ukázka vložení obrázku na střed, což je asi nejobvyklejší.
+\medskip
+
+\secc Manipulator
+
+text...
+
+\secc End effector
+
+text...
+
+\secc Motion sensor %Camcorder
+
+text... Asus Xtion...
+

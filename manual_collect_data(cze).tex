@@ -26,6 +26,7 @@
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
 \newcommand{\red}[1]{\textbf{\rlap{\color{red}#1}}}
+\newcommand{\blue}[1]{\textbf{\rlap{\color{blue}#1}}}
 
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 %\usepackage[a4paper]{geometry}
@@ -277,12 +278,12 @@ Paže \verb|r1| neprovádí žádný pohyb a je v poloze popsané v kapitole \re
 %  	\item \verb|http://clopema.felk.cvut.cz/redmine/projects/clopema/wiki/CloPeMa_Packages|
 %  \end{itemize}
   
-  \item Stáhnutý archív se zdrojovými kódy \red{Presun na CloPeMu}:
-  \begin{itemize}
-  	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
-  \end{itemize}
+%  \item Stáhnutý archív se zdrojovými kódy \red{Presun na CloPeMu}:
+%  \begin{itemize}
+%  	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
+%  \end{itemize}
   
-  \item V balíčku \verb|clopema_collect_model_data| ve složce \verb|src| uprav script \verb|local_options.py| pro místní nastavení počítače. Po otevření v příslušném textovém editoru upravte obsah proměnných pro Vaše umístění. 
+  \item V balíčku \verb|clopema_cvut/clopema_collect_model_data| ve složce \verb|src| uprav script \verb|local_options.py| pro místní nastavení počítače. Po otevření v příslušném textovém editoru upravte obsah proměnných pro Vaše umístění. 
   \begin{itemize}
   	\item \verb|pcglocate| pro umístění složky se zdrojovými kódy
   	\item \verb|savefolder| umístění složky, kam se budou ukládat získaná data.
@@ -376,11 +377,11 @@ Skript již máme spuštěn podle návodu v kapitole~\ref{sec:runScript}. Po spu
 \chapter{Uložení dat}
 
 \section{Formát dat}
-Data se ukládají pomocí rosbag (nástroj ROSu) ve formátu “.bag“ do předem určené složky uložené v souboru \verb|local_options.py| (\verb|path_to_workspace/clopema_collect_model_data/src/local_options.py|).
+Data se ukládají pomocí rosbag (nástroj ROSu) ve formátu “.bag“ do předem určené složky uložené v souboru \verb|local_options.py|\\ (\verb|path_to_workspace/clopema_cvut/clopema_collect_model_data/src/local_options.py|).
 \\
 
 \section{Témata (topics)}
-Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topics), která jsou uložena v souboru \verb|path_to_workspace/clopema_collect_model_data/matlab/topics/topics.txt|.\\ Pro~tento experiment jsem vybral tyto témata (topics):\\
+Z důvodu úspory místa a kapacity přenosového kanálu jsou zaznamenány pouze témata (topics), která jsou uložena v souboru \verb|path_to_workspace/clopema_cvut/clopema_collect_model_data/matlab/topics/topics.txt|.\\ Pro~tento experiment jsem vybral tyto témata (topics):\\
 \\
 \indent \indent \indent \verb|/joint_states| \\
 \indent \indent \indent \verb|/tf| \\
@@ -431,10 +432,7 @@ Zaznamenané soubory jsou ve tvaru: \verb|name_speed_AX.bag|
 \label{chap:matlab}
 \section{Předpoklady}
 \begin{enumerate}
-  \item Stahnutý archív se zdrojovými kódy \red{přesun na CloPeMu}
-  \begin{itemize}
-  	\item \verb|git clone https://github.com/michalneoral/clopema_collect_model_data.git|
-  \end{itemize}
+  \item Stáhnuty balíčky CloPeMa dle návodu z Wikipedie projektu~\cite{wikiPack}.
   
   \item Nainstalujte Matlab (odzkoušeno ve verzi 2012b i 2013a).
   \item Nainstalujte toolbox~\cite{toolbox} pro matlab „rosbag“ a přidána cesta pro tento toolbox. %Toolbox je dostupný i s návodem k instalaci na adrese:
@@ -498,7 +496,7 @@ Jak jsem uvedl v kapitole~\ref{sec:moveArm}~a~\ref{sec:nameform} je záznam pohy
 
 \section{Zpracování RGB dat}
 \label{sec:procRgb}
-Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|msgs|. Z této matice buněk extrahujeme pouze data, která se týkají RGB obrázku a vytvoříme si posloupnost nasnímaných RGB obrázků s časy ve kterých byly zachyceny. Posloupnost vytvoříme pomocí funkce \verb|makeFrontOfRGB()|.
+Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|msgs|. Z této matice buněk extrahujeme pouze data, která se týkají RGB obrázku a vytvoříme si posloupnost nasnímaných RGB obrázků s časy ve kterých byly zachyceny. Posloupnost vytvoříme pomocí funkce \verb|makeFrontOfRGB()|. Na obrázku~\ref{fig:rgbPic} můžete vidět příklad použití této funkce.
 \begin{itemize}
   	\item \verb|frontOfRGB = makeFrontOfRGB( msgs )|
 
@@ -512,11 +510,17 @@ Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|
     			\end{itemize}
     \end{itemize}
 
-\red{Zde vložit obrázky - příklad zobrazení RGB obrázku}
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[width=14cm]{pictures/rgb.eps}
+  	\caption[]{Příklad zaznamenaných RGB snímků.  	
+  	}
+  	\label{fig:rgbPic}
+\end{figure}
 
 \subsection{Filtrování RGB snímků pomocí referenčního snímku}
 \label{subsec:matfiltr}
-Na RGB snímcích jsou mi pohybující se látku i věci nedůležité pro experiment (stále pozadí, části manipulátoru...). Tyto části obrazu je potřeba odstranit. Odstraněním části obrazu mimo pohybující se látku nám pomůže snáze sledovat pohybující se siluetu látky. Látku odstraníme pomocí referenčního snímku, jehož způsob pořízení jsme si uvedli v kapitolách~\ref{subsec:refRGB}~a~\ref{subsec:processFiltrSave}. Funkce \verb|filtrReferenceFrame()| slouží k tomuto filtrování.
+Na RGB snímcích jsou mi pohybující se látku i věci nedůležité pro experiment (stále pozadí, části manipulátoru...). Tyto části obrazu je potřeba odstranit. Odstraněním části obrazu mimo pohybující se látku nám pomůže snáze sledovat pohybující se siluetu látky. Látku odstraníme pomocí referenčního snímku, jehož způsob pořízení jsme si uvedli v kapitolách~\ref{subsec:refRGB}~a~\ref{subsec:processFiltrSave}. Funkce \verb|filtrReferenceFrame()| slouží k tomuto filtrování. Na obrázku~\ref{fig:filtredPic} a \ref{fig:maskPic} můžete vidět příklad použití této funkce.
 \begin{itemize}
   	\item \verb|[filtredFrontOfRGB, maskFrontOfRGB] =|\\ \verb|filtrReferenceFrame(frontOfRGB,referenceFrame,sizeMorpMask)|\\
 \\
@@ -533,7 +537,37 @@ Na RGB snímcích jsou mi pohybující se látku i věci nedůležité pro exper
     			\end{itemize}
     \end{itemize}
 
-\red{Zde vložit obrázky - příklad zobrazení vyfiltrovaného RGB obrázku}
+\noindent Případně lze použít k dalším výpočtům pouze masku a není nutné načítat i filtrovaný obrázek. Funkce \verb|maskReferenceFrame()| slouží k tomuto filtrování. Na obrázku~\ref{fig:maskPic} můžete vidět příklad použití této funkce.
+\begin{itemize}
+  	\item \verb|[maskFrontOfRGB] =|\\ \verb|maskReferenceFrame(frontOfRGB,referenceFrame,sizeMorpMask)|\\
+\\
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|frontOfRGB| (\textit{matice buněk}) - matice buňek obsahující obrázky.
+  			\item \verb|referenceFrame| (\textit{matice double} 640x480x3) - obsahuje referenční snímek.
+  			\item \verb|sizeMorpMask| (\textit{integer}) - \textit{nepovinný} parametr, kterým se nastavuje velikost masky pro morfologickou  operaci "opening"\cite{hlavacOpen}.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|maskFrontOfRGB| (\textit{matice buněk}) - obsahuje filtry obrazů RGB a časovou značku původních snímků.
+    			\end{itemize}
+    \end{itemize}
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[width=14cm]{pictures/filtred.eps}
+  	\caption[]{Příklad vyfiltrovaných RGB snímků.	  	
+  	}
+  	\label{fig:filtredPic}
+\end{figure}
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[width=14cm]{pictures/mask.eps}
+  	\caption[]{Příklad vyfiltrovaných RGB snímků - maska.	  	
+  	}
+  	\label{fig:maskPic}
+\end{figure}
 
 
 
@@ -541,19 +575,67 @@ Na RGB snímcích jsou mi pohybující se látku i věci nedůležité pro exper
 
 \subsection{Nalezení kostry obrazů}
 
+Na obrázku~\ref{fig:centerPic} můžete vidět příklad použití této funkce.
+
+\begin{itemize}
+  	\item \verb|[ centerOfFabric ] = findCenterOfFabric( maskFrontOfRGB )|\\
+\\
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|maskFrontOfRGB| (\textit{matice buněk}) - obsahuje filtry obrazů RGB a časovou značku původních snímků.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|centerOfFabric| (\textit{matice buněk}) - obsahuje x-ové souřadnice středů látky získaných z filtrové masky v jednotlivých snímcích a časy zachycení snímku.
+    			\end{itemize}
+    \end{itemize}
 \red{Zde vložit popis}\\
 
-\red{Zde vložit obrázky - příklad zobrazení získané kostry z vyfiltrovaného RGB obrázku}
-
-
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[width=14cm]{pictures/center.eps}
+  	\caption[]{Příklad středu látky v obraze.	  	
+  	}
+  	\label{fig:centerPic}
+\end{figure}
 
 
 
 \subsection{Získání matematických příznaků látky z kostry obrazů v čase}
 
+Na obrázku~\ref{fig:pointsmaskPic} a \ref{fig:pointsPic} můžete vidět příklad použití této funkce.
+
+\begin{itemize}
+  	\item \verb|[ struct_points ] = makePointsFromCenter( centerOfFabric, n_points, timeOfStart)|\\
+\\
+    		Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|centerOfFabric| (\textit{matice buněk}) - obsahuje x-ové souřadnice středů látky získaných z filtrové masky v jednotlivých snímcích a časy zachycení snímku.
+  			\item \verb|n_points| (\textit{integer}) - obsahuje požadovaný počet bodů, na který má funkce pohybující se látku rozdělit.
+  			\item \verb|timeOfStart| (\textit{double}) - \textit{nepovinný} parametr, který značí začátek pohybu v čase [s] (\textit{default}=0). 
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|struct_points| (\textit{matice buněk}) - obsahuje n bodů [y,x] (\textit{dle} \verb|n_points| \textit{v každém snímku a čas záznamu snímku}).
+    			\end{itemize}
+    \end{itemize}
 \red{Zde vložit popis}\\
 
-\red{Zde vložit ukázku získaných dat}
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[width=14cm]{pictures/maskandpoints.eps}
+  	\caption[]{Příklad masky s nalezenými body.	
+  	}
+  	\label{fig:pointsmaskPic}
+\end{figure}
+
+\begin{figure}[H]
+	\centering  	
+  	\includegraphics[width=14cm]{pictures/points.eps}
+  	\caption[]{Příklad nalezených bodů.  	
+  	}
+  	\label{fig:pointsPic}
+\end{figure}
 
 
 %-HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH-
@@ -591,17 +673,53 @@ Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|
 
 
 
+
 \subsection{Nalezení bodů (oblastí) na povrchu látky}
 
+\subsubsection{Nalezení oblastí výskytu pohybující se látky}
+\begin{itemize}
+	\item \verb|nanmask = depthNanFilter( frontOfDepth )|
+	Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|XXX| (\textit{XXX}) - XXX.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|XXX| (\textit{XXX}) - XXX. 
+    			\end{itemize}
+    \end{itemize}
 \red{Zde vložit popis}\\
 
 \red{Zde vložit obrázky - příklad nalezených bodů}
 
+\subsubsection{Vzor bodů}
+\begin{itemize}
+	\item \verb|pointPattern = depthPointsPosition( nanmask, n_points_x, n_points_z, otherMask )|
+	Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|XXX| (\textit{XXX}) - XXX.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|XXX| (\textit{XXX}) - XXX. 
+    			\end{itemize}
+    \end{itemize}
+\red{Zde vložit popis}\\
 
-
+\red{Zde vložit obrázky - příklad nalezených bodů}
 
 \subsection{Získání matematických příznaků látky ze vzdáleností bodů v čase}
-
+\begin{itemize}
+	\item \verb|points  = getDepthValueOfPoints( frontOfDepth, pointPattern, area )|
+	Vstupy do funkce
+        		\begin{itemize}
+  			\item \verb|XXX| (\textit{XXX}) - XXX.
+    			\end{itemize}
+    		Výstupy z funkce
+        		\begin{itemize}
+  			\item \verb|XXX| (\textit{XXX}) - XXX. 
+    			\end{itemize}
+    \end{itemize}
 \red{Zde vložit popis}\\
 
 \red{Zde vložit ukázku získaných dat}
@@ -685,7 +803,7 @@ Z kapitoly \ref{sec:loadBag} již máme připravená data v matici buněk \verb|
     
 \stepcounter{lit}    
   \bibitem[\arabic{lit}]{hlavacOpen} ŠONKA, Milan, Václav HLAVÁČ.
-    \emph{Image processing, analysis, and machine vision: a MATLAB companion.} 3rd ed. Toronto: Thomson, 2008. STRANU DODÁM, ISBN 978-0-495-08252-1. 
+    \emph{Image processing, analysis, and machine vision: a MATLAB companion.} 3rd ed. Toronto: Thomson, 2008. s.665-666, ISBN 978-0-495-08252-1. 
 
 \end{thebibliography}
 

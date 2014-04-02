@@ -1,0 +1,85 @@
+% for using this tex sources you must have ctustyle.tex template
+% by RNDr. PETR OLŠÁK
+% http://petr.olsak.net/ctustyle.html
+
+\input ctustyle
+
+\worktype [B/EN]
+\faculty    {F3} 
+\department {Department of Cybernetics}
+\title      {Extraction of features\nl from moving garment}
+%\subtitle   {}
+\author     {Michal Neoral}
+\date       {Květen 2014}
+\supervisor {Ing. Pavel Krsek, Ph.D.}
+\studyinfo  {CYBERNETICS AND ROBOTICS, Robotics}  % Study programme etc.
+
+%\workinfo   {}
+\titleCZ    {Získání příznaků z obrazu pohybující se látky}
+%\subtitleCZ {}
+\pagetwo    {}  % The text printed on the page 2 at the bottom.
+
+\abstractEN {
+   This...
+}
+\abstractCZ {
+   Tento...
+}           % If your language is Slovak use \abstractSK instead \abstractCZ
+
+\keywordsEN {%
+   dynamic model; garment model; feature extraction; 3D~image; silhouette.
+}
+\keywordsCZ {%
+   dynamický model; model oděvu, textilie; extrakce příznaků; 3D~obraz; silueta.
+}
+\thanks {           % Use main language here
+   Foremost, I would like to thank to Ing. Pavel Krsek, Ph.D. ...
+
+}
+\declaration {      % Use main language here
+   Prohlašuji, že jsem předloženou práci vypracoval
+   samostatně a že jsem uvedl veškeré použité informační zdroje v~souladu
+   s~Metodickým pokynem o~dodržování etických principů při přípravě
+   vysokoškolských závěrečných prací.
+
+   V Praze dne 5. 5. 2013 % !!! Attention, you have to change this item.
+   \signature % makes dots
+}
+
+%%%%% <--   % The place for your own macros is here.
+
+\draft     % Uncomment this if the version of your document is working only.
+%\linespacing=1.7  % uncomment this if you need more spaces between lines
+                   % Warning: this works only when \draft is activated!
+%\savetoner        % Turns off the lightBlue backround of tables and
+                   % verbatims, only for \draft version.
+%\blackwhite       % Use this if you need really Black+White thesis.
+%\onesideprinting  % Use this if you really don't use duplex printing. 
+
+\makefront  % Mandatory command. Makes title page, acknowledgment, contents etc.
+
+% Úvod
+\input introduction
+
+% Kapitoly
+\input datagetting
+\input fileformat
+\input dataprocessing
+\input result
+\input discussion
+
+% Závěr
+\input conclusion
+
+% Bibliografie
+\bibchap
+\usebbl/a ref  % finalní verze musí být /c
+
+% Přílohy
+\input specifications
+\input dvdContent
+\input shortcuts
+\input manualcollect
+\input automaticcollect
+
+\bye
