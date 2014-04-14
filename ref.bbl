@@ -5,6 +5,12 @@ CloPeMa.
 \newblock {\em Clothes Perception and Manipulation}.
 \newblock Visited on 2014-03-20, \url{http://www.clopema.eu/}.
 
+\bibitem{yaskawa}
+Yaskawa~Motoman Robotics.
+\newblock {\em Datasheet of MA1400 robot}.
+\newblock Visited on 2014-04-03,
+  \url{http://www.motoman.com/datasheets/MA1400.pdf}.
+
 \bibitem{hlavac}
 Milan ŠONKA, Václav HLAVÁČ, and Roger BOYLE.
 \newblock {\em Image processing, analysis, and machine vision}.

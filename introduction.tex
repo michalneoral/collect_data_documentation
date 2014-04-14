@@ -1,45 +1,80 @@
 \chap Introduction
 
-text...
+\lorem
 
 \sec Motivations
-
-%	Tato bakalářká práce je součástí mezinárodního projektu CloPeMa (Clothes Perception Manipulation). Tento do-
-%	kument popisuje sběr dat a postup realizace experimentů pro odhad parametrů dynamického modelu
-%	textilie. Více informací o projektu CloPeMa na internetových stránkách projektu [odkaz] a na wikipedii pro-
-%	jektu [odkaz] 
-%CloPeMa is a 3 year open-source EU-FP7 research project which aims to advance the state of the art in the autonomous perception and manipulation of fabrics, textiles and garments. The CLoPeMa robot will learn to manipulate, perceive and fold a variety of textiles. The operating-software is based on ROS (Robot Operating System) and written in C++, Python and Java.
-%    CloPeMa “Clothes Perception and Manipulation”
-%    Funded by the European Commision, DG Information Society and Media, Unit A2 (Robotics) under the contract No. 288553; Instrument: STREP = Specific targeted research projects
-%    Project start: February 1, 2012
-%    Project end: January 31, 2015
-%    Coordinator: Dr. Sotiris Malassiotis, ITI – Information Technology Institute, Thessaloniki, Greece
-
 
 This bachelor thesis is part of~Clothes Perception and Manipulation project (CloPeMa, 2012-2015) funded by~the~European Commision~\cite[clopema]. CloPeMa is research project which aims to~advance the~state of~the~art in~the~autonomous perception and manipulation of fabrics, textiles and garments. The CLoPeMa robot will learn to manipulate, perceive and fold a~variety of textiles. This bachelor thesis describes the design of method of measurement and extraction of image features.
 
 
-
 \sec Goals
 
-text...
+\lorem
+
+
+\midinsert
+\picw=8cm \cinspic pictures/robotCTU-eps-converted-to.pdf
+\caption/f Manipulator of CloPeMa project location at CTU
+\endinsert
 
 \sec Description of workplace
 
-\medskip
-\picw=8cm \cinspic pictures/robotCTU-eps-converted-to.pdf
-\caption/f Manipulator of CloPeMa project location at CTU
-\medskip
 
 \secc Manipulator
 
-text...
+The base is~composed of~two robotic manipulator arm Motoman~MA1400. First arm is~called as~"r1" (or~also~appears like "R1"). Second arm is similarly marked "r2"~("R2"). The arms "r1" and "r2" are placed on~the~turntable. The turntable is rotated about an~axis known as~"external axis" (or~"Ext." or~possibly as~axis~"13"). Location of~arms and rotating around the~"Ext."~axis can be~better seen from (figure~\ref[fig:motomanAndTable]). Each arm of~manipulator has 6~axes, which is~able to~rotate. The~axes are labeled according to the manufacturer with the~letters "S", "L", "U", "R", "T" and~"B"~(figure~\ref[fig:motomanAxis]). This~designation is~not~enough to~for~recognize them and name of~letters was assigned the~number of~the~on~which this axis are located. Eg.: "S"~axis located on~the~arm~"r1" will be~called "S1", etc. Similarly to~the~designation of~arms we can meet even using small letters~(eg.:~"s1").
+
+\label[fig:motomanAndTable]
+\medskip
+\picw=8cm \cinspic pictures/motomanCelek-eps-converted-to.pdf
+\caption/f Identification of arms and location of external axis.
+\medskip
+
+\label[fig:motomanAxis]
+\medskip
+\picw=8cm \cinspic pictures/motomanMA1400axis-eps-converted-to.pdf
+\caption/f Description of robotic arm Motoman~MA1400 - axis.
+\medskip
 
 \secc End effector
 
-text...
+Each of~arms "r1" and "r2" are ended with eletricly controlled grippers. (figure~\ref[fig:gripper]). Grippers are used to~grasp of~garment. 
 
-\secc Motion sensor %Camcorder
+\label[fig:gripper]
+\medskip
+\picw=8cm \cinspic pictures/gripperXtion-eps-converted-to.pdf
+\caption/f End effector (gripper). a)~gripper, b)~sensor Asus Xtion, c)~end of~arm on~which the~gripper is mounted.
+\medskip
 
-text... Asus Xtion...
+\label[secc:camera]
+\secc Sensors %Camcorder
+
+The~next important part of~manipulator is~camcorder Asus Xtion. This camcorder is~able~to~record RGB~images and depth maps. Camcorder mounted on~the~arm~"r1" is~called "xtion1" and camcorder mounted on~the~arm~"r2" is~called "xtion2". Position of~cameras is~shown in~figure~\ref[fig:gripper].
+
+\label[sec:requirements]
+\sec Requirements of experiment
+
+The requirement on the experiment is to obtain mathematical features by which could be used to estimate the parameters of the dynamic physical model of garment. These symptoms we determine by tracking hanging garment. Movement of hanging garment will cause the movement of the manipulator gripper that holds garment. Based on the sensors that we have available, we have chosen:
+\begitems \style o
+	* simplest movement, which we think could give us the necessary data to obtain the parameters of the dynamic model of garment \mind{lepší překlad}. This movement is the movement of garment in the plane, ideally excited by moving gripper of a garment in a straight line (line segment).
+	* two types of motion tracking
+	\begitems \style a
+		* with standart RGB video camera tracking a silhouette of garment against the constant background when garment is moving {\bf perpendicular to the optical axis}.
+		* with rangefinder tracking when garment is moving {\bf along the optical axis}.
+	\enditems
+\enditems
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

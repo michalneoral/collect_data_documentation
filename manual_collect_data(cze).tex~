@@ -724,7 +724,7 @@ Dle nalezené masky nalezne body. Počet odpovídá zadání. Body jsou rovnomě
   			\item \verb|points| (\textit{matice buněk}) - obsahuje buňky s maticemi poloh bodů. 
     			\end{itemize}
     \end{itemize}
-Dle vzoru bodů přiřadí třetí rozměr ve všech snímcích.
+\red{Zde vložit popis}\\
 
 \red{Zde vložit ukázku získaných dat}
 

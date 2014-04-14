@@ -7,47 +7,72 @@
 \Xpage{-6}
 \Xpage{1}
 \Xchap{1}{Introduction }{1}
+\Xpdfcolork{0 1 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xsec{1.1}{Motivations }{1}
 \Xsec{1.2}{Goals }{1}
+\Xpdfcolork{0 1 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xsec{1.3}{Description of workplace }{1}
 \Xsecc{1.3.1}{Manipulator }{1}
 \Xpage{2}
-\Xsecc{1.3.2}{End effector }{2}
-\Xsecc{1.3.3}{Motion sensor }{2}
+\Xlabel{fig:motomanAndTable}{1.2}
 \Xpage{3}
-\Xchap{2}{Way of getting data }{3}
-\Xsec{2.1}{Realisation }{3}
-\Xsec{2.2}{Positions of Manipulator }{3}
-\Xsecc{2.2.1}{Arm with Motion Sensor }{3}
-\Xsecc{2.2.2}{Arm with Garment }{3}
-\Xsecc{2.2.3}{External axis }{3}
-\Xsec{2.3}{Arm movement }{3}
-\Xsecc{2.3.1}{Move1... }{3}
-\Xsecc{2.3.2}{Move2... }{3}
+\Xlabel{fig:motomanAxis}{1.3}
+\Xsecc{1.3.2}{End effector }{3}
+\Xlabel{fig:gripper}{1.4}
+\Xlabel{secc:camera}{1.3.3}
+\Xsecc{1.3.3}{Sensors }{3}
+\Xlabel{sec:requirements}{1.4}
+\Xsec{1.4}{Requirements of experiment }{3}
 \Xpage{4}
-\Xchap{3}{Data Saving }{4}
-\Xsec{3.1}{Format of Recorded Data }{4}
-\Xsec{3.2}{Topics }{4}
-\Xsec{3.3}{Format of Names of Recorded Files }{4}
+\Xpdfcolork{0 1 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpage{5}
-\Xchap{4}{Data Processing }{5}
+\Xchap{2}{Way of getting data }{5}
+\Xsec{2.1}{Realisation }{5}
+\Xsec{2.2}{Positions of Manipulator }{5}
+\Xsecc{2.2.1}{Arm with Sensors }{5}
+\Xsecc{2.2.2}{Arm with Garment }{5}
 \Xpage{6}
-\Xchap{5}{Results }{6}
+\Xlabel{fig:OptOsa}{2.1}
+\Xlabel{subsec:refRGB}{2.2.3}
+\Xsecc{2.2.3}{External axis }{6}
+\Xsec{2.3}{Arms movement }{6}
+\Xsecc{2.3.1}{Movement of the arm so as garment moved  perpendicularly to the optical axis }{6}
+\Xsecc{2.3.2}{Movement of the arm so as garment moved along to~the~optical axis }{6}
 \Xpage{7}
-\Xchap{6}{Discussion }{7}
+\Xlabel{fig:kolmoOptOsy}{2.2}
+\Xlabel{fig:rovnoOptOsy}{2.3}
 \Xpage{8}
-\Xchap{7}{Conclusion }{8}
-\Xbib{clopema}{1}
-\Xbib{hlavac}{2}
+\Xchap{3}{Data Saving }{8}
+\Xsec{3.1}{Format of Recorded Data }{8}
+\Xsec{3.2}{Topics }{8}
+\Xpdfcolork{0 1 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsec{3.3}{Format of Names of Recorded Files }{8}
+\Xtab{explanation}{3.1}{Explanation of format file name.}
+\Xlabel{explanation}{3.1}
 \Xpage{9}
-\Xchap{!1}{References}{9}
+\Xchap{4}{Data Processing }{9}
+\Xpage{10}
+\Xchap{5}{Results }{10}
 \Xpage{11}
-\Xchap{A}{Specification }{11}
+\Xchap{6}{Discussion }{11}
 \Xpage{12}
-\Xchap{B}{Content of included DVD }{12}
+\Xchap{7}{Conclusion }{12}
+\Xbib{clopema}{1}
+\Xbib{yaskawa}{2}
+\Xbib{hlavac}{3}
 \Xpage{13}
-\Xchap{C}{List of shortcuts }{13}
-\Xpage{14}
-\Xchap{D}{Brief Manual to Get Data Manually }{14}
+\Xchap{!1}{References}{13}
 \Xpage{15}
-\Xchap{E}{Brief Manual for Using in Own Code }{15}
+\Xchap{A}{Specification }{15}
+\Xpage{16}
+\Xchap{B}{Content of included DVD }{16}
+\Xpage{17}
+\Xchap{C}{List of shortcuts }{17}
+\Xpage{18}
+\Xchap{D}{Brief Manual to Get Data Manually }{18}
+\Xpage{19}
+\Xchap{E}{Brief Manual for Using in Own Code }{19}

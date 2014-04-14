@@ -2,3 +2,38 @@
 
 \sec Format of Recorded Data
 
+Data is stored by using rosbag (tool of ROS) in the format ".bag" to the folder saved in the "local_options.py" file ("path_to_workspace/clopema_cvut/"\nl"clopema_collect_model_data/src/local_options.py").
+
+
+\sec Topics
+
+Of reason saving disk space and capacity of the transmission channel are recorded only selected topics which are saved in "topics.txt" ("path_to_workspace/clopema_cvut/"\nl"clopema_collect_model_data/matlab/topics/topics.txt"). For this experiment I~choose these topics:
+
+\mind{Současný stav - předělat - již nevyhovuje}
+\begtt
+/joint_states
+/tf
+/xtion1/depth/camera_info
+/xtion1/depth_registered/camera_info
+/xtion1/projector/camera_info
+/xtion1/rgb/camera_info
+/xtion1/depth/image_raw
+/xtion1/rgb/image_raw
+/xtion1/depth/disparity
+\endtt
+
+\sec Format of Names of Recorded Files
+
+Recorded files have names in the form "name_speed_AX.bag" (table~
+
+\midinsert \clabel[explanation]{Explanation of format file name.}
+\ctable{rl}{
+name & your choosen file name\cr
+speed & choosen speed of manipulator\cr
+A & axis, which was executed movement {\bf R} or {\bf B} (figure~\ref[fig:motomanAxis])\cr
+X & number of topics file\cr
+}
+\caption/t Explanation of format file name.
+\endinsert
+
+
