@@ -3,6 +3,14 @@
 \medskip
 \bgroup \leftskip=6.3em
 \abbrv[CTU]  Czech Technical University in Prague.
+\abbrv[P2P]  A Peer-To-Peer it's type of decentralized network. 
 \abbrv[RGB]  The aditive color model of using Red, Green and Blue colors of lights to create or capture the required color.
-\abbrv[ROS]  
+\abbrv[ROS]  The Robot Operating System - an open source system is used for cotrol robots.  
+\abbrv[URI]  Uniform Resource Identifier.
+
+\abbrv[KESF]  The Kawabata Evaluation System for Fabric is used to measure the mechanical properties of fabrics.
+\abbrv[FAST]  Fabric Assurance by Simple Testing.
+\abbrv[FAMOUS]  Fabric Automatic Measurement and Optimisation Universal System.
+\abbrv[PLMS]  Pucker Laser Measurement System.
+
 \par\egroup

@@ -1,9 +1,53 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{behery2005effect}
+Hassan Behery.
+\newblock {\em Effect of mechanical and physical properties on fabric hand}.
+\newblock Elsevier, 2005.
+
+\bibitem{bender2013adaptive}
+Jan Bender and Crispin Deul.
+\newblock Adaptive cloth simulation using corotational finite elements.
+\newblock {\em Computers \& Graphics}, 37(7):820--829, 2013.
 
 \bibitem{clopema}
 CloPeMa.
 \newblock {\em Clothes Perception and Manipulation}.
-\newblock Visited on 2014-03-20, \url{http://www.clopema.eu/}.
+\newblock Visited on 2014-03-20,
+  \url{http://clopemaweb.felk.cvut.cz/clothes-perception-and-manipulation-clopema-home/}.
+
+\bibitem{kawabata1982objective}
+Sueo Kawabata, R~Postle, and Masako Niwa.
+\newblock {\em Objective specification of fabric quality, mechanical properties
+  and performance}.
+\newblock Textile Machinery Society of Japan, 1982.
+
+\bibitem{lee2013automatic}
+Yongjoon Lee, Jaehwan Ma, and Sunghee Choi.
+\newblock Automatic pose-independent 3d garment fitting.
+\newblock {\em Computers \& Graphics}, 37(7):911--922, 2013.
+
+\bibitem{luible2008simulation}
+Christiane Luible and Nadia Magnenat-Thalmann.
+\newblock The simulation of cloth using accurate physical parameters.
+\newblock {\em CGIM 2008, Insbruck, Austria}, 2008.
+
+\bibitem{rosbag}
+Patrick Mihelich et~al.
+\newblock {\em ROS: Documentation of rosbag package}.
+\newblock Visited on 2014-04-16, \url{http://wiki.ros.org/rosbag}.
+
+\bibitem{minazio1995fast}
+Pier~Giorgio Minazio.
+\newblock Fast--fabric assurance by simple testing.
+\newblock {\em International Journal of Clothing Science and Technology},
+  7(2/3):43--48, 1995.
+
+\bibitem{quigley2009ros}
+Morgan Quigley, Ken Conley, Brian Gerkey, Josh Faust, Tully Foote, Jeremy
+  Leibs, Rob Wheeler, and Andrew~Y Ng.
+\newblock Ros: an open-source robot operating system.
+\newblock In {\em ICRA workshop on open source software}, volume~3, 2009.
 
 \bibitem{yaskawa}
 Yaskawa~Motoman Robotics.
@@ -11,7 +55,25 @@ Yaskawa~Motoman Robotics.
 \newblock Visited on 2014-04-03,
   \url{http://www.motoman.com/datasheets/MA1400.pdf}.
 
-\bibitem{hlavac}
+\bibitem{stylios1991textile}
+George Stylios.
+\newblock {\em Textile objective measurement and automation in garment
+  manufacture}.
+\newblock Ellis Horwood Ltd, 1991.
+
+\bibitem{stylios2005new}
+George~K Stylios.
+\newblock New measurement technologies for textiles and clothing.
+\newblock {\em International Journal of Clothing Science and Technology},
+  17(3-4):3--4, 2005.
+
+\bibitem{xue2013panoramic}
+Kang Xue, Yue Liu, Gbolabo Ogunmakin, Jing Chen, and Jiangen Zhang.
+\newblock Panoramic gaussian mixture model and large-scale range background
+  substraction method for ptz camera-based surveillance systems.
+\newblock {\em Machine vision and applications}, 24(3):477--492, 2013.
+
+\bibitem{hlavac2008}
 Milan ŠONKA, Václav HLAVÁČ, and Roger BOYLE.
 \newblock {\em Image processing, analysis, and machine vision}.
 \newblock Thomson, edition 3 edition, 2008.

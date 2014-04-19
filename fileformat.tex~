@@ -1,15 +1,17 @@
-\chap Data Saving
+\chap Data Structure
+
+For the purpose of the experiment is good data processed offline. It is therefore important to store the measured data to data structure and then in MATLAB calculate the parameters that are important for the experiment~(chap.~\ref[chap:dataproc]). If the results of experiment are good and quick, will be the calculation in the future transformed from MATLAB to the ROS.
+
 
 \sec Format of Recorded Data
 
-Data is stored by using rosbag (tool of ROS) in the format ".bag" to the folder saved in the "local_options.py" file ("path_to_workspace/clopema_cvut/"\nl"clopema_collect_model_data/src/local_options.py").
+Data is stored by using rosbag tool (chap.~\ref[secc:rosintro]) in the format ".bag" to the folder set in the "local_options.py" file \urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/src/local_options.py}.
 
-
+\label[sec:topics]
 \sec Topics
 
-Of reason saving disk space and capacity of the transmission channel are recorded only selected topics which are saved in "topics.txt" ("path_to_workspace/clopema_cvut/"\nl"clopema_collect_model_data/matlab/topics/topics.txt"). For this experiment I~choose these topics:
+The CloPeMa robot can produce over two hundred topics (chap.~\ref[secc:rosintro]) when running. Due to the saving disk space and capacity of the transmission channel are recorded only topics which are important to the evaluation of the exporiment. Selected topics are set in "topics.txt" \urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/matlab/topics/topics.txt} and contains these choosen topics:
 
-\mind{Současný stav - předělat - již nevyhovuje}
 \begtt
 /joint_states
 /tf
@@ -21,14 +23,24 @@ Of reason saving disk space and capacity of the transmission channel are recorde
 /xtion1/rgb/image_raw
 /xtion1/depth/disparity
 \endtt
+\mind{Současný stav - předělat - došlo/dojde ke změně témat}
 
-\sec Format of Names of Recorded Files
 
-Recorded files have names in the form "name_speed_AX.bag" (table~
+\sec Measured Data Set of the Garments
+
+
+\secc Structure of Data Set
+
+\mind{Zde bude popsána datová sada a kde bude uložena}
+
+
+\secc Format of Names of Recorded Files
+
+Recorded files are stored under different names accord to the form "name_speed_AX.bag" (table~\ref[explanation]). 
 
 \midinsert \clabel[explanation]{Explanation of format file name.}
 \ctable{rl}{
-name & your choosen file name\cr
+name & choosen file name by user\cr
 speed & choosen speed of manipulator\cr
 A & axis, which was executed movement {\bf R} or {\bf B} (figure~\ref[fig:motomanAxis])\cr
 X & number of topics file\cr
@@ -36,4 +48,8 @@ X & number of topics file\cr
 \caption/t Explanation of format file name.
 \endinsert
 
+
+\secc Description of the Garments
+
+\mind{Zde bude výčet některých použitých látek jako hmotnosti, rozměry ...}
 
