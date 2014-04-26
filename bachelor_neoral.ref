@@ -9,106 +9,176 @@
 \Xchap{1}{Introduction }{1}
 \Xsec{1.1}{Motivations }{1}
 \Xsec{1.2}{Goals }{1}
-\Xsec{1.3}{The State of Art }{1}
-\Xpdfcolork{0 1 1 0}
+\Xsec{1.3}{The State of the Art }{1}
+\Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
+\Xpdfcolork{1 .43 0 0}
 \Xpage{2}
-\Xchap{2}{Description of Workplace and of the Software }{2}
-\Xlabel{sec:workplace}{2.1}
-\Xsec{2.1}{Workplace }{2}
-\Xsecc{2.1.1}{Manipulator }{2}
+\Xpdfcolork{0 0 0 1}
+\Xpdfcolork{1 .43 0 0}
+\Xpdfcolork{0 0 0 1}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpage{3}
+\Xchap{2}{Description of Workplace and of the Software }{3}
+\Xlabel{sec:workplace}{2.1}
+\Xsec{2.1}{Workplace }{3}
+\Xsecc{2.1.1}{Manipulator }{3}
+\Xpage{4}
 \Xlabel{fig:motomanAndTable}{2.2}
 \Xlabel{fig:motomanAxis}{2.3}
-\Xsecc{2.1.2}{End effector }{3}
-\Xpage{4}
+\Xsecc{2.1.2}{End effector }{4}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xpage{5}
 \Xlabel{fig:gripper}{2.4}
 \Xlabel{secc:camera}{2.1.3}
-\Xsecc{2.1.3}{Sensors }{4}
-\Xsec{2.2}{Software }{4}
-\Xpdfcolork{0 1 1 0}
+\Xsecc{2.1.3}{Sensors }{5}
+\Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
+\Xsec{2.2}{Software }{5}
 \Xlabel{secc:rosintro}{2.2.1}
-\Xsecc{2.2.1}{Brief Introduction to the Robot Operating System }{4}
-\Xpage{5}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xsecc{2.2.1}{Robot Operating System }{5}
 \Xpage{6}
-\Xchap{3}{Way of getting data }{6}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xpage{7}
+\Xchap{3}{Way of getting data }{7}
 \Xlabel{sec:requirements}{3.1}
-\Xsec{3.1}{Requirements of experiment }{6}
+\Xsec{3.1}{Goals of experiment }{7}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xsec{3.2}{Realisation }{6}
-\Xsec{3.3}{Positions of Manipulator }{6}
-\Xpage{7}
-\Xlabel{fig:OptOsa}{3.1}
-\Xsecc{3.3.1}{Arm with Sensors }{7}
-\Xsecc{3.3.2}{Arm with Garment }{7}
-\Xlabel{subsec:refRGB}{3.3.3}
-\Xsecc{3.3.3}{External axis }{7}
-\Xsec{3.4}{Arms movement }{7}
-\Xsecc{3.4.1}{Movement of the arm so as garment moved  perpendicularly to the optical axis }{7}
+\Xsec{3.2}{Realisation }{7}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpage{8}
-\Xsecc{3.4.2}{Movement of the arm so as garment moved along to~the~optical axis }{8}
-\Xlabel{fig:kolmoOptOsy}{3.2}
-\Xlabel{fig:rovnoOptOsy}{3.3}
+\Xsec{3.3}{Positions of Manipulator }{8}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{3.3.1}{Arm with Sensors }{8}
+\Xlabel{fig:OptOsa}{3.1}
+\Xsecc{3.3.2}{Arm with Garment }{8}
+\Xlabel{subsec:refRGB}{3.3.3}
+\Xsecc{3.3.3}{External axis }{8}
+\Xsec{3.4}{Arms movement }{8}
 \Xpage{9}
-\Xchap{4}{Data Structure }{9}
-\Xsec{4.1}{Format of Recorded Data }{9}
+\Xsecc{3.4.1}{Movement of the arm so as garment moved  perpendicularly to the optical axis }{9}
+\Xsecc{3.4.2}{Movement of the arm so as garment moved along to~the~optical axis }{9}
+\Xlabel{fig:kolmoOptOsy}{3.2}
+\Xpage{10}
+\Xlabel{fig:rovnoOptOsy}{3.3}
+\Xpage{11}
+\Xchap{4}{Data Structure }{11}
+\Xsec{4.1}{Format of Recorded Data }{11}
 \Xfnote
 \Xlabel{sec:topics}{4.2}
-\Xsec{4.2}{Topics }{9}
+\Xsec{4.2}{Topics }{11}
 \Xfnote
 \Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xsec{4.3}{Measured Data Set of the Garments }{9}
-\Xsecc{4.3.1}{Structure of Data Set }{9}
+\Xsec{4.3}{Measured Data Set of the Garments }{11}
+\Xsecc{4.3.1}{Structure of Data Set }{11}
 \Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xsecc{4.3.2}{Format of Names of Recorded Files }{9}
-\Xpage{10}
+\Xsecc{4.3.2}{Format of Names of Recorded Files }{11}
+\Xpage{12}
 \Xtab{explanation}{4.1}{Explanation of format file name.}
 \Xlabel{explanation}{4.1}
-\Xsecc{4.3.3}{Description of the Garments }{10}
+\Xsecc{4.3.3}{Description of the Garments }{12}
 \Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xpage{11}
-\Xlabel{chap:dataproc}{5}
-\Xchap{5}{Data Processing }{11}
-\Xsec{5.1}{Load Data to the MATLAB }{11}
-\Xsec{5.2}{Processing of RGB Camera Data for Use silhouettes }{11}
-\Xsecc{5.2.1}{Filtering Background by Use Reference Image }{11}
-\Xsecc{5.2.2}{Finding Central Curve of Garment }{11}
-\Xsecc{5.2.3}{Finding Mathematical Features }{11}
-\Xsec{5.3}{Processing of Rangefinder Data }{11}
-\Xsecc{5.3.1}{Filtering by Depth of Area }{11}
-\Xsecc{5.3.2}{Finding Points }{11}
-\Xsecc{5.3.3}{Finding Mathematical Features }{11}
-\Xpage{12}
-\Xchap{6}{Results }{12}
 \Xpage{13}
-\Xchap{7}{Discussion }{13}
+\Xlabel{chap:dataproc}{5}
+\Xchap{5}{Data Processing }{13}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsec{5.1}{Load Data to the MATLAB }{13}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsec{5.2}{Extraction of Features from RGB }{13}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.2.1}{Rectification of RGB }{13}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.2.2}{Filtering Background by Use Reference Image }{13}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.2.3}{Finding End of Gripper }{13}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.2.4}{Finding Central Curve of Garment }{13}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpage{14}
-\Xchap{8}{Conclusion }{14}
-\Xbib{clopema}{1}
-\Xbib{bender2013adaptive}{2}
-\Xbib{luible2008simulation}{3}
-\Xbib{kawabata1982objective}{4}
-\Xbib{stylios1991textile}{5}
-\Xbib{minazio1995fast}{6}
-\Xbib{stylios2005new}{7}
-\Xbib{quigley2009ros}{8}
-\Xbib{rosbag}{9}
+\Xsecc{5.2.5}{Finding Mathematical Features from RGB }{14}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsec{5.3}{Extraction of Features from Depth Map }{14}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.3.1}{Rectification of Depth Map to 3D points }{14}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.3.2}{Filtering by Depth of Area }{14}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.3.3}{Finding Points }{14}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.3.4}{Finding Mathematical Features from Depth Map }{14}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpage{15}
-\Xchap{!1}{References}{15}
+\Xchap{6}{Results }{15}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 1 1 0}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xpage{16}
+\Xchap{7}{Discussion }{16}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpage{17}
-\Xchap{A}{Specification }{17}
+\Xchap{8}{Conclusion }{17}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xbib{clopema}{1}
+\Xbib{choi2005research}{2}
+\Xbib{bender2013adaptive}{3}
+\Xbib{lee2013automatic}{4}
+\Xbib{luible2008simulation}{5}
+\Xbib{terzopoulos1987elastically}{6}
+\Xbib{breen1994predicting}{7}
+\Xbib{volino1995versatile}{8}
+\Xbib{baraff1998large}{9}
+\Xbib{eischen2000continuum}{10}
+\Xbib{choi2005stable}{11}
+\Xbib{kawabata1982objective}{12}
+\Xbib{stylios2005new}{13}
+\Xbib{ancutiene2010relationship}{14}
+\Xbib{stylios1991textile}{15}
+\Xbib{minazio1995fast}{16}
 \Xpage{18}
-\Xchap{B}{Content of included DVD }{18}
+\Xchap{!1}{References}{18}
+\Xbib{bhat2003estimating}{17}
+\Xbib{charfi2005determination}{18}
+\Xbib{quigley2009ros}{19}
+\Xbib{rosbag}{20}
 \Xpage{19}
-\Xchap{C}{List of shortcuts }{19}
-\Xpage{20}
-\Xchap{D}{Brief Manual to Get Data Manually }{20}
 \Xpage{21}
-\Xchap{E}{Brief Manual for Using in Own Code }{21}
+\Xchap{A}{Specification }{21}
+\Xpage{22}
+\Xchap{B}{Content of included DVD }{22}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xpage{23}
+\Xchap{C}{List of shortcuts }{23}
+\Xpage{24}
+\Xchap{D}{Brief Manual to Get Data Manually }{24}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}

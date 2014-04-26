@@ -1,5 +1,17 @@
 \begin{thebibliography}{10}
 
+\bibitem{ancutiene2010relationship}
+Kristina Ancutien{\.e}, Eugenija Strazdien{\.e}, and Anastasija Nesterova.
+\newblock The relationship between fabrics bending rigidity parameters defined
+  by kes-f and fast equipment.
+\newblock {\em Materials Science= Med{\v{z}}iagotyra}, 16(4):346--352, 2010.
+
+\bibitem{baraff1998large}
+David Baraff and Andrew Witkin.
+\newblock Large steps in cloth simulation.
+\newblock In {\em Proceedings of the 25th annual conference on Computer
+  graphics and interactive techniques}, pages 43--54. ACM, 1998.
+
 \bibitem{behery2005effect}
 Hassan Behery.
 \newblock {\em Effect of mechanical and physical properties on fabric hand}.
@@ -10,11 +22,46 @@ Jan Bender and Crispin Deul.
 \newblock Adaptive cloth simulation using corotational finite elements.
 \newblock {\em Computers \& Graphics}, 37(7):820--829, 2013.
 
+\bibitem{bhat2003estimating}
+Kiran~S Bhat, Christopher~D Twigg, Jessica~K Hodgins, Pradeep~K Khosla, Zoran
+  Popovi{\'c}, and Steven~M Seitz.
+\newblock Estimating cloth simulation parameters from video.
+\newblock In {\em Proceedings of the 2003 ACM SIGGRAPH/Eurographics symposium
+  on Computer animation}, pages 37--51. Eurographics Association, 2003.
+
+\bibitem{breen1994predicting}
+David~E Breen, Donald~H House, and Michael~J Wozny.
+\newblock Predicting the drape of woven cloth using interacting particles.
+\newblock In {\em Proceedings of the 21st annual conference on Computer
+  graphics and interactive techniques}, pages 365--372. ACM, 1994.
+
+\bibitem{charfi2005determination}
+Hatem Charfi, Andr{\'e} Gagalowicz, and R{\'e}mi Brun.
+\newblock Determination of fabric viscosity parameters using iterative
+  minimization.
+\newblock In {\em Computer Analysis of Images and Patterns}, pages 789--798.
+  Springer, 2005.
+
+\bibitem{choi2005research}
+Kwang-Jin Choi and Hyeong-Seok Ko.
+\newblock Research problems in clothing simulation.
+\newblock {\em Computer-Aided Design}, 37(6):585--592, 2005.
+
+\bibitem{choi2005stable}
+Kwang-Jin Choi and Hyeong-Seok Ko.
+\newblock Stable but responsive cloth.
+\newblock In {\em ACM SIGGRAPH 2005 Courses}, page~1. ACM, 2005.
+
 \bibitem{clopema}
 CloPeMa.
 \newblock {\em Clothes Perception and Manipulation}.
 \newblock Visited on 2014-03-20,
   \url{http://clopemaweb.felk.cvut.cz/clothes-perception-and-manipulation-clopema-home/}.
+
+\bibitem{eischen2000continuum}
+J~Eischen and Roberto Bigliani.
+\newblock Continuum versus particle representations.
+\newblock {\em Cloth modeling and animation}, pages 79--122, 2000.
 
 \bibitem{kawabata1982objective}
 Sueo Kawabata, R~Postle, and Masako Niwa.
@@ -66,6 +113,19 @@ George~K Stylios.
 \newblock New measurement technologies for textiles and clothing.
 \newblock {\em International Journal of Clothing Science and Technology},
   17(3-4):3--4, 2005.
+
+\bibitem{terzopoulos1987elastically}
+Demetri Terzopoulos, John Platt, Alan Barr, and Kurt Fleischer.
+\newblock Elastically deformable models.
+\newblock In {\em ACM Siggraph Computer Graphics}, volume~21, pages 205--214.
+  ACM, 1987.
+
+\bibitem{volino1995versatile}
+Pascal Volino, Martin Courchesne, and Nadia Magnenat~Thalmann.
+\newblock Versatile and efficient techniques for simulating cloth and other
+  deformable objects.
+\newblock In {\em Proceedings of the 22nd annual conference on Computer
+  graphics and interactive techniques}, pages 137--144. ACM, 1995.
 
 \bibitem{xue2013panoramic}
 Kang Xue, Yue Liu, Gbolabo Ogunmakin, Jing Chen, and Jiangen Zhang.

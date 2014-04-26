@@ -1,8 +1,36 @@
 \chap Way of getting data
 
+\label[sec:requirements]
+\sec Goals of experiment
+
+\Green
+\begitems \style o
+	* zaměnit správná slovíčka
+	* zlepšit překlad
+\enditems
+\Black
+
+The requirement on the experiment is to obtain mathematical features by which could be used to estimate the parameters of the dynamic physical model of garment. These symptoms we determine by tracking hanging garment. Movement of hanging garment will cause the movement of the manipulator gripper that holds garment. Based on the sensors that we have available, we have chosen:
+\begitems \style o
+	* simplest movement, which we think could give us the necessary data to obtain the parameters of the dynamic model of garment \mind{lepší překlad - zjednodušit}. This movement is the movement of garment in the plane, ideally excited by moving gripper of a garment in a straight line (line segment).
+	* two types of motion tracking
+	\begitems \style a
+		* with standart RGB video camera tracking a silhouette of garment against the constant background when garment is moving {\bf perpendicular to the optical axis}.
+		* with rangefinder tracking when garment is moving {\bf along the optical axis}.
+	\enditems
+\enditems
+
 \sec Realisation
 
 Already during the first experiments, we found that the dynamics of the manipulator is not fast enough to perform the desired movement of the gripper with garment necessary speed. (section~\ref[sec:experiment]). However, it is possible to achieve the required speed when the motion will be based on a single joint. That is why we had to limit the movement of the gripper with the garment implemented that the movement of gripper along line segment is approximated by moving the gripper on the part of the circle. Another limitation is the spatial limitation, such that it is not possible to place the camera "xtion" in the appropriate position to capture RGB images (ie, the position where the gripper with garment moves perpendicular to the optical axis) and then the camera "xtion" move to position suitable for capturing depth maps (ie, the position where the gripper with garment moves along the optical axis). These restrictions are solved via camera "xtion" position (ie the position of the arm with the camera) which is fixed in the same position for record RGB videos as well as for sensing depth maps. Instead, the arm with garment makes a move of gripper with two different ways so that the movements fulfilled the conditions for sensing with each sensors (chap.~\ref[sec:experiment] --- perpendicular position vs. along the optical axis).
+
+\Green
+\begitems \style o
+	* Přidat obrázek k odstavci realisation
+	* Více rozvést odstavec 18:50-21:20
+	* Obrázek zesvětli a popsat i gripper
+\enditems
+\Black
 
 
 \sec Positions of Manipulator

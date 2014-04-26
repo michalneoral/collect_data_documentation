@@ -1,3 +1,11 @@
 %\chap Conclusion
-\chap Result
+\chap Results
 
+		\Green
+		\begitems \style o
+			* V této kapitole \Red VYMYSLET \Green a provést statistiku typu: 5x jsem naměřil po sobě stejným způsobem stejnou látku (provést u více látek) a srovnat, zdali jsou si výsledky podobné na nějaké hladině významnosti.
+			* Naměřit více různých látek a zjistit, zda-li jsou si látky podobné (neměli by být) na nějaké hladině významnosti.
+			* Případně tuto statistiku vložit do příloh a sepsat zde jen výsledky a rozebrat je.
+			* Provést pro RGB i DepthMap data
+		\enditems
+		\Black

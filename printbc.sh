@@ -8,6 +8,7 @@ function napoveda (){
 	echo "-p   vytvori pdf"
 	echo "-r   odstrani docasne a \"vyrobni\" soubory"
 	echo "-a   all"
+	echo "-z   spocita vsechny znaky"
 	exit
 }
 
@@ -21,7 +22,6 @@ function all (){
 	bibtex ref;
 	pdfcsplain bachelor_neoral;
 	pdfcsplain bachelor_neoral;
-	exit
 }
 
 function bib (){
@@ -30,6 +30,10 @@ function bib (){
 	bibtex ref;
 	bibtex ref;
 	exit
+}
+
+function znaky (){
+    pdftotext bachelor_neoral.pdf - | wc -m;
 }
 
 function rem (){
@@ -50,14 +54,16 @@ b_par=false;
 a_par=false;
 p_par=false;
 r_par=false;
+z_par=false;
 
 #zpracovani parametru
-while getopts 'hbaprf:' Option; do
+while getopts 'hbapzrf:' Option; do
 	case ${Option} in
 		h)	h_par=true;;
 		b)	b_par=true;;
 		a)	a_par=true;;
 		p)	p_par=true;;
+		z)	z_par=true;;
 		r)	r_par=true;;
 		f)	p_par=true;;
 	esac
@@ -79,8 +85,12 @@ if $p_par; then
   pdf 
 fi
 
+if $z_par; then
+  znaky 
+fi
+
 if $r_par; then
   rem 
 fi
 
-napoveda
+exit

@@ -1,15 +1,19 @@
 \chap Description of Workplace and of the Software
 
+\label[sec:workplace]
 \sec Workplace
+
+\secc Manipulator
+
+
+The base is~composed of~two robotic manipulator arm Motoman~MA1400. First arm is~called as~"r1" (or~also~appears like "R1"). Second arm is similarly marked "r2"~("R2"). The arms "r1" and "r2" are placed on~the~turntable. The turntable is rotated about an~axis known as~"external axis" (or~"Ext." or~possibly as~axis~"13"). Location of~arms and rotating around the~"Ext."~axis can be~better seen from (figure~\ref[fig:motomanAndTable]). 
 
 \midinsert
 \picw=8cm \cinspic pictures/robotCTU-eps-converted-to.pdf
 \caption/f Manipulator of CloPeMa project location at CTU
 \endinsert
 
-\secc Manipulator
-
-The base is~composed of~two robotic manipulator arm Motoman~MA1400. First arm is~called as~"r1" (or~also~appears like "R1"). Second arm is similarly marked "r2"~("R2"). The arms "r1" and "r2" are placed on~the~turntable. The turntable is rotated about an~axis known as~"external axis" (or~"Ext." or~possibly as~axis~"13"). Location of~arms and rotating around the~"Ext."~axis can be~better seen from (figure~\ref[fig:motomanAndTable]). Each arm of~manipulator has 6~axes, which is~able to~rotate. The~axes are labeled according to the manufacturer with the~letters "S", "L", "U", "R", "T" and~"B"~(figure~\ref[fig:motomanAxis]). This~designation is~not~enough to~for~recognize them and name of~letters was assigned the~number of~the~on~which this axis are located. Eg.: "S"~axis located on~the~arm~"r1" will be~called "S1", etc. Similarly to~the~designation of~arms we can meet even using small letters~(eg.:~"s1").
+Each arm of~manipulator has 6~rotation axes. The~axes are labeled according to the manufacturer with the~letters "S", "L", "U", "R", "T" and~"B"~(figure~\ref[fig:motomanAxis]). This is description of single the arm of robot. Numeral is added to identify the arms e.g. "S"~axis located on~the~arm~"r1" will be~called "S1", etc. Similarly to~the~designation of~arms we can meet even using small letters~(eg.:~"s1").
 
 \label[fig:motomanAndTable]
 \medskip
@@ -25,7 +29,13 @@ The base is~composed of~two robotic manipulator arm Motoman~MA1400. First arm is
 
 \secc End effector
 
-Each of~arms "r1" and "r2" are ended with eletricly controlled grippers. (figure~\ref[fig:gripper]). Grippers are used to~grasp of~garment. 
+Each of~arms "r1" and "r2" are ended with eletricly controlled grippers. (figure~\ref[fig:gripper]). Grippers are designed for~grasping of~garment.
+\Green
+\begitems \style o
+* Rozvést
+* Popsat prsty
+\enditems
+\Black 
 
 \label[fig:gripper]
 \medskip
@@ -36,14 +46,22 @@ Each of~arms "r1" and "r2" are ended with eletricly controlled grippers. (figure
 \label[secc:camera]
 \secc Sensors %Camcorder
 
+\Green
+\begitems \style o
+	* Robot je vybaven řadou senzorů...
+	* Popsat více senzorů (alespoň základně)
+	* Pro řešení vybrat důležité
+	* Nepoužívat camcorder
+\enditems
+\Black
+
 The~next important part of~manipulator is~camcorder Asus Xtion. This camcorder is~able~to~record RGB~images and depth maps. Camcorder mounted on~the~arm~"r1" is~called "xtion1" and camcorder mounted on~the~arm~"r2" is~called "xtion2". Position of~cameras is~shown in~figure~\ref[fig:gripper].
 
 
 
 \sec Software
 
-Robot is operated using Robot Operating System (ROS). ROS is an open-source system. ROS is not an operating system in the traditional sense of process management and scheduling. Rather, it provides a structured communications layer above the host operating systems of a heterogenous compute cluster~\cite[quigley2009ros]. In CloPeMa project is used Ubuntu as a host operating system.
-\mind{Psát i hardware? Zmínit více i použití UBUNTU?}
+Robot is operated using Robot Operating System (ROS). ROS is an open-source system. ROS is not an operating system in the traditional sense of process management and scheduling. Rather, it provides a structured communications layer above the host operating systems of a heterogenous compute cluster~\cite[quigley2009ros]. In CloPeMa project is used Ubuntu (Debian-based Linux OS) as a host operating system.
 
 
 \label[secc:rosintro]
@@ -53,9 +71,17 @@ A system built using ROS consists of a number of processes, potentially on a num
 
 {\bf Nodes} are processes that perform computation. ROS is designed to be modular. A system is typically comprised of many nodes. In this context, the term ''node'' is interchangable with ''software module''. Nodes communicate with each other by passing messages. A {\bf message} is a a strictly typed data structure. Standard primitive types (integer, floating point, boolean, etc.) are supported. Arrays of primitive types and constants are supported too. Messages can be composed of other messages, and arrays of other messages, nested arbitrarily deep. A node sends a message by publishing it to a given {\bf topic}. A node that is interested in a certain kind of data will subscribe to the appropriate topic. There may be multiple concurrent publishers and subscribers for a single topic, and a single node may publish and/or subscribe to multiple topics. In general, publishers and subscribers are not aware of each others existence~\cite[quigley2009ros].
 
-Although the topic-based publish-subscribe model is a flexible communications paradigm, its ''roadcast'' routing scheme is not appropriate for synchronous transactions, which can simplify the design of some nodes. In ROS, we call this a {\bf service}, defined by a string name and a pair of strictly typed messages: one for the request and one for the response. This is analogous to web services, which are defined by URIs and have request and response documents of well-defined types. Note that, unlike topics, only one node can advertise a service of any particular name: there can only be one service called ''classify imag'', for example, just as there can only be one web service at any given URI~\cite[quigley2009ros].
-\mind{Je podstatný tento odstavec? Nikde o službách nehovořím.}
+Although the topic-based publish-subscribe model is a flexible communications paradigm, its ''broadcast'' routing scheme is not appropriate for synchronous transactions, which can simplify the design of some nodes. In ROS, we call this a {\bf service}, defined by a string name and a pair of strictly typed messages: one for the request and one for the response. This is analogous to web services, which are defined by URIs and have request and response documents of well-defined types. Note that, unlike topics, only one node can advertise a service of any particular name: there can only be one service called ''classify imag'', for example, just as there can only be one web service at any given URI~\cite[quigley2009ros].
+\Green
+\begitems \style o
+	* Mírně zkrátit - odstranit příklady
+\enditems
+\Black
 
 In the ROS are designed a large number of tools e.g. for get and set configuration parameters, for plotting or visualisation. For this project is important a {\bf rosbag tool}. This is basucally a set of tools for recording from and playing back to ROS topics~\cite[rosbag]. With help of this tool we can record choosen topics, including timestamp, to the "*.bag" file.
-
+\Green
+\begitems \style o
+	* Rozvést co dělá rosbag tool, 14:45-16:10
+\enditems
+\Black
 

@@ -1,20 +1,125 @@
 \label[chap:dataproc]
 \chap Data Processing
 
+		\Green
+		\begitems \style o
+			* U všech obrázku níže udělat alternativu (lépe dvě) a tu vložit do přílohy a odkázat na ní
+		\enditems
+		\Black
+
 \sec Load Data to the MATLAB
 
-\sec Processing of RGB Camera Data for Use silhouettes
+\sec Extraction of Features from RGB
+
+		\Green
+		\begitems \style o
+			* Pohovořit v kostce, co očekávám, že dostanu z těchto dat a stručně, jak budu postupovat.
+			* Obrázek syrových dat 4 pcs
+		\enditems
+		\Black
+
+\secc Rectification of RGB
+
+		\Green
+		\begitems \style o
+			* Popsat, jak opravím RGB snímek + obrázek
+		\enditems
+		\Black
 
 \secc Filtering Background by Use Reference Image
 
+		\Green
+		\begitems \style o
+			* Způsob filtrace proti pozadí - napsat vzorec
+			* Popsat i použité morphologické operace pro zkvalitnění siluety (možná vlastní secc)
+			* Obrázek siluety 4 pcs
+		\enditems
+		\Black
+
+\secc Finding End of Gripper
+
+		\Green
+		\begitems \style o
+			* Popsat, jak naleznu oblast, kterou opisuje chapadlo při hýbání s látkou a jak z tohoto pohybu naleznu konec chapadlo v obraze
+			* Obrázek s vyznačenou kružnicí a bodem jako koncem gripperu
+		\enditems
+		\Black
+
 \secc Finding Central Curve of Garment
 
-\secc Finding Mathematical Features
+		\Green
+		\begitems \style o
+			* Napsat, jak hledám osu bramboroidu
+			* Popsat zde zavrhnuté metody
+			\begitems \style o
+				* Kostra grafu + obrázky + proč jsem to nepoužil
+				* Střed dle y osy + obrázek + proč jsem to nepoužil
+			\enditems
+			* Obrázky postupného nalezení osy bramborouidu (při aproximaci udělat více obrázků)
+		\enditems
+		\Black
 
-\sec Processing of Rangefinder Data
+\secc Finding Mathematical Features from RGB
+
+		\Green
+		\begitems \style o
+			* Popsat, jak z osy bramboroidu naleznu body, které předávám jako výstup
+			* Obrázky se siluetou a v ní s body
+		\enditems
+		\Black
+
+
+
+
+
+
+\sec Extraction of Features from Depth Map
+
+		\Green
+		\begitems \style o
+			* Pohovořit v kostce, co očekávám, že dostanu z těchto dat a stručně, jak budu postupovat.
+			* Obrázky surových dat - depthmap
+		\enditems
+		\Black
+
+\secc Rectification of Depth Map to 3D points
+
+		\Green
+		\begitems \style o
+			* Popsat způsob, napsat vzorec
+			* obrázky předělaného depthmap do 3D points
+		\enditems
+		\Black
 
 \secc Filtering by Depth of Area
 
+		\Green
+		\begitems \style o
+			* Jak filtruji dle vzdálenosti pouze tak, aby mi zůstala hýbající se látka
+			* Obrázek filtrovaný dle hloubky
+		\enditems
+		\Black
+
 \secc Finding Points
 
-\secc Finding Mathematical Features
+		\Green
+		\begitems \style o
+			* Nalezení gripperu
+			* Vytvoření pole bodů s osou procházející gripperem
+			* Nápady:
+				\begitems \style o
+				* snímat body v poly rozvnoměrně
+				* snímat body ve sloupci dle osy
+				* snímat celé tlusté řádky
+				\enditems
+			* Přiřadit obrázky
+		\enditems
+		\Black
+
+\secc Finding Mathematical Features from Depth Map
+
+		\Green
+		\begitems \style o
+			* Nalezení a vyplivnutí bodů ke zpracování
+		\enditems
+		\Black

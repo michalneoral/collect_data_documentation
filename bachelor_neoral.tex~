@@ -4,6 +4,7 @@
 
 \def\mind#1{\Red{\bf#1}\Black}
 \def\dopln{\mind{DOPLŇ~ODKAZ!}}
+\def\task#1{\Green{#1}\Black}
 \def\lorem{\mind{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu dolor, congue sit amet pellentesque vitae, semper ac ligula. Nam eu elit erat. Phasellus pretium at tellus sed commodo. Quisque auctor metus eu diam pretium pulvinar. Curabitur posuere ligula sed dapibus aliquet. Sed aliquet malesuada felis, vel aliquam lacus laoreet non. Pellentesque in tristique erat. Ut mollis consequat interdum. Integer orci velit, venenatis sed ligula et, pretium dapibus sem. Nam rhoncus urna sed urna volutpat congue. Ut suscipit ipsum vel.}}
 %\def\lorem{\mind{Vymyslet text}}
 
@@ -80,13 +81,13 @@
 
 % Bibliografie
 \bibchap
-\usebbl/a ref  % finalní verze musí být /c
+\usebbl/c ref  % finalní verze musí být /c
 
 % Přílohy
 \input specifications
 \input dvdContent
 \input shortcuts
 \input manualcollect
-\input automaticcollect
+%\input automaticcollect
 
 \bye
