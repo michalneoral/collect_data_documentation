@@ -5,7 +5,6 @@
 
 \secc Manipulator
 
-
 The base is~composed of~two robotic manipulator arm Motoman~MA1400. First arm is~called as~"r1" (or~also~appears like "R1"). Second arm is similarly marked "r2"~("R2"). The arms "r1" and "r2" are placed on~the~turntable. The turntable is rotated about an~axis known as~"external axis" (or~"Ext." or~possibly as~axis~"13"). Location of~arms and rotating around the~"Ext."~axis can be~better seen from (figure~\ref[fig:motomanAndTable]). 
 
 \midinsert
@@ -17,25 +16,26 @@ Each arm of~manipulator has 6~rotation axes. The~axes are labeled according to t
 
 \label[fig:motomanAndTable]
 \medskip
-\picw=8cm \cinspic pictures/motomanCelek-eps-converted-to.pdf
+\picw=9cm \cinspic pictures/motomanCelek-eps-converted-to.pdf
 \caption/f Identification of arms and location of external axis.
 \medskip
 
 \label[fig:motomanAxis]
 \medskip
-\picw=8cm \cinspic pictures/motomanMA1400axis-eps-converted-to.pdf
+\picw=9cm \cinspic pictures/motomanMA1400axis-eps-converted-to.pdf
 \caption/f Description of robotic arm Motoman~MA1400 - axis.
 \medskip
 
-\secc End effector
 
-Each of~arms "r1" and "r2" are ended with eletricly controlled grippers. (figure~\ref[fig:gripper]). Grippers are designed for~grasping of~garment.
-\Green
-\begitems \style o
-* Rozvést
-* Popsat prsty
-\enditems
-\Black 
+\eject
+
+\secc End Effector
+
+Each of~arms "r1" and "r2" are ended with eletricly controlled grippers (figure~\ref[fig:gripper]). Grippers are designed for~grasping garment.
+\Blue
+The prototype of gripper was developed especialy for CloPeMa project by the University of Genoa. The gripper is composed of two supple fingers. Supple fingers are used for lifting garments from the table. Gripper has a tactile sensor at the ''finger tips''to sense the garment material using little rubbing motions between the ''gripper finger''~\cite[clopema]. 
+\Black \mind{použít SOFT místo SUPPLE?}
+
 
 \label[fig:gripper]
 \medskip
@@ -46,16 +46,29 @@ Each of~arms "r1" and "r2" are ended with eletricly controlled grippers. (figure
 \label[secc:camera]
 \secc Sensors %Camcorder
 
-\Green
-\begitems \style o
-	* Robot je vybaven řadou senzorů...
-	* Popsat více senzorů (alespoň základně)
-	* Pro řešení vybrat důležité
-	* Nepoužívat camcorder
+\Blue
+The robot has been setup with a variety of sensors:
+\begitems \style X
+	* Robot Binocular-Vision Head	
+		\begitems \style x
+			* The robot head comprises two Nikon D5100 DSLR cameras. These are mounted on two pan and tilt units. The head provides the robot system with high resolution 3D points clouds~\cite[clopema].
+		\enditems
+	* Photometric Stereo Gripper-Mounted Sensor
+		\begitems \style x
+			* The is a small scale close range stereo-pair camera sensor. The sensors captures at 1280$\times$800~px resolution and has software support to do 3D reconstruction of close-range garment surface~\cite[clopema].			
+		\enditems
+	* Wrist Force-Torque Sensor
+		\begitems \style x
+			* ATI Mini45 FT six-axis force/torque sensor is integrated in the wrist of one gripper. It is used to sense for contact of the gripper with table and for feedback for the robot system when stretching out a held-up piece of clothing~\cite[clopema].
+		\enditems
+	* Xtions
+		\begitems \style x
+			* Asus Xtion Pro Live sensor is~able~to~record RGB~images and depth maps. The robot has two to three these sensors --- one on the each arm~\cite[clopema].
+		\enditems
 \enditems
+Xtion sensor is for our purposes the most suitable. Xtion has sufficient rosolution of RGB image and depth map. In addition, Xtion has a sufficient number of frames per second (compared to slower stereo-pair).
 \Black
-
-The~next important part of~manipulator is~camcorder Asus Xtion. This camcorder is~able~to~record RGB~images and depth maps. Camcorder mounted on~the~arm~"r1" is~called "xtion1" and camcorder mounted on~the~arm~"r2" is~called "xtion2". Position of~cameras is~shown in~figure~\ref[fig:gripper].
+Xtion mounted on~the~arm~"r1" is~called "xtion1" and Xtion mounted on~the~arm~"r2" is~called "xtion2". Position of~cameras is~shown in~figure~\ref[fig:gripper].
 
 
 
@@ -71,17 +84,22 @@ A system built using ROS consists of a number of processes, potentially on a num
 
 {\bf Nodes} are processes that perform computation. ROS is designed to be modular. A system is typically comprised of many nodes. In this context, the term ''node'' is interchangable with ''software module''. Nodes communicate with each other by passing messages. A {\bf message} is a a strictly typed data structure. Standard primitive types (integer, floating point, boolean, etc.) are supported. Arrays of primitive types and constants are supported too. Messages can be composed of other messages, and arrays of other messages, nested arbitrarily deep. A node sends a message by publishing it to a given {\bf topic}. A node that is interested in a certain kind of data will subscribe to the appropriate topic. There may be multiple concurrent publishers and subscribers for a single topic, and a single node may publish and/or subscribe to multiple topics. In general, publishers and subscribers are not aware of each others existence~\cite[quigley2009ros].
 
-Although the topic-based publish-subscribe model is a flexible communications paradigm, its ''broadcast'' routing scheme is not appropriate for synchronous transactions, which can simplify the design of some nodes. In ROS, we call this a {\bf service}, defined by a string name and a pair of strictly typed messages: one for the request and one for the response. This is analogous to web services, which are defined by URIs and have request and response documents of well-defined types. Note that, unlike topics, only one node can advertise a service of any particular name: there can only be one service called ''classify imag'', for example, just as there can only be one web service at any given URI~\cite[quigley2009ros].
-\Green
-\begitems \style o
-	* Mírně zkrátit - odstranit příklady
-\enditems
+Although the topic-based publish-subscribe model is a flexible communications paradigm, its ''broadcast'' routing scheme is not appropriate for synchronous transactions, which can simplify the design of some nodes. In ROS, we call this a {\bf service}, defined by a string name and a pair of strictly typed messages: one for the request and one for the response~\cite[quigley2009ros].
+
+In the ROS are designed a large number of tools e.g. for get and set configuration parameters, for plotting or visualisation. For this project is important a {\bf rosbag tool}. This is basucally a set of tools for recording from and playing back to ROS topics~\cite[rosbag]. With help of this tool we can record
+\Blue all or just some \Black chosen topics. 
+\Blue
+The chosen topics are passed like parameters to the rosbag tool. The rosbag tool records all published messages from chosen topics, including timestamp.
+  The tool stores timestamped messages to a specially formatted "*.bag" file (also "bagfile" or "rosbag-file"). The rosbag tool can later replay these messages from rosbag file too. 
 \Black
 
-In the ROS are designed a large number of tools e.g. for get and set configuration parameters, for plotting or visualisation. For this project is important a {\bf rosbag tool}. This is basucally a set of tools for recording from and playing back to ROS topics~\cite[rosbag]. With help of this tool we can record choosen topics, including timestamp, to the "*.bag" file.
-\Green
-\begitems \style o
-	* Rozvést co dělá rosbag tool, 14:45-16:10
-\enditems
-\Black
+
+
+
+
+
+
+
+
+
 

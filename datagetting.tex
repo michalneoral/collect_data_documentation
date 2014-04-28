@@ -3,48 +3,46 @@
 \label[sec:requirements]
 \sec Goals of experiment
 
-\Green
-\begitems \style o
-	* zaměnit správná slovíčka
-	* zlepšit překlad
-\enditems
-\Black
-
-The requirement on the experiment is to obtain mathematical features by which could be used to estimate the parameters of the dynamic physical model of garment. These symptoms we determine by tracking hanging garment. Movement of hanging garment will cause the movement of the manipulator gripper that holds garment. Based on the sensors that we have available, we have chosen:
-\begitems \style o
-	* simplest movement, which we think could give us the necessary data to obtain the parameters of the dynamic model of garment \mind{lepší překlad - zjednodušit}. This movement is the movement of garment in the plane, ideally excited by moving gripper of a garment in a straight line (line segment).
-	* two types of motion tracking
+The requirement on the experiment is to obtain mathematical features by which could be used to estimate the parameters of the dynamic physical model of garment. These features we determine by tracking hanging garment. Movement of hanging garment will be causes the movement of the manipulator gripper that holds garment. Based on the sensors that we have available, we have chosen:
+\begitems \style X
+	* \Blue simplest movement, which could give us the necessary data. Data that could be used to obtain the features of the dynamic model of garment. \Black This movement is the movement of garment in the plane, ideally excited by moving gripper of a garment in a straight line (line segment),
+	* two types of motion capturing:
 	\begitems \style a
-		* with standart RGB video camera tracking a silhouette of garment against the constant background when garment is moving {\bf perpendicular to the optical axis}.
-		* with rangefinder tracking when garment is moving {\bf along the optical axis}.
+		* with standart RGB video camera capturing a silhouette of garment against the constant background when garment is moving {\bf perpendicular to the optical axis},
+		* with rangefinder capturing when garment is moving {\bf along the optical axis}.
 	\enditems
 \enditems
 
 \sec Realisation
 
-Already during the first experiments, we found that the dynamics of the manipulator is not fast enough to perform the desired movement of the gripper with garment necessary speed. (section~\ref[sec:experiment]). However, it is possible to achieve the required speed when the motion will be based on a single joint. That is why we had to limit the movement of the gripper with the garment implemented that the movement of gripper along line segment is approximated by moving the gripper on the part of the circle. Another limitation is the spatial limitation, such that it is not possible to place the camera "xtion" in the appropriate position to capture RGB images (ie, the position where the gripper with garment moves perpendicular to the optical axis) and then the camera "xtion" move to position suitable for capturing depth maps (ie, the position where the gripper with garment moves along the optical axis). These restrictions are solved via camera "xtion" position (ie the position of the arm with the camera) which is fixed in the same position for record RGB videos as well as for sensing depth maps. Instead, the arm with garment makes a move of gripper with two different ways so that the movements fulfilled the conditions for sensing with each sensors (chap.~\ref[sec:experiment] --- perpendicular position vs. along the optical axis).
+\Blue
+Both arms of manipulator are used for the experiment. One arm causes a movement of garment that is held by the gripper of this arm. Xtion sensor (\ref[secc:camera]), located on the second arm, is used for capturing the movement.
 
-\Green
-\begitems \style o
-	* Přidat obrázek k odstavci realisation
-	* Více rozvést odstavec 18:50-21:20
-	* Obrázek zesvětli a popsat i gripper 21:20-22:30
-\enditems
+Movement along a straight line or line segment (chap.~\ref[sec:requirements]) requires synchronous movement of the all axes. This movement is ensured thus that the end of gripper slide on the selected points on the line segment. If robot is in the mode ''controlled by ROS'', 
 \Black
+we found that the dynamics of the manipulator is not fast enough to perform the desired movement of the gripper with garment necessary speed.
 
+\Blue
+However, it is possible to achieve the required speed when the motion is based on a movement of a one axis. The synchronous movement of all axes was replaced by a motion a one axis, which may not be synchronous with the other. Thus the movement of gripper along line segment is approximated by moving the gripper on the part of the circle.  
 
-\sec Positions of Manipulator
+We decided capture the movement of garment in two ways. We use both possibilities of Xtion sensor --- capturing RGB images and depthmaps too. When garment is moving perpendicular to the optical axis, will be captured RGB images. When garment is moving along the optical axis, will be captured depthmaps. We need background subtraction for processing RGB images. Background subtraction needs RGB image without garment on foreground.
 
-\Green
-\begitems \style o
-	* Rozdělit podkapitoly 3.3 a 3.4 jinak; 22:30-24:40, 25:25-30:00
-\enditems
 \Black
+Another limitation is the spatial limitation, such that it is not possible to place the camera "xtion" in the appropriate position to capture RGB images (ie, the position where the gripper with garment moves perpendicular to the optical axis) and then the camera "xtion" move to position suitable for capturing depth maps (ie, the position where the gripper with garment moves along the optical axis). These restrictions are solved via camera "xtion" position (ie the position of the arm with the camera) which is fixed in the same position for record RGB videos as well as for sensing depth maps. Instead, the arm with garment makes a move of gripper with two different ways so that the movements fulfilled the conditions for sensing with each sensors (perpendicular position vs. along the optical axis). \mind{OBRÁZEK - Ale jaký?}
 
-\secc Arm with Sensors
 
-The record is captured with camera "xtion1" mounted on the arm "r1".  The arm "r1" moves into position where the optical axis of the camera heads horizontally. Simultaneously is the optical axis of the camera oriented towards arm "r2" (figure~\ref[fig:OptOsa] ).
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
 
+\Blue
+
+\label[sec:caprgb]
+\sec Capturing of RGB
+
+\label[secc:extrgb]
+\secc External Axis 
 
 \label[fig:OptOsa]
 \midinsert
@@ -53,44 +51,125 @@ The record is captured with camera "xtion1" mounted on the arm "r1".  The arm "r
 \endinsert
 
 
-\secc Arm with Garment
-
-\label[subsec:refRGB]
-Garment is held by gripper mounted on arm "r2". Arm "r2" have two basic positions:
-\begitems \style o
-	* {\bf Position for Measurement} --- The arm "r2" is in a position and ready for execution experiment. The arm "r2" holds garment in the gripper. The arm "r2" is in a height at which camera "xtion1" can capture movement of garment. The arm "r2" is in a position which it can perform movement required for the experiment (chap.~\ref[sec:experiment] a chap~\ref[sec:moveArm]).
-	* {\bf Position for Reference Image} --- This position is used for record a reference image of background, for improve results of the experiment. The record is used for filtering background from RGB image. The reference image of background is captured that the arm "r2" (in which gripper is held garment) change position so that the arm "r2" was completely out of recorded area of "xtion1".  In this position is performed the record of background and the arm "r2" with the garment was returned to the position of measurement.
-More to filtering out background will deal in chapter~\ref[secc:matfiltr].
-\enditems
-
-\secc External axis
-
-"Ext."~axis (axis~"13") is rotated so that in the background of captured garment is as least as possible disturbing objects. The best is single color flat surface.
-
-\sec Arms movement
-
-\secc Movement of the arm so as garment moved \nl
-perpendicularly to the optical axis
-
-The arm "r1" does not perform any movement and is in the position described in the chapter \ref[sec:posArmR1]. In gripper of arm "r2" is held garment. The arm "r2" makes a desired movement with this garment so that it rotates about an axis "B" certain angle and will return back to initial position. For better describe of the movement is movement mooted in the figure \ref[fig:kolmoOptOsy]. This movement is suitable for capturing with RGB camera.
-
-
-\secc Movement of the arm so as garment moved along to~the~optical axis
-
-The arm "r1" does not perform any movement and is in the position described in the chapter \ref[sec:posArmR1]. In gripper of arm "r2" is held garment. The arm "r2" makes a desired movement with this garment so that it rotates about an axis "R" certain angle and will return back to initial position. For better describe of the movement is movement mooted in the figure \ref[fig:rovnoOptOsy]. This movement is suitable for capturing with rangefinder.
-
-
 \label[fig:kolmoOptOsy]
 \midinsert
 \picw=8cm \cinspic pictures/move1-eps-converted-to.pdf
 \caption/f Suggestion of movements of gripper with garment perpendicular to optical axis. a) mooted of field of vision of camera xtion1, b)~garment, c)~arm~r1, d)~arm~r2.
 \endinsert
 
+"Ext."~axis (axis~"13") is rotated so that in the background of captured garment is as least as possible disturbing objects. The best is single color flat surface. The "ext."~axis is stationary during the experiment.
+
+\label[secc:r1rgb]
+\secc Arm with Xtion Sensor
+
+The record is captured with camera "xtion1" mounted on the arm "r1".  The arm "r1" moves into position where the optical axis of the camera heads horizontally. Simultaneously is the optical axis of the camera oriented towards arm "r2" (figure~\ref[fig:OptOsa] ). The arm "r1" is stationary during the experiment.
+
+\secc Arm with Garment
+
+\label[subsec:refRGB]
+Garment is held by gripper mounted on arm "r2". The arm "r2" is in a height at which camera "xtion1" can capture movement of garment. The arm "r2" is in a position which it can perform movement required for the experiment (chap.~\ref[sec:requirements]). The arm "r2" makes movement so as garment moved perpendicularly to the optical axis. The arm "r2" makes a desired movement with the garment so that it rotates about an axis "B" certain angle and will return back to initial position. For better describe of the movement is movement mooted in the figure \ref[fig:kolmoOptOsy].
+
+\sec Capturing of Depth maps
+
+
+
+\secc External axis
+
+"Ext."~axis (axis~"13") is rotated as in the case of capturing of RGB (chap.~\ref[secc:extrgb]).
+
+\secc Arm with Xtion sensor
+
+The arm "r1" is into same position as in case of capturing of RGB (chap.~\ref[secc:r1rgb]).
+
 \label[fig:rovnoOptOsy]
 \medskip
 \picw=8cm \cinspic pictures/move2-eps-converted-to.pdf
 \caption/f Suggestion of movements of gripper with garment along to optical axis. a)~mooted of field of vision of camera xtion1, b)~garment, c)~arm~r1, d)~arm~r2.
 \medskip
+
+\eject
+
+\secc Arm with Garment
+
+Garment is held by gripper mounted on arm "r2". The arm "r2" is in a height at which camera "xtion1" can capture movement of garment. The arm "r2" is in a position which it can perform movement required for the experiment (chap.~\ref[sec:requirements]). The arm "r2" makes movement so as garment moved along to~the~optical axis. The arm "r2" makes a desired movement with the garment so that it rotates about an axis "R" certain angle and will return back to initial position. For better describe of the movement is movement mooted in the figure \ref[fig:rovnoOptOsy].
+
+
+
+\sec Capturing Background Image
+
+This position is used for captire a reference image of background, for improve results of the experiment. The captured image is used for filtering background (background substraction) from RGB image. More to background substraction is deal in chapter~\ref[secc:matfiltr].
+
+\secc External axis
+
+"Ext."~axis (axis~"13") is rotated as in the case of capturing of RGB (chap.~\ref[secc:extrgb]).
+
+\secc Arm with Xtion sensor
+
+The arm "r1" is into same position as in case of capturing of RGB (chap.~\ref[secc:r1rgb]).
+
+\secc Arm with Garment
+
+The reference image of background is captured that the arm "r2" (in which gripper is held garment) change position so that the arm "r2" is completely out of captured area of "xtion1".  In this position is performed the capture of background and the arm "r2" with the garment was returned to the position of measurement.
+
+\Black
+
+
+
+
+
+
+
+
+
+
+
+%More to filtering out background will deal in chapter~\ref[secc:matfiltr].
+
+
+
+%\sec Positions of Manipulator
+
+
+%\secc Arm with Sensors
+
+%The record is captured with camera "xtion1" mounted on the arm "r1".  The arm "r1" moves into position where the optical axis of the camera heads horizontally. Simultaneously is the optical axis of the camera oriented towards arm "r2" (figure~\ref[fig:OptOsa] ).
+
+
+%\label[fig:OptOsa]
+%\midinsert
+%\picw=8cm \cinspic pictures/opOsa-eps-converted-to.pdf
+%\caption/f Position of arm with camera. a) optical axis of~camera xtion1, b)~camera xtion1, c)~arm~r1, d)~arm~r2.
+%\endinsert
+
+
+%\secc Arm with Garment
+
+%\label[subsec:refRGB]
+%Garment is held by gripper mounted on arm "r2". Arm "r2" have two basic positions:
+%\begitems \style o
+%	* {\bf Position for Measurement} --- The arm "r2" is in a position and ready for execution experiment. The arm "r2" holds garment in the gripper. The arm "r2" is in a height at which camera "xtion1" can capture movement of garment. The arm "r2" is in a position which it can perform movement required for the experiment (chap.~\ref[sec:experiment] a chap~\ref[sec:moveArm]).
+%	* {\bf Position for Reference Image} --- This position is used for record a reference image of background, for improve results of the experiment. The record is used for filtering background from RGB image. The reference image of background is captured that the arm "r2" (in which gripper is held garment) change position so that the arm "r2" was completely out of recorded area of "xtion1".  In this position is performed the record of background and the arm "r2" with the garment was returned to the position of measurement.
+%More to filtering out background will deal in chapter~\ref[secc:matfiltr].
+%\enditems
+
+%\secc External axis
+
+%"Ext."~axis (axis~"13") is rotated so that in the background of captured garment is as least as possible disturbing objects. The best is single color flat surface.
+
+%\sec Arms movement
+
+%\secc Movement of the arm so as garment moved \nl
+%perpendicularly to the optical axis
+
+%The arm "r1" does not perform any movement and is in the position described in the chapter \ref[sec:posArmR1]. In gripper of arm "r2" is held garment. The arm "r2" makes a desired movement with this garment so that it rotates about an axis "B" certain angle and will return back to initial position. For better describe of the movement is movement mooted in the figure \ref[fig:kolmoOptOsy]. This movement is suitable for capturing with RGB camera.
+
+
+%\secc Movement of the arm so as garment moved along to~the~optical axis
+
+%The arm "r1" does not perform any movement and is in the position described in the chapter \ref[sec:posArmR1]. In gripper of arm "r2" is held garment. The arm "r2" makes a desired movement with this garment so that it rotates about an axis "R" certain angle and will return back to initial position. For better describe of the movement is movement mooted in the figure \ref[fig:rovnoOptOsy]. This movement is suitable for capturing with rangefinder.
+
+
+
 
 
 

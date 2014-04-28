@@ -8,24 +8,6 @@
     note      = "ISBN:~0-495-08252-X",
 }
 
-@MANUAL{ clopema,
-  AUTHOR = {CloPeMa},
-  TITLE  = {Clothes Perception and Manipulation},
-  NOTE   = {Visited on 2014-03-20, \url{http://clopemaweb.felk.cvut.cz/clothes-perception-and-manipulation-clopema-home/}},
-}
-
-@MANUAL{ rosbag,
-  AUTHOR = {Mihelich, Patrick and others},
-  TITLE  = {ROS: Documentation of rosbag package},
-  NOTE   = {Visited on 2014-04-16, \url{http://wiki.ros.org/rosbag}},
-}
-
-@MANUAL{ yaskawa,
-  AUTHOR = {Yaskawa Motoman Robotics},
-  TITLE  = {Datasheet of MA1400 robot},
-  NOTE   = {Visited on 2014-04-03, \url{http://www.motoman.com/datasheets/MA1400.pdf}},
-}
-
 @inproceedings{quigley2009ros,
   title={ROS: an open-source Robot Operating System},
   author={Quigley, Morgan and Conley, Ken and Gerkey, Brian and Faust, Josh and Foote, Tully and Leibs, Jeremy and Wheeler, Rob and Ng, Andrew Y},
@@ -202,4 +184,34 @@
   year={2005},
   organization={ACM}
 }
+
+@article{ancutiene2010relationship,
+  title={The relationship between fabrics bending rigidity parameters defined by KES-F and FAST equipment},
+  author={Ancutien{\.e}, Kristina and Strazdien{\.e}, Eugenija and Nesterova, Anastasija},
+  journal={Materials Science= Med{\v{z}}iagotyra},
+  volume={16},
+  number={4},
+  pages={346--352},
+  year={2010}
+}
+
+@misc{ clopema,
+  TITLE  = {{CloPeMa} Clothes Perception and Manipulation},
+  howpublished = {\url{http://clopemaweb.felk.cvut.cz/clothes-perception-and-manipulation-clopema-home/}},
+  note = {Accessed: 2014-03-20}
+}
+
+@misc{ rosbag,
+  AUTHOR = {Mihelich, Patrick and others},
+  TITLE  = {{ROS Wiki} Documentation of rosbag package},
+  howpublished = {\url{http://wiki.ros.org/rosbag}},
+  note = {Accessed: 2014-04-16}
+}
+
+@misc{ yaskawa,
+  TITLE  = {{Yaskawa Motoman Robotics} Datasheet of MA1400 robot},
+  howpublished = {\url{http://www.motoman.com/datasheets/MA1400.pdf}},
+  note = {Accessed: 2014-04-03}
+}
+
 

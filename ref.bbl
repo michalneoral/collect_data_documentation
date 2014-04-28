@@ -1,5 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{clopema}
+{CloPeMa} clothes perception and manipulation.
+\newblock \url{http://clopema.eu/}.
+\newblock Accessed: 2014-03-20.
+
+\bibitem{yaskawa}
+{Yaskawa Motoman Robotics} datasheet of ma1400 robot.
+\newblock \url{http://www.motoman.com/datasheets/MA1400.pdf}.
+\newblock Accessed: 2014-04-03.
+
 \bibitem{ancutiene2010relationship}
 Kristina Ancutien{\.e}, Eugenija Strazdien{\.e}, and Anastasija Nesterova.
 \newblock The relationship between fabrics bending rigidity parameters defined
@@ -52,12 +62,6 @@ Kwang-Jin Choi and Hyeong-Seok Ko.
 \newblock Stable but responsive cloth.
 \newblock In {\em ACM SIGGRAPH 2005 Courses}, page~1. ACM, 2005.
 
-\bibitem{clopema}
-CloPeMa.
-\newblock {\em Clothes Perception and Manipulation}.
-\newblock Visited on 2014-03-20,
-  \url{http://clopemaweb.felk.cvut.cz/clothes-perception-and-manipulation-clopema-home/}.
-
 \bibitem{eischen2000continuum}
 J~Eischen and Roberto Bigliani.
 \newblock Continuum versus particle representations.
@@ -81,8 +85,9 @@ Christiane Luible and Nadia Magnenat-Thalmann.
 
 \bibitem{rosbag}
 Patrick Mihelich et~al.
-\newblock {\em ROS: Documentation of rosbag package}.
-\newblock Visited on 2014-04-16, \url{http://wiki.ros.org/rosbag}.
+\newblock {ROS Wiki} documentation of rosbag package.
+\newblock \url{http://wiki.ros.org/rosbag}.
+\newblock Accessed: 2014-04-16.
 
 \bibitem{minazio1995fast}
 Pier~Giorgio Minazio.
@@ -95,12 +100,6 @@ Morgan Quigley, Ken Conley, Brian Gerkey, Josh Faust, Tully Foote, Jeremy
   Leibs, Rob Wheeler, and Andrew~Y Ng.
 \newblock Ros: an open-source robot operating system.
 \newblock In {\em ICRA workshop on open source software}, volume~3, 2009.
-
-\bibitem{yaskawa}
-Yaskawa~Motoman Robotics.
-\newblock {\em Datasheet of MA1400 robot}.
-\newblock Visited on 2014-04-03,
-  \url{http://www.motoman.com/datasheets/MA1400.pdf}.
 
 \bibitem{stylios1991textile}
 George Stylios.
