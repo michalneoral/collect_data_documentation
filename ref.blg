@@ -7,45 +7,45 @@ Warning--to sort, need author or key in clopema
 Warning--to sort, need author or key in yaskawa
 Warning--can't use both volume and number fields in quigley2009ros
 Warning--can't use both volume and number fields in terzopoulos1987elastically
-You've used 24 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            636 strings with 8025 characters,
-and the built_in function-call counts, 8423 in all, are:
-= -- 846
-> -- 374
-< -- 10
-+ -- 150
-- -- 124
-* -- 551
-:= -- 1338
-add.period$ -- 81
-call.type$ -- 24
-change.case$ -- 130
+            643 strings with 8192 characters,
+and the built_in function-call counts, 8901 in all, are:
+= -- 901
+> -- 381
+< -- 12
++ -- 153
+- -- 126
+* -- 577
+:= -- 1400
+add.period$ -- 85
+call.type$ -- 25
+change.case$ -- 134
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 339
-empty$ -- 685
-format.name$ -- 124
-if$ -- 1823
+cite$ -- 29
+duplicate$ -- 364
+empty$ -- 729
+format.name$ -- 126
+if$ -- 1939
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 25
-newline$ -- 125
-num.names$ -- 44
-pop$ -- 175
+int.to.str$ -- 25
+missing$ -- 26
+newline$ -- 130
+num.names$ -- 46
+pop$ -- 181
 preamble$ -- 1
-purify$ -- 109
+purify$ -- 112
 quote$ -- 0
-skip$ -- 237
+skip$ -- 259
 stack$ -- 0
-substring$ -- 484
-swap$ -- 96
-text.length$ -- 10
+substring$ -- 529
+swap$ -- 110
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 92
 warning$ -- 4
-while$ -- 80
-width$ -- 26
-write$ -- 268
+while$ -- 85
+width$ -- 27
+write$ -- 281
 (There were 4 warnings)

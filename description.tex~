@@ -33,7 +33,7 @@ Each arm of~manipulator has 6~rotation axes. The~axes are labeled according to t
 
 Each of~arms "r1" and "r2" are ended with eletricly controlled grippers (figure~\ref[fig:gripper]). Grippers are designed for~grasping garment.
 \Blue
-The prototype of gripper was developed especialy for CloPeMa project by the University of Genoa. The gripper is composed of two supple fingers. Supple fingers are used for lifting garments from the table. Gripper has a tactile sensor at the ''finger tips''to sense the garment material using little rubbing motions between the ''gripper finger''~\cite[clopema]. 
+The prototype of gripper was developed especialy for CloPeMa project by the University of Genoa. The gripper is composed of two supple fingers. Supple fingers are used for lifting garments from the table. Gripper has a tactile sensor at the ''finger tips'' to sense the garment material using little rubbing motions between the ''gripper finger''~\cite[clopema]. 
 \Black \mind{použít SOFT místo SUPPLE?}
 
 
@@ -42,6 +42,7 @@ The prototype of gripper was developed especialy for CloPeMa project by the Univ
 \picw=8cm \cinspic pictures/gripperXtion-eps-converted-to.pdf
 \caption/f End effector (gripper). a)~gripper, b)~sensor Asus Xtion, c)~end of~arm on~which the~gripper is mounted.
 \medskip
+
 
 \label[secc:camera]
 \secc Sensors %Camcorder
@@ -90,7 +91,7 @@ In the ROS are designed a large number of tools e.g. for get and set configurati
 \Blue all or just some \Black chosen topics. 
 \Blue
 The chosen topics are passed like parameters to the rosbag tool. The rosbag tool records all published messages from chosen topics, including timestamp.
-  The tool stores timestamped messages to a specially formatted "*.bag" file (also "bagfile" or "rosbag-file"). The rosbag tool can later replay those messages. 
+  The tool stores timestamped messages to a specially formatted "*.bag" file (also "bagfile" or "rosbag-file"). The rosbag tool can later replay these messages from rosbag file too. 
 \Black
 
 

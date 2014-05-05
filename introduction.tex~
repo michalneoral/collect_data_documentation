@@ -7,14 +7,20 @@ This bachelor thesis is part of~Clothes Perception and Manipulation project (Clo
 
 \sec Goals
 
-The whole CloPeMa project is based on the manipulation of clothes (garments). Simplified dynamic physical model of real garment should be useful for these manipulations e.g. for simulating movement or collision detection. This is usefull for example for simulating or for counting model collisions. For creating virtual model of garments is important to have their parameters. This thesis has goal to design method of measurement and extraction of image features for obtaining parameters which will lead to construct the model.
+The whole CloPeMa project is based on the manipulation of clothes (garments). 
+\Blue
+Simplified dynamic physical model of real garment should be useful for these manipulations e.g. for simulating movement or collision detection. Creating virtual model of garment depend on its parameters.
+\Black
+This thesis has goal to design method of measurement and extraction of image features for obtaining parameters which will lead to construct the model.
 
 \sec The State of the Art
 
-The main sphere of using dynamic simulation of garment is computer graphic. These simulations are mainly for a realistic look, but not for real dynamic physical behavior of garment~\cite[choi2005research] (including modern metod of simulating~\cite[bender2013adaptive, lee2013automatic]). Simulation of garment from real physical parameters deals e.g.~\cite[luible2008simulation].
-\Green
-	Obvykle se modeluje takto \cite[terzopoulos1987elastically,breen1994predicting, volino1995versatile, baraff1998large, eischen2000continuum,  choi2005stable].
+The main sphere of using dynamic simulation of garment is computer graphic. These simulations are mainly for a realistic look, but not for real dynamic physical behavior of garment~\cite[choi2005research] (including modern metod of simulating~\cite[bender2013adaptive, lee2013automatic]).
+\Blue
+	A lot of simulators and methods have been developed in the field of simulation models of garments (especially fabrics)~\cite[terzopoulos1987elastically,breen1994predicting, volino1995versatile, baraff1998large, eischen2000continuum,  choi2005stable, luible2008simulation]. Some of these tools or methods of simulation use for construct model from a real parameters of garments (fabrics) obtained e.g. by KESF etc.~\cite[eischen2000continuum, luible2008simulation]. But simulation of garment is not a point of this work.
 \Black
+
+
 In the science and industry exist several measuring techniques which is used to find elementary parameters of fabrics e.g. KESF, FAST or FAMOUS. 
 \Blue
 Kawabata's Evaluation System of Fabric (KESF) is used to get the mechanical properties of the clothes. KESF contains a several equipments for measure these properties. KESF was developed for mass-spring method. The method need a piece of fabric (size depends on the current implementation) for the measurement. On this sample is applied a force in the different directions and ways (depends on current physical property). The KESF produces curves depending on the applied force. The Kawabata instruments test with high accuracy: compression, pure bending rigidity, roughness, shear, surface friction and tensile~\cite[kawabata1982objective, stylios2005new, ancutiene2010relationship]. 
@@ -28,14 +34,13 @@ These measuring techniques were designed for using in textile and clothes indust
 These techniques measure e.g. flexural rigidity, shear, surface, compression or tensile properties, but need tens of measurement equipments and process to acquire parameters process takes from a few minutes (FAMOUS) up to units of hours (KESF)~\cite[kawabata1982objective, stylios1991textile, minazio1995fast, stylios2005new]. While existing methods give excellent results and detailed description of substances, but do not tell us anything about the whole garment. Moreover, these methods are slow and expensive.
 
 \Blue
-	There are also methods of estimating parameters based on extraction features from video. In the method is on the fabric projected a structured light pattern of horizontal stripes. ~\cite[bhat2003estimating]
+	There are also methods of estimating cloth simulation parameters based on extraction features from video. \cite[bhat2003estimating] has developed the method based on the fabric projected a structured light pattern of horizontal stripes. A perceptually motivated metric based on matching between folds is used to compare video of real cloth with simulation. This metric compares two video sequences of cloth and returns a number that measures the differences in their folds~\cite[bhat2003estimating].
 \Black
 
 
 \Green
 \begitems \style o
-	* odhadování parametrů z videa~\cite[bhat2003estimating]
-	* Zmínit použití Mocapu \cite[charfi2005determination]
+	* Zmínit a více rozepsat použití Mocapu \cite[charfi2005determination]
 \enditems
 \Black
 

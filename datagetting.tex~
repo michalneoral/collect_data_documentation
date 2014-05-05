@@ -44,16 +44,14 @@ Another limitation is the spatial limitation, such that it is not possible to pl
 \label[secc:extrgb]
 \secc External Axis 
 
-\label[fig:OptOsa]
-\midinsert
-\picw=8cm \cinspic pictures/opOsa-eps-converted-to.pdf
-\caption/f Position of arm with camera. a) optical axis of~camera xtion1, b)~camera xtion1, c)~arm~r1, d)~arm~r2.
+\midinsert \clabel[fig:OptOsa]{Position of arm with camera}
+\picw=8cm \cinspic pictures/opOsa.png
+\caption/f Position of arm with camera. a) optical axis of~camera xtion1, b)~camera xtion1, c)~arm~r1, d)~arm~r2, e)~gripper of~arm~r2, f) ext.~axis.
 \endinsert
 
 
-\label[fig:kolmoOptOsy]
-\midinsert
-\picw=8cm \cinspic pictures/move1-eps-converted-to.pdf
+\midinsert \clabel[fig:kolmoOptOsy]{Suggestion of movements perpendicular to optical axis}
+\picw=8cm \cinspic pictures/move1.png
 \caption/f Suggestion of movements of gripper with garment perpendicular to optical axis. a) mooted of field of vision of camera xtion1, b)~garment, c)~arm~r1, d)~arm~r2.
 \endinsert
 
@@ -71,8 +69,6 @@ Garment is held by gripper mounted on arm "r2". The arm "r2" is in a height at w
 
 \sec Capturing of Depth maps
 
-
-
 \secc External axis
 
 "Ext."~axis (axis~"13") is rotated as in the case of capturing of RGB (chap.~\ref[secc:extrgb]).
@@ -81,10 +77,9 @@ Garment is held by gripper mounted on arm "r2". The arm "r2" is in a height at w
 
 The arm "r1" is into same position as in case of capturing of RGB (chap.~\ref[secc:r1rgb]).
 
-\label[fig:rovnoOptOsy]
-\medskip
-\picw=8cm \cinspic pictures/move2-eps-converted-to.pdf
-\caption/f Suggestion of movements of gripper with garment along to optical axis. a)~mooted of field of vision of camera xtion1, b)~garment, c)~arm~r1, d)~arm~r2.
+\medskip \clabel[fig:rovnoOptOsy]{Suggestion of movements along to optical axis}
+\picw=8cm \cinspic pictures/move2.png
+\caption/f Suggestion of movements of gripper with garment along to optical axis. a)~mooted field of vision~(xtion1 sensor), b)~garment, c)~arm~r1, d)~arm~r2.
 \medskip
 
 \eject
@@ -110,6 +105,19 @@ The arm "r1" is into same position as in case of capturing of RGB (chap.~\ref[se
 \secc Arm with Garment
 
 The reference image of background is captured that the arm "r2" (in which gripper is held garment) change position so that the arm "r2" is completely out of captured area of "xtion1".  In this position is performed the capture of background and the arm "r2" with the garment was returned to the position of measurement.
+
+\Black
+
+
+
+
+
+
+
+
+
+
+
 %More to filtering out background will deal in chapter~\ref[secc:matfiltr].
 
 

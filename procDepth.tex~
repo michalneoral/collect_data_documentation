@@ -1,28 +1,17 @@
-\label[chap:dataproc]
-\chap Data Processing
-
-		\Green
-		\begitems \style o
-			* U všech obrázku níže udělat alternativu (lépe dvě) a tu vložit do přílohy a odkázat na ní
-		\enditems
-		\Black
-
-\sec Load Data to the MATLAB
-
-		\Green
-		\begitems \style o
-			* Popis + použitý kód
-		\enditems
-		\Black
-
-
-\input procRGB
-
-
-
-\eject
 
 \sec Extraction of Features from Depth Map
+
+
+\medskip \clabel[fig:extDepth]{Depth Map}
+
+\picw=6cm 
+\centerline {\inspic pictures/todo.png \hfil\hfil \inspic pictures/todo.png }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {\inspic pictures/todo.png \hfil\hfil \inspic pictures/todo.png }\nobreak
+\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\caption/f Depth Map.
+\medskip
+
 
 		\Green
 		\begitems \style o
