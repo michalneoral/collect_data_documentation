@@ -3,6 +3,10 @@
 % http://petr.olsak.net/ctustyle.html
 
 
+\input ctustyle
+
+\def\thednum{(\the\chapnum.\the\dnum)}
+
 \def\mind#1{\Red{\bf#1}\Black}
 \def\dopln{\mind{DOPLŇ~ODKAZ!}}
 \def\task#1{\Green{#1}\Black}
@@ -11,7 +15,6 @@
 \def\newbeg{}
 \def\newend{}
 
-\input ctustyle
 
 \worktype [B/EN]
 \faculty    {F3} 
@@ -93,6 +96,7 @@
 % Přílohy
 \input specifications
 \input dvdContent
+\input otherImages
 \input shortcuts
 \input manualcollect
 %\input automaticcollect

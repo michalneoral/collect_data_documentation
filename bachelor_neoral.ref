@@ -82,11 +82,12 @@
 \Xlabel{fig:OptOsa}{3.1}
 \Xlabel{secc:r1rgb}{3.3.2}
 \Xsecc{3.3.2}{Arm with Xtion Sensor }{8}
+\Xlabel{subsec:refRGB}{3.3.3}
 \Xsecc{3.3.3}{Arm with Garment }{8}
 \Xpage{9}
 \Xfig{fig:kolmoOptOsy}{3.2}{Suggestion of movements perpendicular to optical axis}
 \Xlabel{fig:kolmoOptOsy}{3.2}
-\Xlabel{subsec:refRGB}{3.4}
+\Xlabel{sec:capDepth}{3.4}
 \Xsec{3.4}{Capturing of Depth maps }{9}
 \Xsecc{3.4.1}{External axis }{9}
 \Xsecc{3.4.2}{Arm with Xtion sensor }{9}
@@ -94,6 +95,7 @@
 \Xlabel{fig:rovnoOptOsy}{3.3}
 \Xpage{10}
 \Xsecc{3.4.3}{Arm with Garment }{10}
+\Xlabel{sec:captureBackground}{3.5}
 \Xsec{3.5}{Capturing Background Image }{10}
 \Xsecc{3.5.1}{External axis }{10}
 \Xsecc{3.5.2}{Arm with Xtion sensor }{10}
@@ -120,61 +122,83 @@
 \Xpage{13}
 \Xlabel{chap:dataproc}{5}
 \Xchap{5}{Data Processing }{13}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xlabel{sec:loadToMatlab}{5.1}
 \Xsec{5.1}{Load Data to the MATLAB }{13}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xfnote
+\Xfnote
+\Xlabel{sec:rgb}{5.2}
 \Xsec{5.2}{Extraction of Features from RGB }{13}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xsecc{5.2.1}{Rectification of RGB }{13}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xsecc{5.2.2}{Filtering Background by Use Reference Image }{13}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xsecc{5.2.3}{Finding End of Gripper }{13}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xsecc{5.2.4}{Finding Central Curve of Garment }{13}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
 \Xpage{14}
-\Xsecc{5.2.5}{Finding Mathematical Features from RGB }{14}
+\Xfig{fig:extRGB}{5.1}{Illustration RAW RGB images}
+\Xlabel{fig:extRGB}{5.1}
+\Xsecc{5.2.1}{Rectification of RGB }{14}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
+\Xlabel{sec:bagSubRGB}{5.2.2}
+\Xsecc{5.2.2}{Background Subtraction }{14}
+\Xlabel{eq:averageRGB}{(5.1)}
+\Xlabel{eg:deviationRGB}{(5.2)}
+\Xlabel{eq:backgroundSubtraction}{(5.3)}
 \Xpage{15}
-\Xsec{5.3}{Extraction of Features from Depth Map }{15}
-\Xfig{fig:extDepth}{5.1}{Depth Map}
-\Xlabel{fig:extDepth}{5.1}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xsecc{5.3.1}{Rectification of Depth Map to 3D points }{15}
+\Xsecc{5.2.3}{Finding End of Gripper }{15}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xsecc{5.3.2}{Filtering by Depth of Area }{15}
+\Xsecc{5.2.4}{Finding Central Curve of Garment }{15}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xsecc{5.3.3}{Finding Points }{15}
+\Xsecc{5.2.5}{Finding Mathematical Features from RGB }{15}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
 \Xpage{16}
-\Xsecc{5.3.4}{Finding Mathematical Features from Depth Map }{16}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xsec{5.3}{Extraction of Features from Depth Map }{16}
+\Xfig{fig:extDepth}{5.2}{Illustration RAW Depth Map from Rangefinder}
+\Xlabel{fig:extDepth}{5.2}
+\Xsecc{5.3.1}{Convert Depth Map to 3D points }{16}
+\Xlabel{eq:calib}{(5.4)}
+\Xlabel{eq:get3Dpoints}{(5.5)}
 \Xpage{17}
-\Xchap{6}{Results }{17}
-\Xpdfcolork{1 0 1 0}
+\Xfig{fig:pointsDepth}{5.3}{Illustration of 3D Points}
+\Xlabel{fig:pointsDepth}{5.3}
+\Xsecc{5.3.2}{Filtering by Depth of Area }{17}
+\Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
+\Xlabel{eq:minmax}{(5.6)}
+\Xlabel{eq:filter3D}{(5.7)}
 \Xpage{18}
-\Xchap{7}{Discussion }{18}
+\Xfig{fig:pointsFiltering}{5.4}{3D points after filtering}
+\Xlabel{fig:pointsFiltering}{5.4}
+\Xlabel{secc:findEE}{5.3.3}
+\Xsecc{5.3.3}{Finding End of the Gripper }{18}
+\Xpdfcolork{1 0 1 0}
+\Xlabel{eq:endEffector}{(5.8)}
+\Xpage{19}
+\Xfig{fig:find3DGripper}{5.5}{3D Points with Founded Gripper}
+\Xlabel{fig:find3DGripper}{5.5}
+\Xsecc{5.3.4}{Finding Points }{19}
+\Xpdfcolork{0 1 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xlabel{eq:reducedMatrixDepth}{(5.9)}
+\Xlabel{eq:sampleDepth}{(5.10)}
+\Xpage{20}
+\Xfig{fig:findPoints}{5.6}{3D points with founded points}
+\Xlabel{fig:findPoints}{5.6}
+\Xsecc{5.3.5}{Finding Mathematical Features from Depth Map }{20}
+\Xpdfcolork{1 0 1 0}
+\Xfig{fig:graphDepth}{5.7}{Dependence of the speed of points on the time}
+\Xlabel{fig:graphDepth}{5.7}
+\Xpage{21}
+\Xchap{6}{Results }{21}
+\Xpdfcolork{0 0 0 1}
+\Xpage{22}
+\Xchap{7}{Discussion }{22}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
 \Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xpage{19}
-\Xchap{8}{Conclusion }{19}
+\Xpage{23}
+\Xchap{8}{Conclusion }{23}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
 \Xpdfcolork{0 1 1 0}
@@ -195,25 +219,31 @@
 \Xbib{ancutiene2010relationship}{14}
 \Xbib{stylios1991textile}{15}
 \Xbib{minazio1995fast}{16}
-\Xpage{20}
-\Xchap{!1}{References}{20}
+\Xpage{24}
+\Xchap{!1}{References}{24}
 \Xbib{bhat2003estimating}{17}
 \Xbib{charfi2005determination}{18}
 \Xbib{quigley2009ros}{19}
 \Xbib{rosbag}{20}
-\Xpage{21}
-\Xpage{23}
-\Xchap{A}{Specification }{23}
-\Xpage{24}
-\Xchap{B}{Content of included DVD }{24}
+\Xbib{rosbagtool}{21}
+\Xbib{matlabpointcloud}{22}
+\Xpage{25}
+\Xpage{27}
+\Xchap{A}{Specification }{27}
+\Xpage{28}
+\Xchap{B}{Content of included DVD }{28}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
 \Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xpage{25}
-\Xchap{C}{Abbreviations }{25}
-\Xpage{26}
-\Xchap{D}{Brief Manual to Get Data Manually }{26}
+\Xpage{29}
+\Xchap{C}{Other Images }{29}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xpage{30}
+\Xchap{D}{Abbreviations }{30}
+\Xpage{31}
+\Xchap{E}{Brief Manual to Get Data Manually }{31}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
 \Xpdfcolork{0 1 1 0}

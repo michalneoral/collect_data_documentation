@@ -1,58 +1,136 @@
 
 \sec Extraction of Features from Depth Map
 
+\Blue
+The sequence of images of depth maps is captured with the xtion camera (chap.~\ref[secc:camera]). Depth maps are in a sufficient resolution 640$\times$480~px (width$\times$height). Depth maps are stored in the "bagfile"s like single row vector. After loading the data into MATLAB~(chap.~\ref[sec:loadToMatlab]) data are converted from row vector to matrix ${\bf C}(u,v)=z$ of depth map with dimensions 480$\times$640~px ($u\times v$). The depth maps data shows figure~\ref[fig:extDepth].
 
-\medskip \clabel[fig:extDepth]{Depth Map}
+\Black
 
-\picw=6cm 
-\centerline {\inspic pictures/todo.png \hfil\hfil \inspic pictures/todo.png }\nobreak
+\medskip \clabel[fig:extDepth]{Illustration RAW Depth Map from Rangefinder}
+\picw=7cm 
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
 \centerline {a)\hfil\hfil b)}\nobreak\medskip
-\centerline {\inspic pictures/todo.png \hfil\hfil \inspic pictures/todo.png }\nobreak
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
 \centerline {c)\hfil\hfil d)}\nobreak\medskip
-\caption/f Depth Map.
+\caption/f Illustration RAW Depth Map from Rangefinder.
 \medskip
 
+\secc Convert Depth Map to 3D points
 
-		\Green
-		\begitems \style o
-			* Pohovořit v kostce, co očekávám, že dostanu z těchto dat a stručně, jak budu postupovat.
-			* Obrázky surových dat - depthmap
-		\enditems
-		\Black
+\Blue
+Together with data depth map is also stored calibration parameters. From these calibration parameters comes calibration matrix ${\bf K}$, where $f_x$ and $f_y$ are focal lengths and $(c_x, c_y)$ is a principal point~(matrix form eq.~\ref[eq:calib]).  
+\label[eq:calib]
+$${\bf K} = \left[ \matrix{ 
+f_x & 0 & c_x \cr
+0 & f_y & c_y\cr
+0 & 0 & 1 \cr}
+\right] \eqmark $$
+Using the calibration matrix ${\bf K}$ can be depth map ${\bf C}(u,v)$ converted into 3D points matrix ${\bf M}_{x,y,z}(u,v)$. The matrix ${\bf M}_{x,y,z}(u,v)$ is made by equation~\ref[eq:get3Dpoints]. Algoritmus used for these convertion was inpirated by~\cite[matlabpointcloud].
 
-\secc Rectification of Depth Map to 3D points
+\label[eq:get3Dpoints]
+$$
+\eqalignno{
+{\bf M}_{z}(u,v) &= {{\bf C}(u,v) \over{1000}} \cr
+{\bf M}_{x}(u,v) &= {{\bf M}_{z}(u,v) \cdot (u-c_x) \over {f_x}} & \eqmark \cr
+{\bf M}_{y}(u,v) &= {{\bf M}_{z}(u,v) \cdot (v-c_y) \over {f_y}} \cr
+}
+$$
+The data from 3D points are shown in the figure~\ref[fig:pointsDepth].
 
-		\Green
-		\begitems \style o
-			* Popsat způsob, napsat vzorec
-			* obrázky předělaného depthmap do 3D points
-		\enditems
-		\Black
+\medskip \clabel[fig:pointsDepth]{Illustration of 3D Points}
+\picw=7cm 
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\caption/f Illustration of 3D Points.
+\medskip
 
 \secc Filtering by Depth of Area
 
-		\Green
-		\begitems \style o
-			* Jak filtruji dle vzdálenosti pouze tak, aby mi zůstala hýbající se látka
-			* Obrázek filtrovaný dle hloubky
-		\enditems
-		\Black
+\Blue
+The figure~\ref[fig:pointsDepth] shows that the xtion camera captured not only the points on the garment but also captured the unnecessary surroundings. We decided filtering the 3D points according to distance from xtion camera. From the measurements, we know that the gripper of the arm "r2" with garment is located \mind{napsat přesnou hodnotu}~m
+\Blue before the xtion camera on the arm "r1" at its default measurement position. After several experiments, it was found that the minimum and maximum of z-axis value on the garment have the following values: $min_{garment}(z)=0.8~\rm m$ and  $max_{garment}(z)=1.16~\rm m$, thus we know that the garment moves between these values. Maximum deviation $\Delta z$ from the z-axis value of endpoint $r2_z$ is computed by equation \ref[eq:minmax]. 
+\label[eq:minmax] 
+$$\Delta z=max(abs(r2(z)-min_{garment}(z)),abs(r2(z)-max_{garment}(z))) \eqmark$$
+If the deviation is known, matrix ${\bf M}_{x,y,z}(u,v)$~(from~\ref[eq:get3Dpoints]) can be filtered using the matrix equation~\ref[eq:filter3D]. The filted data are shown in the figure~\ref[fig:pointsFiltering]. You can see the differences between figures~\ref[fig:extDepth] and~\ref[fig:pointsFiltering]. Moreover, this method of ''background substraction'' is much robust than method of background substraction of RGB images~\ref[secc:bagSubRGB].
+\label[eq:filter3D]
+$${\bf M}_{x,y,z}(u,v) = \cases{
+{\bf M}_{x,y,z}(u,v),&if $r2_z - 3\cdot \Delta z \leq {\bf M}_{z}(u,v) \leq r2_z + 3\cdot \Delta z$;\cr
+{\rm NaN},&otherwise. 
+\cr} \eqmark$$ 
+\Black
+
+
+\medskip \clabel[fig:pointsFiltering]{3D points after filtering}
+\picw=7cm 
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\caption/f Illustration of 3D points after Filtering by Distance.
+\medskip
+
+\label[secc:findEE]
+\secc Finding End of the Gripper
+
+\Blue
+
+In the figure~\ref[fig:findPoints] are not shown only points on the garment. The figure shows points of the gripper of arm "r2"~\ref[secc:camera] too. 
+As has been said in chapter~\ref[sec:capDepth] the movement of the garment is caused by this gripper. Finding the coordinates of the end point of the gripper is important not only for distinguishing the gripper from the garment, but also for detecting excitation movement of garment.
+\Green
+\begitems \style o
+	* NUTNO PROKONZULTOVAT!
+	* Nalezení gripperu
+	* Probrat na konzultaci, jelikož se k tomuto nalezení váže vytvoření listeneru a publisheru pro topic
+\enditems
+\Blue
+\label[eq:endEffector]
+$$ ee_{x,y,z} \eqmark $$
+Founded gripper is shown in the figure~\ref[fig:find3DGripper].
+\Black
+
+\medskip \clabel[fig:find3DGripper]{3D Points with Founded Gripper}
+\picw=7cm 
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\caption/f Illustration of 3D Points with Founded Gripper.
+\medskip
 
 \secc Finding Points
 
 		\Green
 		\begitems \style o
-			* Nalezení gripperu
-			* Vytvoření pole bodů s osou procházející gripperem
-			* Nápady:
-				\begitems \style o
-				* snímat body v poly rozvnoměrně
-				* snímat body ve sloupci dle osy
-				* snímat celé tlusté řádky
-				\enditems
-			* Přiřadit obrázky
+			* Napsat proč hledám tyto body !!!!!!!!
+			* NUTNO PROKONZULTOVAT!
 		\enditems
-		\Black
+		\Blue
+
+First of all is reduced the 3D points matrix. Points over the gripper endpoint $ee_{x,y,z}$~(from chap.~\ref[secc:findEE]) are not needed anymore. Then is set a width $\Delta x$ of garment which is used for next computing. \mind{napsat důvody proč.} \Blue Matrix of points ${\bf M}_{x,y,z}(u,v)$ are reduced to $\tilde{{\bf M}}_{x,y,z}(u,v)$~\ref[eq:reducedMatrixDepth].
+\label[eq:reducedMatrixDepth]
+$$
+\tilde{{\bf M}}_{x,y,z}(u,v)=\cases{
+{\bf M}_{x,y,z}(u,v),&if $ ( {\bf M}_{y}(u,v) < ee_{y} ) \&( ee_{x} - {{\Delta x}\over{2}} < {\bf M}_{x}(u,v) < ee_{x} + {{\Delta x}\over{2}} $);\cr
+{\rm NaN},&otherwise. 
+\cr} \eqmark$$ 
+The reduced points of garment are resampled and averaged to the sample points ${\bf S}_{x,y,z}(m)$~\ref[eq:sampleDepth].
+\label[eq:sampleDepth]
+$$
+{\bf S}_{x,y,z}(m) \eqmark
+$$  
+The length of garment is sumarized according to sample points and divided by the number of required points. Search points are found at a constant distance given length of garment. 
+Founded points are shown in the figure~\ref[fig:findPoints].
+
+\medskip \clabel[fig:findPoints]{3D points with founded points}
+\picw=7cm 
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\caption/f Illustration of 3D points with Points Found on the Garment.
+\medskip
 
 \secc Finding Mathematical Features from Depth Map
 
@@ -61,3 +139,12 @@
 			* Nalezení a vyplivnutí bodů ke zpracování
 		\enditems
 		\Black
+
+\medskip \clabel[fig:graphDepth]{Dependence of the speed of points on the time}
+\picw=7cm 
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\caption/f Dependence of the speed of points on the time.
+\medskip

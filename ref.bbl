@@ -39,6 +39,12 @@ Kiran~S Bhat, Christopher~D Twigg, Jessica~K Hodgins, Pradeep~K Khosla, Zoran
 \newblock In {\em Proceedings of the 2003 ACM SIGGRAPH/Eurographics symposium
   on Computer animation}, pages 37--51. Eurographics Association, 2003.
 
+\bibitem{matlabpointcloud}
+Liefeng Bo and Kevin Lai.
+\newblock depthtocloud.m - convert depth image into 3d point cloud.
+\newblock \url{rgbd-dataset.cs.washington.edu/software/depthToCloud.m}.
+\newblock Accessed: 2014-02-02.
+
 \bibitem{breen1994predicting}
 David~E Breen, Donald~H House, and Michael~J Wozny.
 \newblock Predicting the drape of woven cloth using interacting particles.
@@ -51,6 +57,12 @@ Hatem Charfi, Andr{\'e} Gagalowicz, and R{\'e}mi Brun.
   minimization.
 \newblock In {\em Computer Analysis of Images and Patterns}, pages 789--798.
   Springer, 2005.
+
+\bibitem{rosbagtool}
+Ben Charrow.
+\newblock {A small library for reading ROS bags in Matlab}.
+\newblock \url{https://github.com/bcharrow/matlab_rosbag}.
+\newblock Accessed: 2014-02-02.
 
 \bibitem{choi2005research}
 Kwang-Jin Choi and Hyeong-Seok Ko.

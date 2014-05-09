@@ -1,0 +1,112 @@
+\label[sec:rgb]
+\sec Extraction of Features from RGB
+
+
+The sequence of RGB images is captured with the xtion camera (chap.~\ref[secc:camera]). Images have resolution 640$\times$480~px (width$\times$height). RGB images are stored in the "bagfile"s like single row vector. After loading data into MATLAB~(chap.~\ref[sec:loadToMatlab]) data are converted from row vector to matrix ${\bf I}_{R,G,B}(u,v)$ of RGB images with dimensions 480$\times$640~px ($u\times v$). Raw RGB data shows figure~\ref[fig:extRGB].
+\Black
+
+\medskip \clabel[fig:extRGB]{Illustration RAW RGB images}
+\picw=7cm 
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
+\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\caption/f Illustration RAW RGB images.
+\medskip
+
+\secc Rectification of RGB
+
+		\Green
+		\begitems \style o
+			* Popsat, jak opravím RGB snímek + obrázek
+		\enditems
+		\Black
+
+\label[sec:bagSubRGB]
+\secc Background Subtraction
+
+In the chapter~\ref[sec:captureBackground] is described a way of capturing background image. Respectively was not captured a single image, but was captured a sequence of images. The sequence of images ${\bf B}^i_{R,G,B}(u,v)$ is averaged to ${\overline{\bf B}}_{R,G,B}(u,v)$~\ref[eq:averageRGB]. Together with mean value of RGB background is computed corrected sample standard deviation ${\bf \sigma}_{R,G,B}(u,v)$~\ref[eg:deviationRGB].
+\label[eq:averageRGB]$$
+{\overline{\bf B}}_{R,G,B}(u,v) = \sum_{i=1}^{N} {{{\bf B}^i_{R,G,B}(u,v)}\over{N}} \eqmark
+$$
+\label[eg:deviationRGB]$$
+{\bf \sigma}_{R,G,B}(u,v)=\sqrt{{1\over N} \sum_{i=1}^{N} \left( {\bf B}^i_{R,G,B}(u,v) - {\overline{\bf B}}_{R,G,B}(u,v) \right)^2} \eqmark
+$$
+From sequence RGB images ${\bf I}^i_{R,G,B}(u,v)$ is computed a sequence of silhouettes ${\bf S}^i(u,v)$~\ref[eq:backgroundSubtraction].
+\label[eq:backgroundSubtraction]
+$$
+{\bf S}^i(u,v) =
+\cases{
+1, &if $
+\cases{
+&$
+\left| {\bf I}^i_{R}(u,v) - {\overline{\bf B}}_{R}(u,v)\right| >  {\bf \sigma}_{R}(u,v)
+$;\cr
+{\rm or} &$
+\left| {\bf I}^i_{G}(u,v) - {\overline{\bf B}}_{G}(u,v)\right| >  {\bf \sigma}_{G}(u,v)
+$;\cr
+{\rm or} &$
+\left| {\bf I}^i_{B}(u,v) - {\overline{\bf B}}_{B}(u,v)\right| >  {\bf \sigma}_{B}(u,v)
+$;\cr
+}
+$;\cr
+0, &otherwise. 
+\cr}
+\eqmark
+$$
+
+$$
+{\bf S}^i(u,v) =
+\cases{
+&$
+\left| {\bf I}^i_{R}(u,v) - {\overline{\bf B}}_{R}(u,v)\right| >  {\bf \sigma}_{R}(u,v)
+$;\cr
+{\rm or} &$
+\left| {\bf I}^i_{G}(u,v) - {\overline{\bf B}}_{G}(u,v)\right| >  {\bf \sigma}_{G}(u,v)
+$;\cr
+{\rm or} &$
+\left| {\bf I}^i_{B}(u,v) - {\overline{\bf B}}_{B}(u,v)\right| >  {\bf \sigma}_{B}(u,v)
+$;\cr
+}
+$$
+
+		\Green
+		\begitems \style o
+			* Způsob filtrace proti pozadí - napsat vzorec
+			* Popsat i použité morphologické operace pro zkvalitnění siluety (možná vlastní secc)
+			* Obrázek siluety 4 pcs
+		\enditems
+		\Black
+
+\secc Finding End of Gripper
+
+		\Green
+		\begitems \style o
+			* Popsat, jak naleznu oblast, kterou opisuje chapadlo při hýbání s látkou a jak z tohoto pohybu naleznu konec chapadlo v obraze
+			* Obrázek s vyznačenou kružnicí a bodem jako koncem gripperu
+		\enditems
+		\Black
+
+\secc Finding Central Curve of Garment
+
+		\Green
+		\begitems \style o
+			* Napsat, jak hledám osu bramboroidu
+			* Popsat zde zavrhnuté metody
+			\begitems \style o
+				* Kostra grafu + obrázky + proč jsem to nepoužil
+				* Střed dle y osy + obrázek + proč jsem to nepoužil
+			\enditems
+			* Obrázky postupného nalezení osy bramborouidu (při aproximaci udělat více obrázků)
+		\enditems
+		\Black
+
+\secc Finding Mathematical Features from RGB
+
+		\Green
+		\begitems \style o
+			* Popsat, jak z osy bramboroidu naleznu body, které předávám jako výstup
+			* Obrázky se siluetou a v ní s body
+		\enditems
+		\Black
+
