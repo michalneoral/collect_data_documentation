@@ -30,9 +30,7 @@ Each arm of~manipulator has 6~rotation axes. The~axes are labeled according to t
 \secc End Effector
 
 Each of~arms "r1" and "r2" are ended with eletricly controlled grippers (figure~\ref[fig:gripper]). Grippers are designed for~grasping garment.
-\Blue
-The prototype of gripper was developed especialy for CloPeMa project by the University of Genoa. The gripper is composed of two supple fingers. Supple fingers are used for lifting garments from the table. Gripper has a tactile sensor at the ''finger tips'' to sense the garment material using little rubbing motions between the ''gripper finger''~\cite[clopema]. 
-\Black \mind{použít SOFT místo SUPPLE?}
+The prototype of gripper was developed especialy for CloPeMa project by the University of Genoa. The gripper is composed of two flexible fingers. Flexible fingers are used for lifting garments from the table. Gripper has a tactile sensor at the ''finger tips'' to sense the garment material using little rubbing motions between the ''gripper finger''~\cite[clopema]. 
 
 
 \medskip \clabel[fig:gripper]{Gripper}
@@ -44,16 +42,15 @@ The prototype of gripper was developed especialy for CloPeMa project by the Univ
 \label[secc:camera]
 \secc Sensors %Camcorder
 
-\Blue
 The robot has been setup with a variety of sensors:
 \begitems \style X
 	* Robot Binocular-Vision Head	
 		\begitems \style x
-			* The robot head comprises two Nikon D5100 DSLR cameras. These are mounted on two pan and tilt units. The head provides the robot system with high resolution 3D points clouds~\cite[clopema].
+			* The robot head comprises two Nikon D5100 DSLR cameras. The cameras are mounted on pan and tilt units. The head provides the robot system with high resolution 3D points clouds~\cite[clopema].
 		\enditems
 	* Photometric Stereo Gripper-Mounted Sensor
 		\begitems \style x
-			* The is a small scale close range stereo-pair camera sensor. The sensors captures at 1280$\times$800~px resolution and has software support to do 3D reconstruction of close-range garment surface~\cite[clopema].			
+			* The photometric stereo sensor is a small scale close range stereo-pair camera sensor. The sensors captures at 1280$\times$800~px resolution and has software support to do 3D reconstruction of close-range garment surface~\cite[clopema].			
 		\enditems
 	* Wrist Force-Torque Sensor
 		\begitems \style x
@@ -61,11 +58,10 @@ The robot has been setup with a variety of sensors:
 		\enditems
 	* Xtions
 		\begitems \style x
-			* Asus Xtion Pro Live sensor is~able~to~record RGB~images and depth maps. The robot has two to three these sensors --- one on the each arm~\cite[clopema].
+			* Asus Xtion Pro Live sensor is~able~to~record RGB~images and depth maps. The robot has two to three these sensors --- one on the each arm~\cite[clopema]. \mind{Rozvést montáž!}
 		\enditems
 \enditems
 Xtion sensor is for our purposes the most suitable. Xtion has sufficient rosolution of RGB image and depth map. In addition, Xtion has a sufficient number of frames per second (compared to slower stereo-pair).
-\Black
 Xtion mounted on~the~arm~"r1" is~called "xtion1" and Xtion mounted on~the~arm~"r2" is~called "xtion2". Position of~cameras is~shown in~figure~\ref[fig:gripper].
 
 
@@ -85,11 +81,10 @@ A system built using ROS consists of a number of processes, potentially on a num
 Although the topic-based publish-subscribe model is a flexible communications paradigm, its ''broadcast'' routing scheme is not appropriate for synchronous transactions, which can simplify the design of some nodes. In ROS, we call this a {\bf service}, defined by a string name and a pair of strictly typed messages: one for the request and one for the response~\cite[quigley2009ros].
 
 In the ROS are designed a large number of tools e.g. for get and set configuration parameters, for plotting or visualisation. For this project is important a {\bf rosbag tool}. This is basucally a set of tools for recording from and playing back to ROS topics~\cite[rosbag]. With help of this tool we can record
-\Blue all or just some \Black chosen topics. 
-\Blue
+all or just some chosen topics. 
 The chosen topics are passed like parameters to the rosbag tool. The rosbag tool records all published messages from chosen topics, including timestamp.
   The tool stores timestamped messages to a specially formatted "*.bag" file (also "bagfile" or "rosbag-file"). The rosbag tool can later replay these messages from rosbag file too. 
-\Black
+
 
 
 

@@ -3,31 +3,26 @@
 \label[sec:requirements]
 \sec Goals of experiment
 
-The requirement on the experiment is to obtain mathematical features by which could be used to estimate the parameters of the dynamic physical model of garment. These features we determine by tracking hanging garment. Movement of hanging garment will be causes the movement of the manipulator gripper that holds garment. Based on the sensors that we have available, we have chosen:
-\begitems \style X
-	* \Blue simplest movement, which could give us the necessary data. Data that could be used to obtain the features of the dynamic model of garment. \Black This movement is the movement of garment in the plane, ideally excited by moving gripper of a garment in a straight line (line segment),
-	* two types of motion capturing:
+The requirement on the experiment is to obtain mathematical features by which could be used to estimate the parameters of the dynamic physical model of garment. These features we determine by tracking hanging garment. Movement of hanging garment will be causes the movement of the manipulator gripper that holds garment.
+\Blue Based on the sensors that we have available, we have chosen the simplest movement, which could give us the necessary data. Data that could be used to obtain the features of the dynamic model of garment. This movement is the movement of garment in the plane, ideally excited by moving gripper of a garment in a straight line (line segment). 
+Types of chosen motion capturing:
 	\begitems \style a
-		* with standart RGB video camera capturing a silhouette of garment against the constant background when garment is moving {\bf perpendicular to the optical axis},
-		* with rangefinder capturing when garment is moving {\bf along the optical axis}.
-	\enditems
-\enditems
+		* capturing with standart RGB video camera capturing a silhouette of garment against the constant background when garment is moving {\bf perpendicular to the optical axis},
+		* capturing with rangefinder capturing when garment is moving {\bf along the optical axis}.
+	\enditems \mind{Tyto odrážky taky do vět?}
+\Black
 
 \sec Realisation
 
-\Blue
-Both arms of manipulator are used for the experiment. One arm causes a movement of garment that is held by the gripper of this arm. Xtion sensor (\ref[secc:camera]), located on the second arm, is used for capturing the movement.
+Both arms of manipulator are used for the experiment. One arm causes a movement of garment that is held by the gripper of this arm. Xtion sensor, located on the second arm, is used for capturing the movement.
 
-Movement along a straight line or line segment (chap.~\ref[sec:requirements]) requires synchronous movement of the all axes. This movement is ensured thus that the end of gripper slide on the selected points on the line segment. If robot is in the mode ''controlled by ROS'', 
-\Black
+Movement along a straight line or line segment (chap.~\ref[sec:requirements]) requires synchronous movement of the all axes. This movement is ensured thus that the end of gripper moves on the selected points on the line segment. If robot is in the mode ''controlled by ROS'', 
 we found that the dynamics of the manipulator is not fast enough to perform the desired movement of the gripper with garment necessary speed.
 
-\Blue
 However, it is possible to achieve the required speed when the motion is based on a movement of a one axis. The synchronous movement of all axes was replaced by a motion a one axis, which may not be synchronous with the other. Thus the movement of gripper along line segment is approximated by moving the gripper on the part of the circle.  
 
 We decided capture the movement of garment in two ways. We use both possibilities of Xtion sensor --- capturing RGB images and depthmaps too. When garment is moving perpendicular to the optical axis, will be captured RGB images. When garment is moving along the optical axis, will be captured depthmaps. We need background subtraction for processing RGB images. Background subtraction needs RGB image without garment on foreground.
 
-\Black
 Another limitation is the spatial limitation, such that it is not possible to place the camera "xtion" in the appropriate position to capture RGB images (ie, the position where the gripper with garment moves perpendicular to the optical axis) and then the camera "xtion" move to position suitable for capturing depth maps (ie, the position where the gripper with garment moves along the optical axis). These restrictions are solved via camera "xtion" position (ie the position of the arm with the camera) which is fixed in the same position for record RGB videos as well as for sensing depth maps. Instead, the arm with garment makes a move of gripper with two different ways so that the movements fulfilled the conditions for sensing with each sensors (perpendicular position vs. along the optical axis). \mind{OBRÁZEK - Ale jaký?}
 
 
@@ -35,8 +30,6 @@ Another limitation is the spatial limitation, such that it is not possible to pl
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
-
-\Blue
 
 \label[sec:caprgb]
 \sec Capturing of RGB
@@ -107,7 +100,6 @@ The arm "r1" is into same position as in case of capturing of RGB (chap.~\ref[se
 
 The reference image of background is captured that the arm "r2" (in which gripper is {\bf not} held garment in this case) change position so that the arm "r2" is completely out of captured area of "xtion1".  In this position is performed the capture of background and the arm "r2" with the garment was returned to the position of measurement.
 
-\Black
 
 
 

@@ -49,7 +49,7 @@ $;\cr
 \left| {\bf I}^i_{B}(u,v) - {\overline{\bf B}}_{B}(u,v)\right| >  {\bf \sigma}_{B}(u,v)
 $;\cr
 }
-$;\cr
+$\cr
 0, &otherwise. 
 \cr}
 \eqmark

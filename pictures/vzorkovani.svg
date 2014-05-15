@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <defs/>
+    <g>
+        <g latexdraw:type="bezierCurve" id="id191">
+            <path
+                d="M 370.0 420.0 C 322.9238874625713 436.84754072152106 344.6349407491791 433.509995337673 320.0 390.0 C 295.3650592508208 346.4900046623269 314.73245954897124 329.7217559786036 320.0 280.0 C 325.26754045102876 230.2782440213964 338.17934240174975 188.58263119619028 350.0 140.0 C 361.82065759825014 91.41736880380995 330.0723392285854 27.311377695820706 380.0 30.0 C 429.92766077141454 32.68862230417929 424.6026915780605 230.21229840374235 420.0 280.0 C 415.3973084219395 329.78770159625765 417.0761125374287 403.15245927847894 370.0 420.0 z "
+                stroke-width="2.0" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="bezierCurve" id="id194">
+            <path
+                d="M 720.0 30.0 C 720.0 30.0 810.0 90.0 730.0 190.0 C 650.0 290.0 710.0 420.0 730.0 430.0 "
+                stroke-width="2.0" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="dot" id="id197" latexdraw:size="20.0"
+            latexdraw:dotShape="dot" latexdraw:position="380.0 30.0">
+            <circle r="10.0" fill="#f00b0b" cx="380.0" cy="30.0"/>
+        </g>
+        <g latexdraw:type="dot" id="id198" latexdraw:size="20.0"
+            latexdraw:dotShape="dot" latexdraw:position="720.0 30.0">
+            <circle r="10.0" fill="#f00b0b" cx="720.0" cy="30.0"/>
+        </g>
+    </g>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:displayBorders>false</latexdraw:displayBorders>
+            <latexdraw:autoAdjust>true</latexdraw:autoAdjust>
+            <latexdraw:ppc>50</latexdraw:ppc>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:unit>cm</latexdraw:unit>
+            <latexdraw:classicGrid>false</latexdraw:classicGrid>
+            <latexdraw:gridGap>10</latexdraw:gridGap>
+            <latexdraw:code>0</latexdraw:code>
+            <latexdraw:displayGrid>true</latexdraw:displayGrid>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:autoUpdate>true</latexdraw:autoUpdate>
+            <latexdraw:version>2.0.8</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1922</latexdraw:width>
+                <latexdraw:height>1085</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>0</latexdraw:x>
+                <latexdraw:y>24</latexdraw:y>
+            </latexdraw:position>
+            <latexdraw:dividerPosition>0.9958376690946931</latexdraw:dividerPosition>
+            <latexdraw:displayCodePanel>true</latexdraw:displayCodePanel>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:delimitorOpacity>100</latexdraw:delimitorOpacity>
+        </latexdraw:metadata>
+    </metadata>
+</svg>
