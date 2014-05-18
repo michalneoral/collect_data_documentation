@@ -3,6 +3,10 @@
 % http://petr.olsak.net/ctustyle.html
 
 
+\input ctustyle
+
+\def\thednum{(\the\chapnum.\the\dnum)}
+
 \def\mind#1{\Red{\bf#1}\Black}
 \def\dopln{\mind{DOPLŇ~ODKAZ!}}
 \def\task#1{\Green{#1}\Black}
@@ -11,7 +15,6 @@
 \def\newbeg{}
 \def\newend{}
 
-\input ctustyle
 
 \worktype [B/EN]
 \faculty    {F3} 
@@ -28,9 +31,12 @@
 %\subtitleCZ {}
 \pagetwo    {}  % The text printed on the page 2 at the bottom.
 
+\specification {\picw=\hsize \cinspic pdf/specAJ.png
+				\vfil\break \cinspic pdf/specCZ.png }
+
 \abstractEN {
    This... 
-
+This thesis has goal to design method of measurement and extraction of image features for obtaining parameters which will lead to construct the model.
 		\mind{do 11.5.}
 }
 \abstractCZ {
@@ -62,7 +68,7 @@
 
 %%%%% <--   % The place for your own macros is here.
 
-\draft     % Uncomment this if the version of your document is working only.
+%\draft     % Uncomment this if the version of your document is working only.
 %\linespacing=1.7  % uncomment this if you need more spaces between lines
                    % Warning: this works only when \draft is activated!
 %\savetoner        % Turns off the lightBlue backround of tables and
@@ -91,9 +97,10 @@
 \usebbl/c ref  % finalní verze musí být /c
 
 % Přílohy
-\input specifications
+%\input specifications
 \input dvdContent
-\input otherImages
+\input specialcases
+%\input otherImages
 \input shortcuts
 \input manualcollect
 %\input automaticcollect

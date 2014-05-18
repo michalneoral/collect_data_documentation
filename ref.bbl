@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{asus}
+{ASUS Xtion PRO LIVE Specifications}.
+\newblock \url{http://www.asus.com/Multimedia/Xtion_PRO_LIVE/}.
+\newblock Accessed: 2014-05-03.
+
 \bibitem{clopema}
 {CloPeMa} clothes perception and manipulation.
 \newblock \url{http://clopema.eu/}.
@@ -106,6 +111,11 @@ Pier~Giorgio Minazio.
 \newblock Fast--fabric assurance by simple testing.
 \newblock {\em International Journal of Clothing Science and Technology},
   7(2/3):43--48, 1995.
+
+\bibitem{pecha2014bac}
+Petr Pecha.
+\newblock Bachelor thesis: Modelování látky v pohybu.
+\newblock Supervisor: Vladimír Smutný, Published: 2014.
 
 \bibitem{piccardi2004background}
 Massimo Piccardi.

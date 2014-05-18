@@ -4,8 +4,11 @@
 \label[sec:loadToMatlab]
 \sec Load Data to the MATLAB
 
-\Blue
-Data are processed offline in MATLAB. The offline procesing is only for research purposes. If it turns out that the proposed method of extraction of features from moving garment and methods of model building a dynamic physical model of the garment\fnote{Create a dynamic physical model of the garment is not the point of this work.} are good, methods will be implemented directly into the ROS and processed online. Data format "bagfile" are read using the "matlab_rosbag" tool (from~\cite[rosbagtool]). The "matlab_rosbag" is a library for reading ROS bags in Matlab and it is licensed under the BSD license, making it suitable for use in CloPeMa project. The tool (library) can also read only selected topic, which is used in this case. The chosen topics are read from the same file~\urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/matlab/topics/topics.txt} as are read chosen topics for recording data (chap.~\ref[sec:topics]). After loading the data into MATLAB data are grouped into cells by topic.
+The data are processed offline in MATLAB. The offline procesing is only for research purposes. 
+%If it turns out that the proposed method of extraction of features from moving garment and methods of model building a dynamic physical model of the garment\fnote{Create a dynamic physical model of the garment is not the point of this work.} are good, 
+We suppose that the methods will be implemented directly into the ROS and processed online in the future. 
+
+Data format "bagfile" are read using the "matlab_rosbag" tool (from~\cite[rosbagtool]). The "matlab_rosbag" is a library for reading ROS bags in Matlab and it is licensed under the BSD license, making it suitable for use in CloPeMa project. The tool (library) can also read only selected topic, which is used in this case. The chosen topics are read from the same file~\urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/matlab/topics/topics.txt} which is used for definition of recording data (chap.~\ref[sec:topics]). After loading the data into MATLAB data are grouped into cells by topic.
 \begtt
 SCRIPT loader
     Initalize;
@@ -15,9 +18,8 @@ SCRIPT loader
     For each TOPICS from FILE make matrix of cell;   
 END.
 \endtt
-\Blue
 Next steps in the case of RGB images and Depth maps are different.
-\Black
+
 
 
 \input procRGB

@@ -1,11 +1,11 @@
-\chap Description of Workplace and of the Software
+\chap Description of Manipulator
 
 \label[sec:workplace]
 \sec Workplace
 
 \secc Manipulator
 
-The base is~composed of~two robotic manipulator arm Motoman~MA1400. First arm is~called as~"r1" (or~also~appears like "R1"). Second arm is similarly marked "r2"~("R2"). The arms "r1" and "r2" are placed on~the~turntable. The turntable is rotated about an~axis known as~"external axis" (or~"Ext." or~possibly as~axis~"13"). Location of~arms and rotating around the~"Ext."~axis can be~better seen from (figure~\ref[fig:motomanAndTable]). 
+The testbed is~composed of~two robotic manipulator arm Motoman~MA1400. First arm is~called as~"r1" (or~also~appears like "R1"). Second arm is similarly marked "r2"~("R2"). The arms "r1" and "r2" are placed on~the~turntable. The turntable is marked as~"external axis" (or~"Ext." or~possibly as~axis~"13"). Location of~arms and~"Ext."~axis of turntable can be~better seen from (figure~\ref[fig:motomanAndTable]). 
 
 \midinsert \clabel[fig:cturobot]{Manipulator of CloPeMa project}
 \picw=8cm \cinspic pictures/robotCTU-eps-converted-to.pdf
@@ -30,7 +30,7 @@ Each arm of~manipulator has 6~rotation axes. The~axes are labeled according to t
 \secc End Effector
 
 Each of~arms "r1" and "r2" are ended with eletricly controlled grippers (figure~\ref[fig:gripper]). Grippers are designed for~grasping garment.
-The prototype of gripper was developed especialy for CloPeMa project by the University of Genoa. The gripper is composed of two flexible fingers. Flexible fingers are used for lifting garments from the table. Gripper has a tactile sensor at the ''finger tips'' to sense the garment material using little rubbing motions between the ''gripper finger''~\cite[clopema]. 
+The prototype of gripper was developed especialy for CloPeMa project by the colleagues from University of Genoa. The gripper is composed of two flexible fingers. Flexible fingers are used for lifting garments from the table. Gripper has a tactile sensor at the ''finger tips'' to sense the garment material using little rubbing motions between the ''gripper finger''~\cite[clopema]. 
 
 
 \medskip \clabel[fig:gripper]{Gripper}
@@ -42,7 +42,7 @@ The prototype of gripper was developed especialy for CloPeMa project by the Univ
 \label[secc:camera]
 \secc Sensors %Camcorder
 
-The robot has been setup with a variety of sensors:
+The robot has been equipped with a variety of sensors:
 \begitems \style X
 	* Robot Binocular-Vision Head	
 		\begitems \style x
@@ -50,7 +50,7 @@ The robot has been setup with a variety of sensors:
 		\enditems
 	* Photometric Stereo Gripper-Mounted Sensor
 		\begitems \style x
-			* The photometric stereo sensor is a small scale close range stereo-pair camera sensor. The sensors captures at 1280$\times$800~px resolution and has software support to do 3D reconstruction of close-range garment surface~\cite[clopema].			
+			* The photometric stereo sensor is a small scale close range \mind{stereo-pair} camera sensor. The sensors captures at 1280$\times$800~px resolution and has software support to do 3D reconstruction of close-range garment surface~\cite[clopema].			
 		\enditems
 	* Wrist Force-Torque Sensor
 		\begitems \style x
@@ -58,7 +58,7 @@ The robot has been setup with a variety of sensors:
 		\enditems
 	* Xtions
 		\begitems \style x
-			* Asus Xtion Pro Live sensor is~able~to~record RGB~images and depth maps. The robot has two to three these sensors --- one on the each arm~\cite[clopema]. \mind{Rozvést montáž!}
+			* Asus Xtion Pro Live sensor is~able~to~record RGB~images and depth maps. The resolution of RGB~images is up to 1280$\times$1024~px and resolution of the depth images is up to 640$\times$480~px with 30~fps~\cite[asus]. The robot has three these sensors --- one on the each arm~\cite[clopema] and one on the turn table. Sensor location on the manipulator arm shown in figure~\ref[fig:gripper].
 		\enditems
 \enditems
 Xtion sensor is for our purposes the most suitable. Xtion has sufficient rosolution of RGB image and depth map. In addition, Xtion has a sufficient number of frames per second (compared to slower stereo-pair).
@@ -83,7 +83,7 @@ Although the topic-based publish-subscribe model is a flexible communications pa
 In the ROS are designed a large number of tools e.g. for get and set configuration parameters, for plotting or visualisation. For this project is important a {\bf rosbag tool}. This is basucally a set of tools for recording from and playing back to ROS topics~\cite[rosbag]. With help of this tool we can record
 all or just some chosen topics. 
 The chosen topics are passed like parameters to the rosbag tool. The rosbag tool records all published messages from chosen topics, including timestamp.
-  The tool stores timestamped messages to a specially formatted "*.bag" file (also "bagfile" or "rosbag-file"). The rosbag tool can later replay these messages from rosbag file too. 
+  The tool stores timestamped messages to a specially formatted "*.bag" file (also "bagfile" or "rosbag-file"). The rosbag tool can later replay these messages from rosbag file. 
 
 
 

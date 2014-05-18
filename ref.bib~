@@ -228,6 +228,12 @@
   note = {Accessed: 2014-02-02}
 }
 
+@misc{ asus,
+  TITLE  = {{ASUS Xtion PRO LIVE Specifications}},
+  howpublished = {\url{http://www.asus.com/Multimedia/Xtion_PRO_LIVE/}},
+  note = {Accessed: 2014-05-03}
+}
+
 @inproceedings{piccardi2004background,
   title={Background subtraction techniques: a review},
   author={Piccardi, Massimo},

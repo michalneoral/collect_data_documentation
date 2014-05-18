@@ -2,116 +2,173 @@
 \sec Extraction of Features from Depth Map
 
 
-The sequence of images of depth maps is captured with the xtion camera (chap.~\ref[secc:camera]). Depth maps are in a sufficient resolution 640$\times$480~px (width$\times$height). Depth maps are stored in the "bagfile"s like single row vector. After loading the data into MATLAB~(chap.~\ref[sec:loadToMatlab]) data are converted from row representation in milimeters to depth map ${\rm C}(u,v)=z$ in meters, where $z$~is a distance from the xtion camera, $u$ and $v$ are the depth map image coordinates. The depth maps data shows figure~\ref[fig:extDepth]. 
+The sequence of depth maps is captured with the xtion camera (chap.~\ref[secc:camera]). Depth maps are in a sufficient resolution 640$\times$480~px (width$\times$height). Depth maps are stored in the "bagfile"s like single row vector. After loading the data into MATLAB~(chap.~\ref[sec:loadToMatlab]) data are converted from row representation in milimeters to depth map ${\rm C}(u,v)=z$, where $z$~is a distance from the xtion camera in meters, $u$ and $v$ are the depth map image coordinates ($ u \in 1, 2, \dots, n; v \in 1, 2, \dots, m $). The depth maps are shown figure~\ref[fig:extDepth]. 
 
 \medskip \clabel[fig:extDepth]{Illustration Depth Map from Rangefinder}
 \picw=18cm
 \cinspic pictures/depth.pdf
-\caption/f Illustration Depth Map from Rangefinder.
+\caption/f Depth Map obtained by Xtion rangefinder.
 \medskip
 
 \secc Convert Depth Map to 3D points
 
 
-Together with data depth map is also stored calibration parameters. From these calibration parameters comes calibration matrix ${\bf K}$~(eq.~\ref[eq:calib]), where $f_x$ and $f_y$ are focal lengths and $(c_x, c_y)$ is a principal point.  
+Together with data depth map is also stored calibration parameters of the Xtion rangefinder. From these calibration parameters comes calibration matrix ${\bf K}$~(eq.~\ref[eq:calib]), where $f_x$ and $f_y$ are partial focal lengths and $(c_x, c_y)$ is a principal point.  
 \label[eq:calib]
 $${\bf K} = \left[ \matrix{ 
 f_x & 0 & c_x \cr
 0 & f_y & c_y\cr
 0 & 0 & 1 \cr}
 \right] \eqmark $$
-Using the calibration matrix ${\bf K}$ can be depth map ${\rm C}(u,v)$ converted into 3D point cloud ${\bf M}_{i}$~(eq.~\ref[eq:muv]).
+Using the calibration matrix ${\bf K}$ can be depth map ${\rm C}(u,v)$ converted into 3D point cloud (set of points) ${\bf M}$~(eq.~\ref[eq:muv]), where ${\bf M}_i = [ x_i, y_i, z_i]$ is point represent by its euclidean coordinates. We use usually coordiate system of the xtion sensor.
 \label[eq:muv] 
-$${\bf M}_{i}\in \{ {\bf M}_1, {\bf M}_2, \dots, {\bf M}_{u\times v} \} \eqmark$$
-The point cloud ${\bf M}$ is made by equation~\ref[eq:get3Dpoints]. Algoritmus used for these convertion was inpirated by~\cite[matlabpointcloud].
+$${\bf M} = \{ {\bf M}_1, {\bf M}_2, \dots, {\bf M}_{m\times n} \} \eqmark$$
+The point cloud ${\bf M}$ is constructed according to equation~\ref[eq:get3Dpoints]. Algoritmus used for these convertion was inspirated by~\cite[matlabpointcloud]. We obtain each point ${\bf M}_i \in {\bf M}$ from depth map ${\rm C}(u,v)$ by:
 \label[eq:get3Dpoints]
 $$
 \eqalignno{
-\forall u,\forall v : ~ z &= {\rm C}(u,v)\cr
-x &= {z \cdot (u-c_x) \over {f_x}} & \eqmark \cr
-y &= {z \cdot (v-c_y) \over {f_y}} \cr
+z_i &= {\rm C}(u,v)\cr
+x_i &= {z \cdot (u-c_x) \over {f_x}} & \eqmark \cr
+y_i &= {z \cdot (v-c_y) \over {f_y}} \cr
 }
 $$
-$$\forall {\bf M} :  {\bf M} = [ x, y, z ] \eqmark$$
-The data from 3D points are shown in the figure~\ref[fig:pointsDepth].
+where $u \in 1, 2, \dots, n$, $v \in 1, 2, \dots, m$ and $i \in 1, 2, \dots, n\times m$.
+Example of data from 3D points are shown in the figure~\ref[fig:pointsDepth].
 
-\medskip \clabel[fig:pointsDepth]{Illustration of 3D Points}
+\medskip \clabel[fig:pointsDepth]{Examples of point cloud of a garment}
 \picw=18cm
 \cinspic pictures/point3D.png
-\caption/f Illustration of 3D Points.
+\caption/f Examples of point cloud of a garment.
 \medskip
 
-\secc Filtering by Depth of Area
 
-
-The figure~\ref[fig:pointsDepth] shows that the xtion camera captured not only the points on the garment but also captured the unnecessary surroundings. We decided filtering the 3D points according to distance from xtion camera. From the measurements, we know that the~gripper of the arm "r2" with garment is located 1.06--1.07~m
- before the xtion camera on the arm "r1" at its default measurement position. After several experiments, it was found that the minimum and maximum of z-axis values on the garment have the following values: $min(z)=0.8~\rm m$ and  $max(z)=1.16~\rm m$, thus we know that the garment moves between these values. Maximum deviation $\Delta z$ from the z-axis value of endpoint $ee_z$ is computed by equation \ref[eq:minmax]. 
-\label[eq:minmax] 
-$$\Delta z=max(abs(ee_z-min_{garment}(z)),abs(ee_z-max_{garment}(z))) \eqmark$$
-If the deviation is known, point cloud ${\bf M}_{i}$~(from~\ref[eq:get3Dpoints]) can be filtered to ${\bf M}_{j}$~(eq.~\ref[eq:filter3D]). The filted data are shown in the figure~\ref[fig:pointsFiltering]. You can see the differences between figures~\ref[fig:extDepth] and~\ref[fig:pointsFiltering]. Moreover, this method of ''background substraction'' is much robust than method of background substraction of RGB images~\ref[secc:bagSubRGB].
-\label[eq:filter3D]
-$${\bf M}_j \subseteq {\bf M}_{i} \in ee_z - 3\cdot \Delta z \leq z_i \leq ee_z + 3\cdot \Delta z \eqmark$$ 
-
-
-
-\medskip \clabel[fig:pointsFiltering]{3D points after filtering}
-\picw=18cm
-\cinspic pictures/point3Dfiltred.pdf
-\caption/f Illustration of 3D points after Filtering by Distance.
-\medskip
 
 \label[secc:findEE]
 \secc Finding End of the Gripper
 
+%\mind{Proč je to důležité?}
 In the figure~\ref[fig:findPoints] are not shown only points on the garment. The figure shows points of the gripper of arm "r2"~\ref[secc:camera] too. 
-As has been said in chapter~\ref[sec:capDepth] the movement of the garment is caused by this gripper. Finding the coordinates ${\bf ee} = [ee_x,ee_y,ee_z]$ of the end point of the gripper is important not only for resoluting the gripper from the garment, but also for detecting excitation movement of garment. The coordinates are found by using ROS. The simple service was written for this operation~(chap.~\ref[secc:rosintro]). This service subscribes to the topic of "/xtion1/depth/camera_info". This topic generates a message each time an depth map image is captured. For every incoming message is compuded a coordinates of ${\bf ee}$ --- end of the gripper with garment. This coordinates are not in the global coordinate system, but in the coordiate system of "xtion1" camera. Then, the service publishes data as a new message in its own topic. So the position of the end point of the gripper is captured for every depth map image. Founded gripper is shown in the figure~\ref[fig:find3DGripper].
+As has been said in chapter~\ref[sec:capDepth] the movement of the garment is caused by this gripper. Finding the coordinates ${\bf ee}~=~[ee_x,ee_y,ee_z]$ of the end point of the gripper is important not only for resoluting the gripper from the garment, but also for detecting excitation movement of garment. The coordinates are found by information about robot position. The simple service in ROS was written for this operation~(chap.~\ref[secc:rosintro]). This service subscribes to the topic of "/xtion1/depth/camera_info". This topic generates a message each time an depth map image is captured. For every incoming message is compuded a coordinates of ${\bf ee}$ --- end of the gripper with garment. This coordinates are not in the global coordinate system, but in the coordiate system of "xtion1" camera. Then, the service publishes data as a new message in its own topic. So the position of the end point of the gripper is captured for every depth map image. Founded gripper is shown in the figure~\ref[fig:find3DGripper].
 
 %\label[eq:endEffector]
 %$$ ee_{x,y,z} \eqmark $$
 
 
-\medskip \clabel[fig:find3DGripper]{3D Points with Founded Gripper}
+\medskip \clabel[fig:find3DGripper]{3D filtred points with founded gripper}
 \picw=18cm
 \cinspic pictures/point3Dgripper.pdf
-\caption/f Illustration of 3D Points with Founded Gripper.
+\caption/f Example of 3D filtred points with founded gripper (gripper position shows a red circle). 
 \medskip   
 
-\secc Finding Points
 
-First of all is reduced the 3D points matrix. Points over the gripper endpoint ${\bf ee}$~(from chap.~\ref[secc:findEE]) are not needed anymore. This points are removed from the set ${\bf M}_{j}$~(eq.~\ref[eq:reducedFromEE]).
-\label[eq:reducedFromEE] 
-$$
-{\bf M}_k \subseteq {\bf M}_{j} \in  y_i < {\bf ee}_y
-\eqmark$$ 
-%----------------------------------------------------------------------
-%----------------------------------------------------------------------
-%----------------------------------------------------------------------
-%----------------------------------------------------------------------
-We assume that the point cloud ${\bf M}_k$ should represent a some function that describes the garment. This function can not be simply obtained from the point cloud, so we decided to sample garment. 
-%Then it is necessary to sample the garment.
-Sampling is chosen in the direction of the assuming function vertically down from gripper ${\bf ee}$ position. 
-Sampling intervals are chosen based on a raster Which provides a sensor. The raster of distance is usually (on our dataset) $\Delta y_{us} = 2.5~mm$. So we choose the sampling interval $\Delta y = 5~mm$, to we always received at least one point. At the same time it is set as the maximum distance $\Delta x$ between the points from axis extending the gripper, which is parallel to the y-axis. All points ${\bf s} = [s_x, s_y, s_z ]$ whith includes a set of points determined using eq.~\ref[eq:sampling] are averaged to ${\bf S}_i=[{\bf S}_x, {\bf S}_y,{\bf S}_z,]$. Herewith it is also ensured filtering of points.  
-\label[eq:sampling]
+\secc Filtering by Depth of Area
+
+
+The figure~\ref[fig:pointsDepth] shows that the xtion camera captured not only the points on the garment but also captured the unnecessary surroundings. We decided filtering the 3D points according to distance from xtion camera. We know that the~gripper of the arm "r2" with garment is located 1.06--1.07~m
+ before the xtion camera on the arm "r1" at its default measurement position. After several experiments, we found that the minimum and maximum of z-axis values on the garment have values between 0.8~m to 1.16~m, thus we know that the garment moves between these values. 
+%Maximum deviation $\Delta z$ from the z-axis value of endpoint $ee_z$ is computed by equation \ref[eq:minmax]. 
+%\label[eq:minmax] 
+%$$\Delta z=max(abs(ee_z-min_{garment}(z)),abs(ee_z-max_{garment}(z))) \eqmark$$
+
+If the deviation is known, point cloud ${\bf M}$~(from~\ref[eq:get3Dpoints]) can be filtered to point cloud ${\bf M}^*$~(eq.~\ref[eq:mstar]), to extract the garment shape~(according to eq.~\ref[eq:filter3D]).
+\label[eq:mstar]
+$${\bf M}^* = [ x^*, y^*, z^* ] \eqmark$$
+The filted data are shown in the figure~\ref[fig:pointsFiltering]. You can see the differences between figures~\ref[fig:extDepth] and~\ref[fig:pointsFiltering]. Moreover, this method of ''background substraction'' is much robust than method of background substraction of RGB images~\ref[secc:bagSubRGB].
+\label[eq:filter3D]
+%$${\bf M}_j \subseteq {\bf M}_{i} \in ee_z - 3\cdot \Delta z \leq z_i \leq ee_z + 3\cdot \Delta z \eqmark$$ 
 $$
 \eqalignno{
-\forall {\bf s} : (x-\Delta x) < &s_x < (x + \Delta x)\cr
-(y-\Delta y) < &s_y < (y + \Delta y) & \eqmark \cr 
+{\bf M}^* &\subseteq {\bf M}\cr
+{\bf M}^* = \{ {\bf M}_i = [x_i,y_i,z_i] \in {\bf M} &; ee_z - 3\cdot \Delta z \leq z_i \leq ee_z + 3\cdot \Delta z \} & \eqmark \cr
 }
 $$
-To preserve the Shannon sampling theorem, must be the number of samples at least twice greater than the number of period function. Because we assume that this function consists of one or two periods of the sinusoidal waveforms, the number of these points will sufficient.
+when $\Delta z$ is range of motion of the garment according to the gripper coordinates. A~value of $\Delta z$ is known on the base of experimental determine data and set constantly.
 
-The next step is finding points based on constatnt length of garment. The $l$ length of garment is sumarized according to sample points ${\bf S}_i$~(eq.~\ref[eq:sum]).
+
+\medskip \clabel[fig:pointsFiltering]{Filtred point cloud of a garment}
+\picw=18cm
+\cinspic pictures/point3Dfiltred.pdf
+\caption/f Example of filtred point cloud of a garment.
+\medskip
+
+\label[secc:findingPointsDepth]
+\secc Finding Points
+
+First of all is reduced the 3D points matrix. Points over the gripper endpoint ${\bf ee}$~(from chap.~\ref[secc:findEE]) are not needed anymore. 
+%This points are removed from the set ${\bf M}_{j}$~(eq.~\ref[eq:reducedFromEE]).
+%\label[eq:reducedFromEE] 
+%$$
+%{\bf M}_k   {\bf M}_{j} \in  y_i < {\bf ee}_y
+%\eqmark$$ 
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+The points are filtred by the y-axis from point cloud ${\bf M}^*$ to the point cloud ${\bf G}$.
+
+To estimate a simple model, which can be imagined as a chain of connected segments pendulous vertically down we need the position of points on the garment vertically down from the gripper. 
+
+To preserve the Shannon sampling theorem, must be the number of samples at least twice greater than the number of period function. Because we assume that this function consists of one or two periods of the sinusoidal waveforms, the number of these points will sufficient. 
+Vertical direction will be denoted as the direction parallel to the y axis. 
+
+When the movement is limited, we can assume that the point cloud ${\bf G}$ represents a some function $z={\rm f}(y)$, where $y$ is the vertical coordiate of the point on the garment and for all $z$ will be the $x$ (at a given $y$) approximately constant. This function can be obtained from the point cloud by sampling. 
+%Then it is necessary to sample the garment.
+Sampling is chosen in the vertical direction down from gripper position. 
+Sampling intervals are chosen based on a raster which provides a sensor. The raster of distance is approximately (on our dataset) $\Delta y_{us} = 2.5~mm$. So we choose the sampling interval $\Delta y = 5~mm$, to we always received at least one point. We also it is set as the sampling size $\Delta x$ between the points and y-axis the gripper, which is parallel to the y-axis. 
+%For simplicity, we will from now denote the 3D point $[x, y, z]$ as ${\bf v} = [x,y,z]$, so ${\bf G}_i=[x_i,y_i,z_i]$ is the same like ${\bf G}_i={\bf v}_i$.
+We found the set ${\bf L} = \{ {\bf L}_i \subseteq {\bf G}  ~|~ i \in 1,2,\dots n \}$, where each ${\bf L}_i$ contains the points meet the following conditions:
+%$$
+%{\bf L}_i = \{ \forall [x_j,y_j,z_j] \subseteq {\bf G} ~|~ j \in 1,2,\dots,n ~| (x-\Delta x) < s_x < (x + \Delta x) ~|~ (y-\Delta y) < s_y < (y + \Delta y) \} 
+%}\eqmark
+%$$
+$$
+\eqalignno{
+{\bf L}_i = \{ \forall [x_j,y_j,z_j] \subseteq {\bf G} ~&|~ j \in 1,2,\dots,n ~| \cr
+(x-\Delta x) < x_j < (x + \Delta x) ~&|~ (y-\Delta y) < y_j < (y + \Delta y) \} & \eqmark \cr
+}
+$$
+where $n$ is number of points contains in ${\bf L}_i$.
+Let ${\bf p}_j = [x_j,y_j,z_j] \in {\bf L}_i; \forall j \in 1,2,\dots,n$ than ${\bf s}_i = [x_i,y_i,z_i]$ belongs to ${\bf L}_i$ is determined like:
+$$
+\eqalignno{
+x_i &= {1\over n} \sum_{j=1}^n x_j \cr
+y_i &= {1\over n} \sum_{j=1}^n y_j & \eqmark \cr
+z_i &= {1\over n} \sum_{j=1}^n z_j \cr
+}
+$$
+where $k$ is the number of elements of ${\bf L}_i$. This we found the chain of the sample points ${\bf s}_i$.
+%All these averaged points ${\bf s} = [x, y, z ]$ whith includes a set of points determined using eq.~\ref[eq:sampling] are averaged to ${\bf S}_i=[s_x, s_y, s_z,]$. Herewith it is also ensured filtering of points.  
+%\label[eq:sampling]
+%$$
+%{\bf S} = \{ {\bf S}_i \in {\bf G}; (x-\Delta x) < s_x < (x + \Delta x); (y-\Delta y) < s_y < (y + \Delta y) \} \eqmark  
+%$$
+%$$
+%\eqalignno{
+%\forall {\bf s} : (x-\Delta x) < &s_x < (x + \Delta x)\cr
+%(y-\Delta y) < &s_y < (y + \Delta y) & \eqmark \cr 
+%}
+%$$
+
+In the thesis~\cite[pecha2014bac] was made the requirement for location of measurement points ${\bf P}=\{ {\bf P}_1, {\bf P}_2, \dots, {\bf P}_k$ on the garment, where ${\bf P}_k=[x_k,y_k,z_k]$ and $k$ is number of requirment points.
+According to the requirments, points are located in the middle of equally long segments.
+Therefore, the next step is finding points based on constant length of the garment.
+
+First step is found lenght of the garment. The $l$ length of garment is sumarized according to sample points ${\bf s}_i$~(eq.~\ref[eq:sum]).
 \label[eq:sum]
 $$
-\forall {\bf S} : l = \sum_{i=1}^{n-1} \sqrt{ ( {\bf S}_{iy} - {\bf S}_{(i+1)y} )^2 +  ( {\bf S}_{iz} - {\bf S}_{(i+1)z} )^2} \eqmark
+\forall {\bf s}_i : l = \sum_{i=1}^{j-1} || {\bf s}_{i} - {\bf s}_{i+1}||  \eqmark
 $$
-
-
-
-and divided by the number of required points. Search points are found at a constant distance given length of garment. 
+%$$
+%\forall {\bf s}_i : l = \sum_{i=1}^{n-1} \sqrt{ ( {\bf S}_{iy} - {\bf S}_{(i+1)y} )^2 +  ( {\bf S}_{iz} - {\bf S}_{(i+1)z} )^2} \eqmark
+%$$
+where $j$ is the number of elements of ${\bf s}$.
+The length $l$ of the garment is divided by the number of required points. With this dividing are made equally long segments.
+%Searched points are found at a constant distance given length of the garment. 
+The required points ${\bf P}$ are in the middle of these segments. 
+These points (with time stamps) are forwarded for further processing. 
 Founded points are shown in the figure~\ref[fig:findPoints].
 
-\medskip \clabel[fig:findPoints]{3D points with founded points}
+\medskip \clabel[fig:findPoints]{3D point cloud with founded points}
 %\picheight=15cm 
 \picw=18cm
 %\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
@@ -119,28 +176,30 @@ Founded points are shown in the figure~\ref[fig:findPoints].
 %\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
 %\centerline {c)\hfil\hfil d)}\nobreak\medskip
 \cinspic pictures/fig.pdf
-\caption/f Illustration of 3D points with Points Found on the Garment.
+\caption/f Example of 3D point cloud with points found on the garment.
 \medskip
+
+\bigskip
+\bigskip
+\bigskip
+
 
 \secc Finding Mathematical Features from Depth Map
 
-		\Green
-		\begitems \style o
-			* Nalezení a vyplivnutí bodů ke zpracování
-		\enditems
+Points ${\bf P}$ (from chap.~\ref[secc:findingPointsDepth]) are obtained from whole sequence of the measurement of the garment. Because we found points P including timestamps, we can examine the dependence of displacement on time or dependence of speed on time. The timestamps for each depth map we obtained also from rosbag file.
 
-\lorem
-\lorem
-\lorem
-\lorem
-\lorem
-\lorem
+The dependence of displacement $\Delta z_k$ on the time is shown in the figure~\ref[fig:graphPosition] and dependence of speed of the points on the time is shown in the figure~\ref[fig:graphSpeed]. Figures show founded points ${\bf P}$ (blue) and also they show position or speed of the end of the gripper ${\bf ee}$. Both figures show specified dependences to green towel captured in the special case of holding of the garment straightened on the ruler. \mind{Přidat ještě jeden případ do přílohy?}
 
-\medskip \clabel[fig:graphDepth]{Dependence of the speed of points on the time}
-\picw=7cm 
-\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
-\centerline {a)\hfil\hfil b)}\nobreak\medskip
-\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
-\centerline {c)\hfil\hfil d)}\nobreak\medskip
-\caption/f Dependence of the speed of points on the time.
+\vfil
+
+\medskip \clabel[fig:graphPosition]{Dependence of the position of points on the time}
+\picw=18cm 
+\cinspic eps/graph5_3_5.pdf
+\caption/f Example of the movement of the garment, dependence of the position of points on the time.
+\medskip
+
+\medskip \clabel[fig:graphSpeed]{Dependence of the speed of points on the time}
+\picw=18cm 
+\cinspic eps/graphSpeed.pdf
+\caption/f Example of the movement of the garment, dependence of the speed of points on the time.
 \medskip

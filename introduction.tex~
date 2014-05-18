@@ -5,44 +5,52 @@
 This bachelor thesis is a part of~Clothes Perception and Manipulation project (CloPeMa, 2012-2015) funded by~the~European Commision. CloPeMa is research project which aims to~advance the~state of~the~art in~the~autonomous perception and manipulation of fabrics, textiles and garments. The CLoPeMa robot will learn to manipulate, perceive and fold a~variety of textiles~\cite[clopema]. 
 %This bachelor thesis describes the design of method of measurement and extraction of image features. 
 
-\sec Goals
+%\sec Goals
 
 The CloPeMa project is based on the manipulation of clothes (garments). 
-Simplified dynamic physical model of real garment could be useful for the manipulations e.g. for simulating movement, motion planning or collision detection. Creating virtual model of garment depend on its parameters. \mind{Rozvést!}
-This thesis has goal to design method of measurement and extraction of image features for obtaining parameters which will lead to construct the model.
+Simplified dynamic physical model of real garment is useful for the manipulations e.g. for simulating movement, motion planning or collision detection. 
+There are lots of models that could be used to create a virtual model of the garment\fnote{Create a dynamic physical model of the garment is not the point of this work.}. The creating virtual model depend on the garments parameters.
+We need to obtain model of a real garment, so we need to create it based on the real parameters.
+To find parameters of a real garment some methods are used, which are mainly based on a mechanical stress studied textile or clothing. 
+
 
 \sec The State of the Art
 
 The main sphere of using dynamic simulation of garment is computer graphic. These simulations are mainly for a realistic look, but not for real dynamic physical behavior of garment ~\cite[choi2005research] (including modern metod of simulating like~\cite[bender2013adaptive, lee2013automatic]).
-A lot of methods have been developed in the field of simulation models of garments (especially fabrics)~\cite[terzopoulos1987elastically,breen1994predicting, volino1995versatile, baraff1998large, eischen2000continuum,  choi2005stable, luible2008simulation]. Some of these tools or methods of simulation use for construct model from a parameters of real garments (fabrics) obtained e.g. by KESF etc.~\cite[eischen2000continuum, luible2008simulation]. But dynamic simulation of real garment is not a point of this work.
-
+A lot of methods have been developed in the field of simulation models of garments (especially fabrics)~\cite[terzopoulos1987elastically,breen1994predicting, volino1995versatile, baraff1998large, eischen2000continuum,  choi2005stable, luible2008simulation]. Some of these tools or methods of simulation use for construct model from a parameters of real garments (fabrics)~\cite[eischen2000continuum, luible2008simulation].
 
 In the science and industry exist several measuring techniques which is used to find elementary parameters of fabrics e.g. KESF, FAST or FAMOUS. 
-Kawabata's Evaluation System of Fabric (KESF) is used to get the mechanical properties of the clothes. KESF contains a several equipments for measure these properties. KESF was developed for mass-spring method (from~\cite[kawabata1982objective]). The method need a piece of fabric (size depends on the current implementation) for the measurement. On this sample is applied a force in the different directions with 
-\Blue
-different methods 
-\Black
-(depends on current physical property). The KESF produces
-\Blue
-graphs
-\Black
-depending on the applied force. The Kawabata instruments test with high accuracy: compression, pure bending rigidity, roughness, shear, surface friction and tensile~\cite[kawabata1982objective, stylios2005new, ancutiene2010relationship]. 
+Kawabata's Evaluation System of Fabric (KESF) is used to get the mechanical properties of the clothes. KESF contains a several equipments for measure these properties. KESF was developed for mass-spring method (from~\cite[kawabata1982objective]). The method need a piece of fabric (size depends on the current implementation) for the measurement. On this sample is applied a force in the different directions. The KESF produces \Blue
+graphs of change dimensions depending on the applied force. \Black
+The KESF instruments test with high accuracy: compression, pure bending rigidity, roughness, shear, surface friction and tensile~\cite[kawabata1982objective, stylios2005new, ancutiene2010relationship]. 
 
-Very similiar to the Kawabata's System is the most popular commercial systeme - Fabric Assurance by Simple Testing (FAST). Both systems were designed to measure fabric mechanical properties at low-stress level, but both systems  use different testing principles. KESF system measure deformation and recovery behaviour while FAST system determines deformation level at a single point on the \mind{deformation curve}, therefor FAST system cannot measure hysteresis~\cite[ancutiene2010relationship]. Another differences are that the KEFS use different equipment for each property. The FAST are more properties measure on one equipment, so the number of equipments are reduced~\cite[stylios2005new].
+Very similiar to the Kawabata's System (KESF) is the most popular commercial systeme - Fabric Assurance by Simple Testing (FAST). Both systems were designed to measure fabric mechanical properties at low-stress level, but both systems  use different testing principles. KESF system measure \Blue deformation depending on the increasing and decreasing applied force \Black while FAST system determines deformation level at a single point on the deformation curve, therefor FAST system cannot measure hysteresis~\cite[ancutiene2010relationship]. Another differences are that the KESF use different equipment for each property. The FAST are more properties measure on one equipment, so the number of equipments are reduced~\cite[stylios2005new].
 
-The Fabric Automatic Measurement and Optimisation Universal System (FAMOUS) is faster method of ''manual'' measurement. A complete suite of measurement take less than five minutes~\cite[stylios2005new].
+\Blue
+The other method Fabric Automatic Measurement and Optimisation Universal System (FAMOUS) is faster method of measurement based on mechanical stressing of the garment than KESF or FAST. A complete suite of measurement take less than five minutes~\cite[stylios2005new].
+\Black
 
 All these measuring techniques were designed for using in textile and clothes industry, but also are used for computer graphics simulation of garments.
 These techniques measure e.g. flexural rigidity, shear, surface, compression or tensile properties, but need tens of measurements equipments and process to acquire parameters. Process takes from a few minutes (FAMOUS) up to units of hours (KESF)~\cite[kawabata1982objective, stylios1991textile, minazio1995fast, stylios2005new]. While existing methods give excellent results and detailed description of substances, but do not tell us anything about the whole garment. Moreover, these methods are slow and expensive.
 
-	There are also methods of estimating cloth simulation parameters based on extraction features from video. \cite[bhat2003estimating] has developed the method based on the fabric projected a structured light pattern of horizontal stripes. A perceptually motivated metric based on matching between folds is used to compare video of real cloth with simulation. This metric compares two video sequences of cloth and returns a number that measures the differences in their folds~\cite[bhat2003estimating].
+	There are also methods of estimating cloth simulation parameters based on extraction features from video~(e.g.~\cite[bhat2003estimating]). This method is based on the fabric projected a structured light pattern of horizontal stripes. A perceptually motivated metric based on matching between folds is used to compare video of real cloth with simulation. This metric compares two video sequences of cloth and returns a number that measures the differences in their folds~\cite[bhat2003estimating].
+\Blue
 
+The work~\cite[bhat2003estimating] follows an experimental work using a MOCAP system with twelve cameras~\cite[charfi2005determination]. 
+The method uses the mass-spring system describes in the~\cite[baraff1998large]. The Kawabata Evaluation System (KESF) is used for obtained mass and springs parameters and the damping parameters are computed from free fall movement of the garment. This method is the most precise method of the aforementioned. However, this method uses KESF and MOCAP, thus is expensive and slow. Moreover, this method is primary used for animation realism~\cite[charfi2005determination].  
 
-\Green
-\begitems \style o
-	* Zmínit a více rozepsat použití Mocapu \cite[charfi2005determination]
-\enditems
 \Black
 
-Therefore, we propose which parameters we will need for build a simple dynamic physical model and we propose easiest way to obtain these parameters. We think that for such a simplified model, the parameters are well estimated from a moving garment, for which this model we want to build. This movement will cause the robot and we will capture the movement according to available equipment of robot~(chap.~\ref[sec:workplace]), thus we use the RGB camera and rangefinder.
+
+\sec Goals
+
+Our goal is to get the parameters of the model behavior of the garment. Detailed examination of the garment is technically and time-consuming, which is unsuitable for estimating the model of the garment in handling, in our case.
+
+Therefore, we propose which parameters we will need for build a simple dynamic physical model and we propose easiest way to obtain these parameters. 
+To do that, we need the real garment  track and simply describe it so that it can be compared with the model of the garment. At the same time we want from this comparison to determine the parameters of the garment.
+The point of this thesis is to tracking the behavior of real garment. The behavior, ie the movement of the garment will in the limited case under controlled conditions using a description of features.
+%We would like for such a simplified model, the parameters are well estimated from a moving garment, for which this model we want to build.
+This movement will cause the robot and we will capture the movement according to available equipment of robot~(chap.~\ref[sec:workplace]), thus we use the RGB camera and rangefinder.
+
+
 
