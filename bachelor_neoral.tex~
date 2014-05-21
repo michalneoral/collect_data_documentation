@@ -31,19 +31,44 @@
 %\subtitleCZ {}
 \pagetwo    {}  % The text printed on the page 2 at the bottom.
 
-\specification {\picw=\hsize \cinspic pdf/specAJ.png
-				\vfil\break \cinspic pdf/specCZ.png }
+\specification {\picw=\hsize \cinspic pdf/AJ.pdf
+				\nextoddpage
+				\vfil\break \cinspic pdf/CZ.pdf }
 
 \abstractEN {
-   This... 
-This thesis has goal to design method of measurement and extraction of image features for obtaining parameters which will lead to construct the model.
-		\mind{do 11.5.}
+The point of this work is design a method to obtain image features of the moving garment that could be useful in the context of the international project CloPeMa which is specialized in robotic manipulation with the garments.
+
+I concentrated mainly on obtaining these parameters from time series data from the sensor of 3D depth maps and from a standard rgb camera.
+
+Basis of our measurements is the movement of fabric, or garment, in front of the sensor using a robotic manipulator, which was controled by robot operating system, ROS.
+
+The image data were processed using mathematical programming environment MATLAB.
+
+Designed solution could be, combined with a model of the garment, provide better  possibilities for motion simulation, motion planning and collision detection in robotic manipulation with the garments.
+The performed experiments we found that the proposed method has high repeatability, becouse it was confirmed that the same garment in the same motion behaves approximately as same way.
+
+Based on the parameters should be possible to create a virtual model of dynamic physical model of the garments.
+
+Part of this work is the data set of various garments that can serve as a set for the validation of estimated parameters.
+%This thesis has goal to design method of measurement and extraction of image features for obtaining parameters which will lead to construct the model.
+
 }
 \abstractCZ {
-   Tento... 
+Cílem této práce je navržená metody pro získání obrazových příznaků z pohybující se látky, která by byla využitelná v rámci mezinárodního projektu CloPeMa, jenž se specializuje na robotickou manipulaci s oděvy.
 
-		\mind{do 11.5.}
-}           % If your language is Slovak use \abstractSK instead \abstractCZ
+Zaměřil jsem se převážně na získání těchto parametrů z časové posloupnosti dat ze senzoru 3D hloubkových map a standartní barevné kamery.
+
+Podstatou našeho měření je pohyb látky, či oděvu, před senzorem pomocí robotického manipulátoru, který byl ovládán pomocí robotického operačního systému ROS.
+
+Obrazová data jsem zpracovával pomocí matematického programovacího prostředí MATLAB. 
+
+Vytvořené řešení by mohlo v kombinaci s modelem látky poskytnout lepší možnosti simulace pohybu, plánování pohybu a detekci kolizí při robotické manipulaci s oděvy. 
+Provedeným výzkumem jsme zjistili, že navrhnutá metoda má velkou opakovatelnost, jelikož bylo potvrzeno, že se stejná látka při stejném pohybu chová přibližně stejně. 
+
+Na základě zjištěných parametrů by mělo být možné sestavit virtuální model dynamického fyzikálního modelu látky.
+
+Součástí této práce je i datová sada různých látek, která může sloužit jako sada pro ověřování odhadnutých parametrů.
+}
 
 \keywordsEN {%
    dynamic model; garment model; feature extraction; 3D~image; silhouette.
@@ -52,9 +77,9 @@ This thesis has goal to design method of measurement and extraction of image fea
    dynamický model; model oděvu, textilie; extrakce příznaků; 3D~obraz; silueta.
 }
 \thanks {           % Use main language here
-   Foremost, I would like to thank to Ing. Pavel Krsek, Ph.D. ...
-		
-   \mind{do 11.5.}
+   Foremost, I would like to thank to Ing. Pavel Krsek, Ph.D. for his great guidance and help throughout this project.
+I would also like to thank Ing. Libor Wagner and Bc. Vladimír Petrík for their help with the robot experiments.
+Finally, I would like to thank my parents for their support during my studies.
 }
 \declaration {      % Use main language here
    Prohlašuji, že jsem předloženou práci vypracoval
@@ -99,10 +124,11 @@ This thesis has goal to design method of measurement and extraction of image fea
 % Přílohy
 %\input specifications
 \input dvdContent
+\input descdata
 \input specialcases
 %\input otherImages
 \input shortcuts
-\input manualcollect
+%\input manualcollect
 %\input automaticcollect
 
 \bye

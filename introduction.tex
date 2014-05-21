@@ -20,26 +20,22 @@ The main sphere of using dynamic simulation of garment is computer graphic. Thes
 A lot of methods have been developed in the field of simulation models of garments (especially fabrics)~\cite[terzopoulos1987elastically,breen1994predicting, volino1995versatile, baraff1998large, eischen2000continuum,  choi2005stable, luible2008simulation]. Some of these tools or methods of simulation use for construct model from a parameters of real garments (fabrics)~\cite[eischen2000continuum, luible2008simulation].
 
 In the science and industry exist several measuring techniques which is used to find elementary parameters of fabrics e.g. KESF, FAST or FAMOUS. 
-Kawabata's Evaluation System of Fabric (KESF) is used to get the mechanical properties of the clothes. KESF contains a several equipments for measure these properties. KESF was developed for mass-spring method (from~\cite[kawabata1982objective]). The method need a piece of fabric (size depends on the current implementation) for the measurement. On this sample is applied a force in the different directions. The KESF produces \Blue
-graphs of change dimensions depending on the applied force. \Black
+Kawabata's Evaluation System of Fabric (KESF) is used to get the mechanical properties of the clothes. KESF contains a several equipments for measure these properties. KESF was developed for mass-spring method (from~\cite[kawabata1982objective]). The method need a piece of fabric (size depends on the current implementation) for the measurement. On this sample is applied a force in the different directions. The KESF produces
+graphs of change dimensions depending on the applied force.
 The KESF instruments test with high accuracy: compression, pure bending rigidity, roughness, shear, surface friction and tensile~\cite[kawabata1982objective, stylios2005new, ancutiene2010relationship]. 
 
-Very similiar to the Kawabata's System (KESF) is the most popular commercial systeme - Fabric Assurance by Simple Testing (FAST). Both systems were designed to measure fabric mechanical properties at low-stress level, but both systems  use different testing principles. KESF system measure \Blue deformation depending on the increasing and decreasing applied force \Black while FAST system determines deformation level at a single point on the deformation curve, therefor FAST system cannot measure hysteresis~\cite[ancutiene2010relationship]. Another differences are that the KESF use different equipment for each property. The FAST are more properties measure on one equipment, so the number of equipments are reduced~\cite[stylios2005new].
+Very similiar to the Kawabata's System (KESF) is the most popular commercial systeme - Fabric Assurance by Simple Testing (FAST). Both systems were designed to measure fabric mechanical properties at low-stress level, but both systems  use different testing principles. KESF system measure deformation depending on the increasing and decreasing applied force while FAST system determines deformation level at a single point on the deformation curve, therefor FAST system cannot measure hysteresis~\cite[ancutiene2010relationship]. Another differences are that the KESF use different equipment for each property. The FAST are more properties measure on one equipment, so the number of equipments are reduced~\cite[stylios2005new].
 
-\Blue
 The other method Fabric Automatic Measurement and Optimisation Universal System (FAMOUS) is faster method of measurement based on mechanical stressing of the garment than KESF or FAST. A complete suite of measurement take less than five minutes~\cite[stylios2005new].
-\Black
 
 All these measuring techniques were designed for using in textile and clothes industry, but also are used for computer graphics simulation of garments.
 These techniques measure e.g. flexural rigidity, shear, surface, compression or tensile properties, but need tens of measurements equipments and process to acquire parameters. Process takes from a few minutes (FAMOUS) up to units of hours (KESF)~\cite[kawabata1982objective, stylios1991textile, minazio1995fast, stylios2005new]. While existing methods give excellent results and detailed description of substances, but do not tell us anything about the whole garment. Moreover, these methods are slow and expensive.
 
 	There are also methods of estimating cloth simulation parameters based on extraction features from video~(e.g.~\cite[bhat2003estimating]). This method is based on the fabric projected a structured light pattern of horizontal stripes. A perceptually motivated metric based on matching between folds is used to compare video of real cloth with simulation. This metric compares two video sequences of cloth and returns a number that measures the differences in their folds~\cite[bhat2003estimating].
-\Blue
 
 The work~\cite[bhat2003estimating] follows an experimental work using a MOCAP system with twelve cameras~\cite[charfi2005determination]. 
 The method uses the mass-spring system describes in the~\cite[baraff1998large]. The Kawabata Evaluation System (KESF) is used for obtained mass and springs parameters and the damping parameters are computed from free fall movement of the garment. This method is the most precise method of the aforementioned. However, this method uses KESF and MOCAP, thus is expensive and slow. Moreover, this method is primary used for animation realism~\cite[charfi2005determination].  
 
-\Black
 
 
 \sec Goals

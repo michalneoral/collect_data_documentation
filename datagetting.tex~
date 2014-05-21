@@ -5,9 +5,7 @@
 
 The requirement on the measurement is to obtain mathematical features by which could be used to estimate the parameters of the dynamic physical model of garment. These features we determine by tracking hanging garment. Movement of hanging garment will be causes the movement of the manipulator gripper that holds garment.
 We have chosen the simplest movement, which could give us the necessary data. Data that could be used to obtain the features of the dynamic model of garment. We use the movement of garment in a plane, ideally excited by moving gripper of a garment in a straight line (line segment) in the plane.
-\Blue 
-Based on the sensors that we have available, we have choose types of motion capturing. We decided capture the movement of garment in two ways. We use both possibilities of Xtion sensor --- capturing RGB images and depthmaps too:\Black
-	\begitems \style a
+Based on the sensors that we have available, we have choose types of motion capturing. We decided capture the movement of garment in two ways. We use both possibilities of Xtion sensor:	\begitems \style a
 		* With standart RGB video camera capturing a silhouette of garment against the constant background when garment is moving {\bf perpendicular to the optical axis}.
 		* With rangefinder capturing when garment is moving {\bf along the optical axis}.
 	\enditems
@@ -76,7 +74,7 @@ The reference image of background is captured that the arm "r2" (in which grippe
 
 \secc Manipulator and sensor position
 
-"Ext."~axis (axis~"13") is rotated as in the case of capturing of RGB (chap.~\ref[secc:extrgb]).
+The turntable ("Ext."~axis) is rotated as in the case of capturing of RGB (chap.~\ref[secc:extrgb]).
 The arm "r1" is into same position as in case of capturing of RGB (chap.~\ref[secc:r1rgb]).
 
 

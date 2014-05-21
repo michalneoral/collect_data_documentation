@@ -1,22 +1,52 @@
 %\chap Conclusion
-\chap Results
+\chap Results and Discussion
 
-We assume that if we capture one piece of the garment multiple times in the same way the results of such measurements will be similar. Therefore, we performed five identical measurements of one garment. The garment is held in the gripper the same way in all cases of measurements.
+%We assume that if we capture one piece of the garment multiple times in the same way the results of such measurements will be similar. Therefore, we performed five identical measurements of one garment. The garment is held in the gripper the same way in all cases of measurements.
 
-The dependences of displacement $\Delta z_k$ on the time are shown in the figure~\ref[fig:graph6pos] and dependences of speed of the points on the time are shown in the figure~\ref[fig:graph6speed]. For these identical measurements was chosen garment - green towel (shown in the figure~\ref[tab:description].d) and way of holding the garment - (fig.~\ref[fig:specialcases].e).
+%The dependences of displacement $\Delta z_k$ on the time are shown in the figure~\ref[fig:graph6pos] and dependences of speed of the points on the time are shown in the figure~\ref[fig:graph6speed]. For these identical measurements was chosen garment - green towel (shown in the figure~\ref[tab:description].d) and way of holding the garment - (fig.~\ref[fig:specialcases].e).
 
-We can see on the figures~\ref[fig:graph6pos] and~\ref[fig:graph6speed] that the dependences of all measured sequences are similar. 
+%We can see on the figures~\ref[fig:graph6pos] and~\ref[fig:graph6speed] that the dependences of all measured sequences are similar. 
 
-\mind{Nedat raději tyto grafy do přílohy, případně přidat další?}
+% Datová sada
+The data set is the result of the measurement. The data set contains forty-six experiments with eight different garments (described in the~\ref[secc:datasetstruct]), which are held in the gripper with five different ways~(\ref[app:speccas]). The detailed description of the garments is described in the~\ref[app:listofdata]. 
+Overall, this data set represents 15 gigabytes of data. This is due to the fact that for each movement are captured RGB images and depth maps simultaneously at full resolution and additional information about the position of the robot. So big data is not practical to attach the DVD for this work, so the enclosed DVD contains only selected examples. Selected examples are labeled in annex~\ref[app:listofdata].
 
-\medskip \clabel[fig:graph6pos]{Dependence of the position of points and time}
+% Typický průběh
+The figures~\ref[fig:graphPosition] and \ref[fig:graphSpeed] are typical to see the measurement from the dataset, which shows how the garment behaves.
+In the referenced example is shown the garment called green towel (shown in the figure~\ref[fig:garments].d) which is held around the corner. Data in this example, come from the depth map sensor.
+You may notice that the closest point of the gripper is very similar to move of the gripper. Other points, further from the gripper, are move with phase shift. Response of the movement gets more and more likely to shape of probably natural frequencies of this hanging garment. The shape of the time course of changes, which may be declared to the expected result.
+
+% Experiment
+For the documentation of the results of experiments I chose this experiment:
+In the case of the garment green towel I made five experiments repeatedly, so I can compare if the behavior is stable under small changes in the experiment. The figure \ref[fig:graph6pos] indicate the relative position to the static condition over time and in the figure \ref[fig:graph6speed] is shows the speed of individual points. The length hanging substance was approximately 64 cm. The graph shows the 5 points and gripper that gives this movement. The first point is in the idle state 6.4 cm below the gripper and other points are placed sequentially down from the gripper at intervals 12.4 cm.
+
+% Výsledky experimentu
+Into the charts are always plotted the results of all five experiments. The measurement was carried out so that after the end of one experiment, the substance was allowed to stabilize and then the experiment performed again. It is seen that the waveforms in the case of these five experiments are very similar. Only points that are farthest from the gripper can see slight variations, which is due to the behavior of the substance expected. To speed of the points apply basically the same as for the position. Such a similarity of waveforms we expected.
+
+
+\midinsert \clabel[fig:graph6pos]{Dependence of the position of points and time}
 \picw=18cm 
 \cinspic eps/graph6pos.pdf
 \caption/f Dependence of the position of points and time. Experiment of several measurements of one garment, which is held in the same way.
-\medskip
+\endinsert
 
-\medskip \clabel[fig:graph6speed]{Dependence of the speed of points and time}
+\midinsert \clabel[fig:graph6speed]{Dependence of the speed of points and time}
 \picw=18cm 
 \cinspic eps/graph6speed2.pdf
 \caption/f Dependence of the speed of points and time. Experiment of several measurements of one garment, which is held in the same way.
-\medskip
+\endinsert
+
+
+
+%Výsledkem měření je datová sada. Datová sada má rozsah čtyřicet šest experimentů s osmi různými oděvy~\ref[], které jsou drženy pěti různými způsoby~\ref[]. Detailed description of all the experiments is written in the annex~\ref[] . Na obrázku \ref[] je vidět typický průběh měření z datové sady, která ukazuje, jak se látka chová. 
+
+%V odkazovaném příkladu je zobrazena látka zelený ručník \ref[] držená za roh. Data v tomto příkladu pocházejí ze senzoru hloubkové mapy.
+
+%Můžete si všimnout, že bod nejblíže gripperu a další body od gripperu dále se pohybují s fázovým posunem a odezva získává víc a víc tvar pravděpodobně vlastních frekvencí tohoto visícího oblečení. Tvar časového průběhu se mění, což lze prohlásit za očekávaný výsledek. 
+
+%Pro dokumentaci výsledků experimentů jsem vybral tento experiment:
+%V případě látky zelený růčník jsem provedl 5 experimentů opakovaně, abych mohl porovnat, jestli je chování stálé při drobných změnách experimentu. Na obrázku \ref[] ukazujeme ralativní polohu vůči klidovému stavu v průběhu času a na obrázku \ref[] ukazujeme rychlosti jednotlivých bodů. Délka visící látky byla přibližně XX cm. V grafech je zobrazeno 5 bodů a gripper, který tento pohyb budí. První bod je v klidovém stavu XX cm pod gripperem a další body jsou umístěny postupně v rozestupu XX cm.
+
+%Do grafů jsou vždy vyneseny výsledky všech pěti experimentů. Měření probíhalo tak, že po skončení jednoho experimentu se látka nechala ustálit a následně se experiment provedl znovu. Je vidět, že průběhy v případě těchto pěti experimentů jsou si velmi podobné. Pouze na bodech, které jsou nejvzdálenější od gripperu můžeme vidět drobné odchylky, což je dáno chováním látky. Pro rychlosti bodů platí v podstatě to stejné, co pro polohy. Takovou to podobnost průběhů jsme očekávali.
+
+

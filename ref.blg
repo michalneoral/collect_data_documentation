@@ -3,50 +3,60 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ref.aux
 The style file: plain.bst
 Database file #1: ref.bib
+I was expecting a `,' or a `}'---line 252 of file ref.bib
+ :   
+ :   TITLE  = {{A technical drawing \verb|12010_00_04_Robot.pdf| - ADJUST}},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 259 of file ref.bib
+ :   
+ :   TITLE  = {{A technical drawing of robotic arm Motoman MA1400 - ADJUST}},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in clopema
 Warning--to sort, need author or key in yaskawa
 Warning--to sort, need author or key in asus
 Warning--can't use both volume and number fields in quigley2009ros
 Warning--can't use both volume and number fields in terzopoulos1987elastically
-You've used 29 entries,
+You've used 33 entries,
             2118 wiz_defined-function locations,
-            660 strings with 8709 characters,
-and the built_in function-call counts, 9733 in all, are:
-= -- 981
-> -- 409
+            674 strings with 9012 characters,
+and the built_in function-call counts, 10592 in all, are:
+= -- 1053
+> -- 449
 < -- 12
-+ -- 165
-- -- 134
-* -- 601
-:= -- 1530
-add.period$ -- 99
-call.type$ -- 29
-change.case$ -- 150
++ -- 181
+- -- 146
+* -- 631
+:= -- 1672
+add.period$ -- 108
+call.type$ -- 33
+change.case$ -- 164
 chr.to.int$ -- 0
-cite$ -- 34
-duplicate$ -- 392
-empty$ -- 818
-format.name$ -- 134
-if$ -- 2126
+cite$ -- 38
+duplicate$ -- 425
+empty$ -- 906
+format.name$ -- 146
+if$ -- 2311
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 26
-newline$ -- 152
-num.names$ -- 52
-pop$ -- 223
+int.to.str$ -- 33
+missing$ -- 28
+newline$ -- 169
+num.names$ -- 60
+pop$ -- 258
 preamble$ -- 1
-purify$ -- 124
+purify$ -- 137
 quote$ -- 0
-skip$ -- 281
+skip$ -- 319
 stack$ -- 0
-substring$ -- 549
-swap$ -- 114
+substring$ -- 569
+swap$ -- 118
 text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 108
+type$ -- 122
 warning$ -- 5
-while$ -- 91
-width$ -- 31
-write$ -- 321
-(There were 5 warnings)
+while$ -- 99
+width$ -- 35
+write$ -- 352
+(There were 2 error messages)

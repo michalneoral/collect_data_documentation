@@ -1,13 +1,13 @@
 \app Cases of Holding of the Garment
 
 
-\medskip \clabel[fig:specialcases]{Cases of Helding the Garment}
+\medskip \clabel[fig:specialcases]{Cases of holding the garment}
 \picw=7cm 
 \centerline {\inspic pictures/gripperFree.pdf \hfil\hfil \inspic pictures/gripperCorner.pdf }\nobreak
-\centerline {a) Random point on the garment.\hfil\hfil b) Corner of the garment.}\nobreak\medskip
+\centerline {a) Random point.\hfil\hfil b) Corner.}\nobreak\medskip
 \centerline {\inspic pictures/gripperCollar.pdf \hfil\hfil \inspic pictures/gripperBelt.pdf }\nobreak
-\centerline {c) Collar of the garment.\hfil\hfil d) Belt of the garment.}\nobreak\medskip
+\centerline {c) Collar.\hfil\hfil d) Belt.}\nobreak\medskip
 \centerline {\inspic pictures/gripperRuler.pdf \hfil\hfil \inspic pictures/gripperRuler2.pdf }\nobreak
-\centerline {e) Holding the garment with the ruler.\hfil\hfil f) Second example of holding garment with the ruler}\nobreak\medskip
-\caption/f Cases of the helding the garment.
+\centerline {e) With the ruler.\hfil\hfil f) Second example with the ruler}\nobreak\medskip
+\caption/f Cases of the holding the garment.
 \medskip

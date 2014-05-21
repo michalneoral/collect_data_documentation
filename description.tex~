@@ -21,7 +21,7 @@ Each arm of~manipulator has 6~rotation axes. The~axes are labeled according to t
 
 \medskip \clabel[fig:motomanAxis]{Description of manipulator}
 \picw=9cm \cinspic pictures/motomanMA1400axis-eps-converted-to.pdf
-\caption/f Description of robotic arm Motoman~MA1400 - axis.
+\caption/f Description of robotic arm Motoman~MA1400 - axis (from~\cite[motomanPic]).
 \medskip
 
 
@@ -50,7 +50,7 @@ The robot has been equipped with a variety of sensors:
 		\enditems
 	* Photometric Stereo Gripper-Mounted Sensor
 		\begitems \style x
-			* The photometric stereo sensor is a small scale close range \mind{stereo-pair} camera sensor. The sensors captures at 1280$\times$800~px resolution and has software support to do 3D reconstruction of close-range garment surface~\cite[clopema].			
+			* The photometric stereo sensor is a small scale close range camera sensor. The sensors captures at 1280$\times$800~px resolution and has software support to do 3D reconstruction of close-range garment surface~\cite[clopema].			
 		\enditems
 	* Wrist Force-Torque Sensor
 		\begitems \style x

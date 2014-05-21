@@ -2,31 +2,17 @@
 \Xpage{-1}
 \Xpage{-2}
 \Xpage{-3}
-\Xpage{-4}
 \Xpage{-5}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpage{-6}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
 \Xpage{-7}
 \Xpage{-8}
+\Xpage{-9}
+\Xpage{-10}
 \Xpage{1}
 \Xchap{1}{Introduction }{1}
 \Xsec{1.1}{Motivations }{1}
 \Xfnote
 \Xsec{1.2}{The State of the Art }{1}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
 \Xpage{2}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
 \Xsec{1.3}{Goals }{2}
 \Xpage{3}
 \Xchap{2}{Description of Manipulator }{3}
@@ -54,8 +40,6 @@
 \Xchap{3}{Capturing data }{7}
 \Xlabel{sec:requirements}{3.1}
 \Xsec{3.1}{Goals of measurement }{7}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
 \Xsec{3.2}{Realisation }{7}
 \Xpage{8}
 \Xfig{fig:OptOsa}{3.1}{Position of arm with camera}
@@ -66,9 +50,9 @@
 \Xsecc{3.3.1}{External Axis }{8}
 \Xfig{fig:kolmoOptOsy}{3.2}{Suggestion of movements perpendicular to optical axis}
 \Xlabel{fig:kolmoOptOsy}{3.2}
-\Xlabel{secc:r1rgb}{3.3.2}
-\Xsecc{3.3.2}{Arm with Xtion Sensor }{8}
 \Xpage{9}
+\Xlabel{secc:r1rgb}{3.3.2}
+\Xsecc{3.3.2}{Arm with Xtion Sensor }{9}
 \Xlabel{subsec:refRGB}{3.3.3}
 \Xsecc{3.3.3}{Arm with Garment }{9}
 \Xlabel{sec:captureBackground}{3.4}
@@ -82,33 +66,25 @@
 \Xlabel{fig:rovnoOptOsy}{3.3}
 \Xpage{11}
 \Xchap{4}{Data Structure }{11}
-\Xpdfcolork{1 .43 0 0}
 \Xlabel{sec:topics}{4.1}
 \Xsec{4.1}{Recording Data }{11}
 \Xfnote
 \Xfnote
-\Xpdfcolork{0 0 0 1}
 \Xsec{4.2}{Measured Data Set of the Garments }{11}
+\Xlabel{secc:datasetstruct}{4.2.1}
 \Xsecc{4.2.1}{Structure of Data Set }{11}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{1 .43 0 0}
 \Xpage{12}
 \Xfig{fig:garments}{4.1}{The garments uses in the experiments}
 \Xlabel{fig:garments}{4.1}
 \Xpage{13}
 \Xlabel{secc:desGar}{4.2.2}
 \Xsecc{4.2.2}{Description of the Garments }{13}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
 \Xtab{tab:description}{4.1}{Description of the Garments}
 \Xlabel{tab:description}{4.1}
+\Xlabel{secc:formatname}{4.2.3}
 \Xsecc{4.2.3}{Format of Names of Recorded Files }{13}
 \Xtab{explanation}{4.2}{Explanation of format file name.}
 \Xlabel{explanation}{4.2}
-\Xpdfcolork{1 .43 0 0}
-\Xpdfcolork{0 0 0 1}
 \Xpage{14}
 \Xlabel{chap:dataproc}{5}
 \Xchap{5}{Data Processing }{14}
@@ -124,82 +100,78 @@
 \Xsecc{5.2.1}{Background Subtraction }{15}
 \Xlabel{eq:averageRGB}{(5.1)}
 \Xlabel{eg:deviationRGB}{(5.2)}
-\Xlabel{eq:backgroundSubtraction}{(5.3)}
 \Xpage{16}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xlabel{eq:backgroundSubtraction}{(5.3)}
 \Xfig{fig:rgbsub}{5.2}{Background subtraction of RGB images}
 \Xlabel{fig:rgbsub}{5.2}
-\Xsecc{5.2.2}{Finding Major Axis of the Garment and Remove Gripper }{16}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
 \Xpage{17}
-\Xfig{fig:rgbminoraxes}{5.3}{Major and minor axes of the silhouette}
-\Xlabel{fig:rgbminoraxes}{5.3}
-\Xsecc{5.2.3}{Finding Central Curve of the Garment }{17}
-\Xsecc{5.2.4}{Finding Mathematical Features from RGB images }{17}
+\Xfig{fig:rgbsubmorph}{5.3}{Background subtraction of RGB images after morphological operation}
+\Xlabel{fig:rgbsubmorph}{5.3}
+\Xsecc{5.2.2}{Finding Major Axis of the Garment and Remove Gripper }{17}
+\Xpage{18}
+\Xfig{fig:rgbminoraxes}{5.4}{Major and minor axes of the silhouette}
+\Xlabel{fig:rgbminoraxes}{5.4}
+\Xlabel{secc:centralCurve}{5.2.3}
+\Xsecc{5.2.3}{Finding Central Curve of the Garment }{18}
+\Xpage{19}
+\Xfig{fig:rgbedge}{5.5}{Edge of the silhouette}
+\Xlabel{fig:rgbedge}{5.5}
+\Xpage{20}
+\Xfig{fig:centerSil}{5.6}{Sample of founded center curve of the silhouette}
+\Xlabel{fig:centerSil}{5.6}
+\Xsecc{5.2.4}{Finding Mathematical Features from RGB images }{20}
 \Xpdfcolork{1 0 1 0}
 \Xpdfcolork{0 0 0 1}
-\Xpage{18}
-\Xsec{5.3}{Extraction of Features from Depth Map }{18}
-\Xfig{fig:extDepth}{5.4}{Illustration Depth Map from Rangefinder}
-\Xlabel{fig:extDepth}{5.4}
-\Xsecc{5.3.1}{Convert Depth Map to 3D points }{18}
+\Xpdfcolork{1 0 1 0}
+\Xpdfcolork{0 0 0 1}
+\Xpage{21}
+\Xsec{5.3}{Extraction of Features from Depth Map }{21}
+\Xfig{fig:extDepth}{5.7}{Illustration Depth Map from Rangefinder}
+\Xlabel{fig:extDepth}{5.7}
+\Xsecc{5.3.1}{Convert Depth Map to 3D points }{21}
 \Xlabel{eq:calib}{(5.4)}
 \Xlabel{eq:muv}{(5.5)}
-\Xpage{19}
-\Xlabel{eq:get3Dpoints}{(5.6)}
-\Xfig{fig:pointsDepth}{5.5}{Examples of point cloud of a garment}
-\Xlabel{fig:pointsDepth}{5.5}
-\Xlabel{secc:findEE}{5.3.2}
-\Xsecc{5.3.2}{Finding End of the Gripper }{19}
-\Xpage{20}
-\Xfig{fig:find3DGripper}{5.6}{3D filtred points with founded gripper}
-\Xlabel{fig:find3DGripper}{5.6}
-\Xsecc{5.3.3}{Filtering by Depth of Area }{20}
-\Xlabel{eq:mstar}{(5.7)}
-\Xpage{21}
-\Xlabel{eq:filter3D}{(5.8)}
-\Xfig{fig:pointsFiltering}{5.7}{Filtred point cloud of a garment}
-\Xlabel{fig:pointsFiltering}{5.7}
-\Xlabel{secc:findingPointsDepth}{5.3.4}
-\Xsecc{5.3.4}{Finding Points }{21}
 \Xpage{22}
-\Xlabel{eq:sum}{(5.11)}
+\Xlabel{eq:get3Dpoints}{(5.6)}
+\Xfig{fig:pointsDepth}{5.8}{Examples of point cloud of a garment}
+\Xlabel{fig:pointsDepth}{5.8}
+\Xlabel{secc:findEE}{5.3.2}
+\Xsecc{5.3.2}{Finding End of the Gripper }{22}
 \Xpage{23}
-\Xfig{fig:findPoints}{5.8}{3D point cloud with founded points}
-\Xlabel{fig:findPoints}{5.8}
-\Xsecc{5.3.5}{Finding Mathematical Features from Depth Map }{23}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xfig{fig:find3DGripper}{5.9}{3D filtred points with founded gripper}
+\Xlabel{fig:find3DGripper}{5.9}
+\Xsecc{5.3.3}{Filtering by Depth of Area }{23}
 \Xpage{24}
-\Xfig{fig:graphPosition}{5.9}{Dependence of the position of points on the time}
-\Xlabel{fig:graphPosition}{5.9}
+\Xlabel{eq:mstar}{(5.7)}
+\Xlabel{eq:filter3D}{(5.8)}
+\Xfig{fig:pointsFiltering}{5.10}{Filtred point cloud of a garment}
+\Xlabel{fig:pointsFiltering}{5.10}
+\Xlabel{secc:findingPointsDepth}{5.3.4}
+\Xsecc{5.3.4}{Finding Points }{24}
 \Xpage{25}
-\Xfig{fig:graphSpeed}{5.10}{Dependence of the speed of points on the time}
-\Xlabel{fig:graphSpeed}{5.10}
+\Xlabel{eq:sum}{(5.11)}
 \Xpage{26}
-\Xchap{6}{Results }{26}
+\Xfig{fig:findPoints}{5.11}{3D point cloud with founded points}
+\Xlabel{fig:findPoints}{5.11}
+\Xsecc{5.3.5}{Finding Mathematical Features from Depth Map }{26}
 \Xpdfcolork{0 1 1 0}
 \Xpdfcolork{0 0 0 1}
 \Xpage{27}
+\Xfig{fig:graphPosition}{5.12}{Dependence of the position of points on the time}
+\Xlabel{fig:graphPosition}{5.12}
+\Xpage{28}
+\Xfig{fig:graphSpeed}{5.13}{Dependence of the speed of points on the time}
+\Xlabel{fig:graphSpeed}{5.13}
+\Xpage{29}
+\Xchap{6}{Results and Discussion }{29}
+\Xpage{30}
 \Xfig{fig:graph6pos}{6.1}{Dependence of the position of points and time}
 \Xlabel{fig:graph6pos}{6.1}
-\Xpage{28}
+\Xpage{31}
 \Xfig{fig:graph6speed}{6.2}{Dependence of the speed of points and time}
 \Xlabel{fig:graph6speed}{6.2}
-\Xpage{29}
-\Xchap{7}{Discussion }{29}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpage{30}
-\Xchap{8}{Conclusion }{30}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xpage{32}
+\Xchap{7}{Conclusion }{32}
 \Xbib{clopema}{1}
 \Xbib{choi2005research}{2}
 \Xbib{bender2013adaptive}{3}
@@ -216,32 +188,35 @@
 \Xbib{ancutiene2010relationship}{14}
 \Xbib{stylios1991textile}{15}
 \Xbib{minazio1995fast}{16}
-\Xpage{31}
-\Xchap{!1}{References}{31}
+\Xpage{33}
+\Xchap{!1}{References}{33}
 \Xbib{bhat2003estimating}{17}
 \Xbib{charfi2005determination}{18}
-\Xbib{asus}{19}
-\Xbib{quigley2009ros}{20}
-\Xbib{rosbag}{21}
-\Xbib{rosbagtool}{22}
-\Xbib{matlabpointcloud}{23}
-\Xbib{pecha2014bac}{24}
-\Xpage{32}
-\Xpage{33}
-\Xchap{A}{Content of included DVD }{33}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xbib{gripperPic}{19}
+\Xbib{motomanPic}{20}
+\Xbib{asus}{21}
+\Xbib{quigley2009ros}{22}
+\Xbib{rosbag}{23}
+\Xbib{rosbagtool}{24}
+\Xbib{hlavac2008}{25}
+\Xbib{haralock1991computer}{26}
+\Xbib{matlabpointcloud}{27}
+\Xbib{pecha2014bac}{28}
 \Xpage{34}
-\Xchap{B}{Cases of Holding of the Garment }{34}
-\Xfig{fig:specialcases}{B.1}{Cases of holding the garment}
-\Xlabel{fig:specialcases}{B.1}
 \Xpage{35}
-\Xchap{C}{Abbreviations }{35}
+\Xchap{A}{Content of included DVD }{35}
 \Xpage{36}
-\Xchap{D}{Getting Data - Brief Manual }{36}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
+\Xlabel{app:listofdata}{B}
+\Xchap{B}{List of the Measured Dataset }{36}
+\Xtab{tab:listdepth}{B.1}{List of the measured dataset of depth maps}
+\Xlabel{tab:listdepth}{B.1}
+\Xpage{37}
+\Xtab{tab:listrgb}{B.2}{List of the measured dataset of RGB images}
+\Xlabel{tab:listrgb}{B.2}
+\Xpage{38}
+\Xlabel{app:speccas}{C}
+\Xchap{C}{Cases of Holding of the Garment }{38}
+\Xfig{fig:specialcases}{C.1}{Cases of holding the garment}
+\Xlabel{fig:specialcases}{C.1}
+\Xpage{39}
+\Xchap{D}{Abbreviations }{39}

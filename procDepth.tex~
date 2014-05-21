@@ -2,7 +2,7 @@
 \sec Extraction of Features from Depth Map
 
 
-The sequence of depth maps is captured with the xtion camera (chap.~\ref[secc:camera]). Depth maps are in a sufficient resolution 640$\times$480~px (width$\times$height). Depth maps are stored in the "bagfile"s like single row vector. After loading the data into MATLAB~(chap.~\ref[sec:loadToMatlab]) data are converted from row representation in milimeters to depth map ${\rm C}(u,v)=z$, where $z$~is a distance from the xtion camera in meters, $u$ and $v$ are the depth map image coordinates ($ u \in 1, 2, \dots, n; v \in 1, 2, \dots, m $). The depth maps are shown figure~\ref[fig:extDepth]. 
+The sequence of depth maps is captured with the Xtion camera (chap.~\ref[secc:camera]). Depth maps are in a sufficient resolution 640$\times$480~px (width$\times$height). Depth maps are stored in the "bagfile"s like single row vector. After loading the data into MATLAB~(chap.~\ref[sec:loadToMatlab]) data are converted from row representation in milimeters to depth map ${\rm C}(u,v)=z$, where $z$~is a distance from the Xtion camera in meters, $u$ and $v$ are the depth map image coordinates ($ u \in 1, 2, \dots, n; v \in 1, 2, \dots, m $). The depth maps are shown figure~\ref[fig:extDepth]. 
 
 \medskip \clabel[fig:extDepth]{Illustration Depth Map from Rangefinder}
 \picw=18cm
@@ -20,7 +20,7 @@ f_x & 0 & c_x \cr
 0 & f_y & c_y\cr
 0 & 0 & 1 \cr}
 \right] \eqmark $$
-Using the calibration matrix ${\bf K}$ can be depth map ${\rm C}(u,v)$ converted into 3D point cloud (set of points) ${\bf M}$~(eq.~\ref[eq:muv]), where ${\bf M}_i = [ x_i, y_i, z_i]$ is point represent by its euclidean coordinates. We use usually coordiate system of the xtion sensor.
+Using the calibration matrix ${\bf K}$ can be depth map ${\rm C}(u,v)$ converted into 3D point cloud (set of points) ${\bf M}$~(eq.~\ref[eq:muv]), where ${\bf M}_i = [ x_i, y_i, z_i]$ is point represent by its euclidean coordinates. We use usually coordiate system of the Xtion sensor.
 \label[eq:muv] 
 $${\bf M} = \{ {\bf M}_1, {\bf M}_2, \dots, {\bf M}_{m\times n} \} \eqmark$$
 The point cloud ${\bf M}$ is constructed according to equation~\ref[eq:get3Dpoints]. Algoritmus used for these convertion was inspirated by~\cite[matlabpointcloud]. We obtain each point ${\bf M}_i \in {\bf M}$ from depth map ${\rm C}(u,v)$ by:
@@ -46,9 +46,13 @@ Example of data from 3D points are shown in the figure~\ref[fig:pointsDepth].
 \label[secc:findEE]
 \secc Finding End of the Gripper
 
-%\mind{Proč je to důležité?}
 In the figure~\ref[fig:findPoints] are not shown only points on the garment. The figure shows points of the gripper of arm "r2"~\ref[secc:camera] too. 
-As has been said in chapter~\ref[sec:capDepth] the movement of the garment is caused by this gripper. Finding the coordinates ${\bf ee}~=~[ee_x,ee_y,ee_z]$ of the end point of the gripper is important not only for resoluting the gripper from the garment, but also for detecting excitation movement of garment. The coordinates are found by information about robot position. The simple service in ROS was written for this operation~(chap.~\ref[secc:rosintro]). This service subscribes to the topic of "/xtion1/depth/camera_info". This topic generates a message each time an depth map image is captured. For every incoming message is compuded a coordinates of ${\bf ee}$ --- end of the gripper with garment. This coordinates are not in the global coordinate system, but in the coordiate system of "xtion1" camera. Then, the service publishes data as a new message in its own topic. So the position of the end point of the gripper is captured for every depth map image. Founded gripper is shown in the figure~\ref[fig:find3DGripper].
+As has been said in chapter~\ref[sec:capDepth] the movement of the garment is caused by this gripper. Finding the coordinates ${\bf ee}~=~[ee_x,ee_y,ee_z]$ of the end point of the gripper is important not only for resoluting the gripper from the garment, but also for detecting excitation movement of garment. 
+
+The coordinates are found by information about robot position. The simple service in ROS was written for this operation~(chap.~\ref[secc:rosintro]). 
+This service subscribes to the topic of "/xtion1/depth/image_raw". This topic generates a message each time an depth map image is captured. For every incoming message is compuded a coordinates of ${\bf ee}$ --- end of the gripper with garment.
+To obtain these coordinates is used "lookupTransform()" function from the ROS environment. The function uses the "tf" package of ROS which contains the relationships between parts of manipulator in a tree structure and allows to obtain a transformation between any two portions of the manipulator~\ref[rostf]. 
+This coordinates are not in the global coordinate system, but in the coordiate system of "xtion1" camera. Then, the service publishes data as a new message in its own topic. So the position of the end point of the gripper is captured for every depth map image. Founded gripper is shown in the figure~\ref[fig:find3DGripper].
 
 %\label[eq:endEffector]
 %$$ ee_{x,y,z} \eqmark $$
@@ -63,9 +67,8 @@ As has been said in chapter~\ref[sec:capDepth] the movement of the garment is ca
 
 \secc Filtering by Depth of Area
 
-
-The figure~\ref[fig:pointsDepth] shows that the xtion camera captured not only the points on the garment but also captured the unnecessary surroundings. We decided filtering the 3D points according to distance from xtion camera. We know that the~gripper of the arm "r2" with garment is located 1.06--1.07~m
- before the xtion camera on the arm "r1" at its default measurement position. After several experiments, we found that the minimum and maximum of z-axis values on the garment have values between 0.8~m to 1.16~m, thus we know that the garment moves between these values. 
+The figure~\ref[fig:pointsDepth] shows that the Xtion camera captured not only the points on the garment but also captured the unnecessary surroundings. We decided filtering the 3D points according to distance from Xtion camera. We know that the~gripper of the arm "r2" with garment is located 1.06--1.07~m
+ before the Xtion camera on the arm "r1" at its default measurement position. After several experiments, we found that the minimum and maximum of z-axis values on the garment have values between 0.8~m to 1.16~m, thus we know that the garment moves between these values. 
 %Maximum deviation $\Delta z$ from the z-axis value of endpoint $ee_z$ is computed by equation \ref[eq:minmax]. 
 %\label[eq:minmax] 
 %$$\Delta z=max(abs(ee_z-min_{garment}(z)),abs(ee_z-max_{garment}(z))) \eqmark$$
@@ -79,10 +82,10 @@ The filted data are shown in the figure~\ref[fig:pointsFiltering]. You can see t
 $$
 \eqalignno{
 {\bf M}^* &\subseteq {\bf M}\cr
-{\bf M}^* = \{ {\bf M}_i = [x_i,y_i,z_i] \in {\bf M} &; ee_z - 3\cdot \Delta z \leq z_i \leq ee_z + 3\cdot \Delta z \} & \eqmark \cr
+{\bf M}^* = \{ {\bf M}_i = [x_i,y_i,z_i];~ & ee_z - \Delta z \leq z_i \leq ee_z + \Delta z \} & \eqmark \cr
 }
 $$
-when $\Delta z$ is range of motion of the garment according to the gripper coordinates. A~value of $\Delta z$ is known on the base of experimental determine data and set constantly.
+when $\Delta z$ is range of motion of the garment according to the gripper coordinates. We choose a~value of $\Delta z$ three times to data determine on the base of experimental results.
 
 
 \medskip \clabel[fig:pointsFiltering]{Filtred point cloud of a garment}
@@ -106,37 +109,32 @@ First of all is reduced the 3D points matrix. Points over the gripper endpoint $
 %----------------------------------------------------------------------
 The points are filtred by the y-axis from point cloud ${\bf M}^*$ to the point cloud ${\bf G}$.
 
-To estimate a simple model, which can be imagined as a chain of connected segments pendulous vertically down we need the position of points on the garment vertically down from the gripper. 
-
-To preserve the Shannon sampling theorem, must be the number of samples at least twice greater than the number of period function. Because we assume that this function consists of one or two periods of the sinusoidal waveforms, the number of these points will sufficient. 
+We suppose a simple model usefull for parametric estimation. The model can be imagined as a chain of connected segments pendulous vertically down. We need to obtain the position of points on the garment vertically down from the gripper. 
+%To preserve the Shannon sampling theorem, must be the number of samples at least twice greater than the number of period function. Because we assume that this function consists of one or two periods of the sinusoidal waveforms, the number of these points will sufficient. 
 Vertical direction will be denoted as the direction parallel to the y axis. 
 
-When the movement is limited, we can assume that the point cloud ${\bf G}$ represents a some function $z={\rm f}(y)$, where $y$ is the vertical coordiate of the point on the garment and for all $z$ will be the $x$ (at a given $y$) approximately constant. This function can be obtained from the point cloud by sampling. 
+When the movement is limited, we can assume that the point cloud ${\bf G}$ represents a some function $z={\rm f}(y)$, where $y$ is the vertical coordiate of the point on the garment and for all $z$ will be the $x^i$ (at a given $y^i$) approximately constant. This function can be obtained from the point cloud by sampling. 
 %Then it is necessary to sample the garment.
 Sampling is chosen in the vertical direction down from gripper position. 
-Sampling intervals are chosen based on a raster which provides a sensor. The raster of distance is approximately (on our dataset) $\Delta y_{us} = 2.5~mm$. So we choose the sampling interval $\Delta y = 5~mm$, to we always received at least one point. We also it is set as the sampling size $\Delta x$ between the points and y-axis the gripper, which is parallel to the y-axis. 
+Sampling intervals are chosen based on a raster which provides a sensor. The raster of distance is approximately (on our dataset) $\Delta y_{us} = 2.5~mm$. So we choose the sampling interval $\Delta y = 5~mm$, to we almost always received at least one point. We also it is set as the sampling size $\Delta x$ between the points and y-axis the gripper, which is parallel to the y-axis. 
 %For simplicity, we will from now denote the 3D point $[x, y, z]$ as ${\bf v} = [x,y,z]$, so ${\bf G}_i=[x_i,y_i,z_i]$ is the same like ${\bf G}_i={\bf v}_i$.
-We found the set ${\bf L} = \{ {\bf L}_i \subseteq {\bf G}  ~|~ i \in 1,2,\dots n \}$, where each ${\bf L}_i$ contains the points meet the following conditions:
+We found sets ${\bf L^i}$, where $i \in \{1,2,\dots,k\}$ and $k$ is number of sampling intervals vertically down from the gripper to end of the garment. Let ${\bf L}^i = \{ {\bf p}^i_1, {\bf p}^i_2, \dots, {\bf p}^i_o \}$, where $o$ is number of points contains in ${\bf L}_i$, than the points ${\bf p}^i_j$ (${\bf p}^i_j \in {\bf G}$) meet the following conditions:
 %$$
 %{\bf L}_i = \{ \forall [x_j,y_j,z_j] \subseteq {\bf G} ~|~ j \in 1,2,\dots,n ~| (x-\Delta x) < s_x < (x + \Delta x) ~|~ (y-\Delta y) < s_y < (y + \Delta y) \} 
 %}\eqmark
 %$$
 $$
 \eqalignno{
-{\bf L}_i = \{ \forall [x_j,y_j,z_j] \subseteq {\bf G} ~&|~ j \in 1,2,\dots,n ~| \cr
-(x-\Delta x) < x_j < (x + \Delta x) ~&|~ (y-\Delta y) < y_j < (y + \Delta y) \} & \eqmark \cr
+{\bf p}^i_j &= \left[x^i_j,y^i_j,z^i_j\right] \cr
+\forall i,j : (x^i- &\Delta x) < x^i_j < (x^i + \Delta x) \cr
+\forall i,j : (y^i- &\Delta y) < y^i_j < (y^i + \Delta y) & \eqmark \cr
 }
 $$
-where $n$ is number of points contains in ${\bf L}_i$.
-Let ${\bf p}_j = [x_j,y_j,z_j] \in {\bf L}_i; \forall j \in 1,2,\dots,n$ than ${\bf s}_i = [x_i,y_i,z_i]$ belongs to ${\bf L}_i$ is determined like:
+Than ${\bf s}^i = [x^i,y^i,z^i]$ belongs to ${\bf L}_i$, where we know $x^i$ and $y^i$, is determined like:
 $$
-\eqalignno{
-x_i &= {1\over n} \sum_{j=1}^n x_j \cr
-y_i &= {1\over n} \sum_{j=1}^n y_j & \eqmark \cr
-z_i &= {1\over n} \sum_{j=1}^n z_j \cr
-}
+{\bf s}^i = \left[ x^i, y^i, z^i = {1\over o} \sum_{j=1}^o z^i_j \right] \eqmark
 $$
-where $k$ is the number of elements of ${\bf L}_i$. This we found the chain of the sample points ${\bf s}_i$.
+where $o$ is the number of elements of ${\bf L}^i$. This we found the chain of the sample points ${\bf s}^i$, where ${\bf s}^i$ is sorted according to $y^i$.
 %All these averaged points ${\bf s} = [x, y, z ]$ whith includes a set of points determined using eq.~\ref[eq:sampling] are averaged to ${\bf S}_i=[s_x, s_y, s_z,]$. Herewith it is also ensured filtering of points.  
 %\label[eq:sampling]
 %$$
@@ -149,8 +147,8 @@ where $k$ is the number of elements of ${\bf L}_i$. This we found the chain of t
 %}
 %$$
 
-In the thesis~\cite[pecha2014bac] was made the requirement for location of measurement points ${\bf P}=\{ {\bf P}_1, {\bf P}_2, \dots, {\bf P}_k$ on the garment, where ${\bf P}_k=[x_k,y_k,z_k]$ and $k$ is number of requirment points.
-According to the requirments, points are located in the middle of equally long segments.
+In the thesis~\cite[pecha2014bac] was made the requirement for location of measurement points ${\bf P}=\{ {\bf P}_1, {\bf P}_2, \dots, {\bf P}_r\}$ on the garment, where ${\bf P}_q=[x_q,y_q,z_q]$ and $r$ is number of required points.
+According to the require points are located in the middle of equally long segments and value of require points $r$ is five (but it is changeable).
 Therefore, the next step is finding points based on constant length of the garment.
 
 First step is found lenght of the garment. The $l$ length of garment is sumarized according to sample points ${\bf s}_i$~(eq.~\ref[eq:sum]).
@@ -190,7 +188,7 @@ Points ${\bf P}$ (from chap.~\ref[secc:findingPointsDepth]) are obtained from wh
 
 The dependence of displacement $\Delta z_k$ on the time is shown in the figure~\ref[fig:graphPosition] and dependence of speed of the points on the time is shown in the figure~\ref[fig:graphSpeed]. Figures show founded points ${\bf P}$ (blue) and also they show position or speed of the end of the gripper ${\bf ee}$. Both figures show specified dependences to green towel captured in the special case of holding of the garment straightened on the ruler. \mind{Přidat ještě jeden případ do přílohy?}
 
-\vfil
+\eject
 
 \medskip \clabel[fig:graphPosition]{Dependence of the position of points on the time}
 \picw=18cm 

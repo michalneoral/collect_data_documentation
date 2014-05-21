@@ -79,10 +79,27 @@ Kwang-Jin Choi and Hyeong-Seok Ko.
 \newblock Stable but responsive cloth.
 \newblock In {\em ACM SIGGRAPH 2005 Courses}, page~1. ACM, 2005.
 
+\bibitem{motomanPic}
+YASKAWA~Electric Corporation.
+
 \bibitem{eischen2000continuum}
 J~Eischen and Roberto Bigliani.
 \newblock Continuum versus particle representations.
 \newblock {\em Cloth modeling and animation}, pages 79--122, 2000.
+
+\bibitem{rostf}
+Tully Foote et~al.
+\newblock {ROS Wiki} documentation of tf package.
+\newblock \url{http://wiki.ros.org/tf}.
+\newblock Accessed: 2014-04-16.
+
+\bibitem{haralock1991computer}
+Robert~M Haralock and Linda~G Shapiro.
+\newblock {\em Computer and robot vision}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., 1991.
+
+\bibitem{gripperPic}
+Václav Jahoda.
 
 \bibitem{kawabata1982objective}
 Sueo Kawabata, R~Postle, and Masako Niwa.

@@ -1,8 +1,8 @@
 \chap Data Structure
 
 %For the purpose of the experiment is good data processed offline. 
-\Blue We decided to use offline processing for development of method and experiments.
-Therefore, it is important to store the measured data to data structure and then in MATLAB calculate the parameters that are important for the experiment~(chap.~\ref[chap:dataproc]). 
+We decided to use offline processing for development of method and experiments.
+Therefore, it is important to store the measured data to data structure and then calculate the parameters that are important for the experiments~(chap.~\ref[chap:dataproc]). 
 %If the results of experiment are good and quick, will be the calculation in the future transformed from MATLAB to the ROS.  
 
 
@@ -10,12 +10,12 @@ Therefore, it is important to store the measured data to data structure and then
 \sec Recording Data
 
 Required data are stored using rosbag tool (chap.~\ref[secc:rosintro]).
-They are only stored messages of the relevant topics. Rosbag tool stores the data in the format ".bag" to the folder, which is set in the "local_options.py" file \urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/src/local_options.py}.
+Rosbag tool stores the data in the format ".bag" to the folder, which is set in the "local_options.py" file \urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/src/local_options.py}.
 
 %\label[sec:topics]
 %\sec Topics
 
-The CloPeMa robot can produce over two hundred topics (chap.~\ref[secc:rosintro]) when running. Due to the saving disk space and capacity of the transmission channel are recorded only topics which are important to the evaluation of the exporiment. Selected topics are set in "topics.txt"~\urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/matlab/topics/topics.txt} and contains these choosen topics:
+The CloPeMa robot can produce over two hundred topics (chap.~\ref[secc:rosintro]) when running. Due to the saving disk space and capacity of the transmission channel are recorded only topics which are important to the evaluation of the exporiments. Selected topics are set in "topics.txt"~\urlnote{path_to_workspace/clopema_cvut/clopema_collect_model_data/matlab/topics/topics.txt} and contains these choosen topics:
 
 \begtt
 /joint_states
@@ -32,23 +32,23 @@ The CloPeMa robot can produce over two hundred topics (chap.~\ref[secc:rosintro]
 
 \sec Measured Data Set of the Garments
 
-
+\label[secc:datasetstruct]
 \secc Structure of Data Set
 
-Within experiment was prepared a data set. The data set is used to validate the methods for estimation of the model parameters. The set contains garments with different shapes, colors, sizes and weights. The measured garments are described in the chapter~\ref[secc:desGar] and are shown in the figure~\ref[fig:garments]. The data set on stored at the CloPeMa project server.
+Within experiments was prepared a data set. The data set is used to validate the methods for estimation of the model parameters. The set contains garments with different shapes, colors, sizes and weights. The measured garments are described in the chapter~\ref[secc:desGar] and are shown in the figure~\ref[fig:garments]. The data set on stored at the CloPeMa project server.
 
 
 
 \medskip \clabel[fig:garments]{The garments uses in the experiments}
 \picw=7cm 
 \centerline {\inspic pdf/IMG_8341.pdf \hfil\hfil \inspic pdf/IMG_8343.pdf }\nobreak
-\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\centerline {a) blue t-shirt\hfil\hfil b) gray t-shirt}\nobreak\medskip
 \centerline {\inspic pdf/IMG_8345.pdf \hfil\hfil \inspic pdf/IMG_8348.pdf }\nobreak
-\centerline {c)\hfil\hfil d)}\nobreak\medskip
+\centerline {c) red skirt\hfil\hfil d) green towel}\nobreak\medskip
 \centerline {\inspic pdf/IMG_8351.pdf \hfil\hfil \inspic pdf/IMG_8352.pdf }\nobreak
-\centerline {e)\hfil\hfil f)}\nobreak\medskip
+\centerline {e) black shorts\hfil\hfil f) black\&white shirt}\nobreak\medskip
 \centerline {\inspic pdf/IMG_8353.pdf \hfil\hfil \inspic pdf/IMG_8356.pdf }\nobreak
-\centerline {g)\hfil\hfil g)}\nobreak\medskip
+\centerline {g) red pullover\hfil\hfil h) white pullover}\nobreak\medskip
 \caption/f The garments uses in the experiments.
 \medskip
 
@@ -56,7 +56,7 @@ Within experiment was prepared a data set. The data set is used to validate the 
 \label[secc:desGar]
 \secc Description of the Garments
 
-In the table~\ref[tab:description] are desctibed some parameters of the garment were determined using external measuring instruments (scale, measuring tape). These parameters are used only as additional parameters for construct model of the garment and its verification. \Blue The additional parameters could be obtained by sensors of robot as well. \Black
+In the table~\ref[tab:description] are desctibed some parameters of the garment were determined using external measuring instruments (scale, measuring tape). These parameters are used only as additional parameters for construct model of the garment and its verification. The additional parameters could be obtained by sensors of robot as well. 
 Apart from the cases when is in the gripper held garment in the random point~(in the figure~\ref[fig:specialcases]-a), are also captured special cases of holding garment in the gripper. One of this cases is holding the corner of the garment~(in the figure~\ref[fig:specialcases]-b), collar~(in the figure~\ref[fig:specialcases]-c) or belt~(in the figure~\ref[fig:specialcases]-d) of the garment . Second special position is the position ''on the ruler'' where the garment is straightened and outstretched~(in the figure~\ref[fig:specialcases]-e~and~f). These special cases are only for simplify the simulating and virtual modeling of the garment at the beginning. The special cases are shown in the figure~\ref[fig:specialcases].
 
 \midinsert
@@ -73,10 +73,10 @@ pullover & red & 65$\times$120 & 446 & g \cr
 pullover & white & 54$\times$76 & 184 & h \cr
 }
 
-\caption/t Description of the Garments.
+\caption/t Description of the Garments. Last column refers to the figure~\ref[fig:garments].
 \endinsert
 
-
+\label[secc:formatname]
 \secc Format of Names of Recorded Files
 
 Each measurement of the garment produce two "rosbag" files. One with captured RGB images when garment is moving perpendicular to the optical axis, and one for captured depth maps when garment is moving along the optical axis. 
@@ -95,6 +95,5 @@ X & number of the topics file\cr
 \caption/t Explanation of format file name.
 \endinsert
 
-\Blue
-A robot operator (user) selects a name of the file and speed of the moving garment. The name of the file stored in the prepared data set is chosen from type of the garment, color and name of the type of holding the garment. If the garment was measured and stored multiple times, was added numeral.
-\Black
+
+A robot operator selects a name of the file and speed of the moving garment. The name of the file stored in the prepared data set is chosen from type of the garment, color and name of the type of holding the garment. If the garment was measured and stored multiple times, was added numeral. The list of the measured garments is desctibed in the tables~\ref[tab:listdepth]  and~\ref[tab:listrgb].
