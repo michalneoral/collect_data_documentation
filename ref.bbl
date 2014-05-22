@@ -146,6 +146,9 @@ Morgan Quigley, Ken Conley, Brian Gerkey, Josh Faust, Tully Foote, Jeremy
 \newblock Ros: an open-source robot operating system.
 \newblock In {\em ICRA workshop on open source software}, volume~3, 2009.
 
+\bibitem{curveIntersect}
+Douglas Schwarz.
+
 \bibitem{stylios1991textile}
 George Stylios.
 \newblock {\em Textile objective measurement and automation in garment

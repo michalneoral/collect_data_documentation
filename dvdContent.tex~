@@ -1,7 +1,7 @@
 \app Content of included DVD
 
 \begitems \style o
-* neoramic-bc.pdf this thesis
+* neoramic-bc.pdf - this thesis
 * /dataset - chosen set of measurements of the garments
 * /matlab - MATLAB scrips of dataprocessing
 * /src - Python scrips of manipulation with robot and services

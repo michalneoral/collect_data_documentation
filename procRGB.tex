@@ -89,11 +89,12 @@ Second reason is a noise on the RGB image and tiny changes of brightness of pict
 
 \secc Finding Major Axis of the Garment and Remove Gripper
 
-For further image processing, we must be sure that we have only one image object in the binary silhouette image. We assume that the garment is the largest object in the image. We use MATLAB functions "bwconncomp ()", which finds all objects in an image. For these object is individually calculated their size.  Subsequently, according to these sizes determine the largest object and throw away the rest. The detailed explanation of these region identification is described in the~\cite[hlavac2008]~(p.332).
+%For further image processing, we must be sure that we have only one image object in the binary silhouette image. 
+After applying the previous steps we can assume that the garment is represented by the largest connected region in the image. Therefore, we focuse on the largest region. We use MATLAB functions "bwconncomp ()", which finds all objects in an image. For these object is individually calculated their size.  Subsequently, according to these sizes determine the largest object and take out the rest. The detailed explanation of these region identification is described in the~\cite[hlavac2008]~(p.332).
 
 In the next step we found major and minor axis of the garment. Befere we can find these parameters we have to remove from the image a showed end of the gripper. We have captured images without measured garment in the gripper, thus we can find an area in which the gripper is. Then this part of the image is removed from the image of the measured garment. A better way would be to compare the captured image data from a simulated robot model in an environment of ROS.
 
-After the gripper was removed from the gripper, the major and minor axis could be found by using the spatial moments (described in~\cite[haralock1991computer] p.74,658). This method describes finding major and minor axis for an ellipse (reasons are described below in the chap.~\ref[secc:centralCurve]). The axes are found using MATLAB functions "regionprops()" which gave us center of the object, lenght of major and minor axis and clockwise orientation of the major axis.
+After the garment was removed from the gripper, the major and minor axis could be found by using the spatial moments (described in~\cite[haralock1991computer] p.74,658). This method describes finding major and minor axis for an ellipse (reasons are described below in the chap.~\ref[secc:centralCurve]). The axes are found using MATLAB functions "regionprops()" which gave us center of the object, lenght of major and minor axis and clockwise orientation of the major axis.
 Founded major and minor axes of the silhouette of the garment and subtraced images without the gripper are shown in the figure~\ref[fig:rgbsub].
 
 \medskip \clabel[fig:rgbminoraxes]{Major and minor axes of the silhouette}
@@ -105,51 +106,46 @@ Founded major and minor axes of the silhouette of the garment and subtraced imag
 \label[secc:centralCurve]
 \secc Finding Central Curve of the Garment
 
-To obtain the garment parameters, we decided to track a central curve of the garment (central curve of the silhouette). During this project we have tried various methods of finding the curve, for example, the average pixel with respect to the y-axis, or find a skeleton of the silhouette image (\cite[hlavac2008],~p.365). Search skeleton of the silhouette image it seemed like the most promising from the beginning, but finally there was a problem in the form of determining the curve at the ends of the garment.
+To obtain the garment positions, we decided to track a central curve of the silhouette. During this project we have tried various methods of finding the curve, for example, the average pixel with respect to the rows of image region, or find a skeleton of the silhouette image (\cite[hlavac2008],~p.365). Search skeleton of the silhouette image it seems like the most promising from the beginning, but finally there was a problem in the form of determining the curve at the ends of the garment.
 
-Finally, we chose finding of the central curve so that the search for the centers of the lines, which are perpendicular to the major axis of the garment (silhouettes) and theirs endpoints belong to the outline of the silhouettes.
+Finally, we chose finding of the central curve so that the search for the centers of the corresponding cuts, which are perpendicular to the major axis of the silhouettes.
 
-The first step to obtaining the central curve of the silhouette is finding the the outline of the silhouette. To achieve the outline, we use the edge detector. We chose the edge detector, which uses sobel operator (explain in~\cite[hlavac2008],~p.136). Edge of the silhouette is shown in the figure~\ref[fig:rgbedge].
+\Blue
+The first step to obtaining the central curve of the silhouette is finding the the outline of the silhouette. I used the another property of the MATLAB function "regionprops()", which contains a edge pixels of the garment. Edge of the silhouette is shown in the figure~\ref[fig:rgbedge]. For the next processing is important to convert pixels coordinates of the edge of the garment to the border curve. For this conversion we use inner boundary tracing algorithm (which is described in~the~\cite[hlavac2008] p.191). In our case, the MATLAB function "bwboundaries()" is used as the implementation of this algoritm.
+\Black
 
-\medskip \clabel[fig:rgbedge]{Edge of the silhouette}
+\midinsert \clabel[fig:rgbedge]{Edge of the silhouette}
 \picw=18cm 
 \cinspic pictures/silhouette.pdf
 \caption/f Sample of edge of the silhouette of the garment.
-\medskip
+\endinsert
 
-\medskip \clabel[fig:centerSil]{Sample of founded center curve of the silhouette}
-\picw=7cm 
-\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
-\centerline {a)\hfil\hfil b)}\nobreak\medskip
-\centerline {\inspic pictures/todo.pdf \hfil\hfil \inspic pictures/todo.pdf }\nobreak
-\centerline {c)\hfil\hfil d)}\nobreak\medskip
-%\cinspic pictures/rgbsample.pdf
-\caption/f Sample of founded center curve of the silhouette.
-\medskip
+\Blue
+The final step is to find the central curve. The point of the central curve is founded with help of the corresponding cut line as is described earlier in this chapter. The center of the silhouette is represented like midpoint of the point, which are compuded as intersections of the border curve and corresponding cut line. For computing this curve intersections is used the fast and robust curve intersections algorithm~\cite[curveIntersect].
+Founded center curve of the silhouette is shown in the figure~\ref[fig:rgbedge].
+\Black
+
+
 
 \secc Finding Mathematical Features from RGB images
 
 To estimate the parameters of the garment, we wanted to use the points of the central curve of the silhouette over time.
-Unfortunately, the position of the points forming the central curve is not only influenced by movement of the garment, but is strongly influenced by the shape of the silhouette. Moreover, the method of background subtraction needs monochrome background to proper functioning. So we decided not to use RGB images to estimate the parameters of the garment.
+Unfortunately, the position of the points forming the central curve is not only influenced by observed movement of the garment, initialized by the robot.
+The silhouette and the central curve is influenced by the complex \mind{CHYBÍ SLOVO} of the garment. It is not suitable for basic experiments. We decided not to use RGB images to estimate the parameters of dynamic physical model of the garment.
 
+\medskip \clabel[fig:centerSil]{Founded center curve of the silhouette}
+\picw=18cm 
+\cinspic pictures/rgbcentercurve.pdf
+%\cinspic pictures/rgbsample.pdf
+\caption/f Founded center curve of the silhouette.
+\medskip
 
-
-		\Green
-		\begitems \style o
-			* Napsat, jak hledám osu bramboroidu
-			* Popsat zde zavrhnuté metody
-			\begitems \style o
-				* Kostra grafu + obrázky + proč jsem to nepoužil
-				* Střed dle y osy + obrázek + proč jsem to nepoužil
-			\enditems
-			* Obrázky postupného nalezení osy bramborouidu (při aproximaci udělat více obrázků)
-		\enditems
-		\Black
-
-		\Green
-		\begitems \style o
-			* Popsat, jak z osy bramboroidu naleznu body, které předávám jako výstup
-			* Obrázky se siluetou a v ní s body
-		\enditems
-		\Black
-
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip

@@ -22,7 +22,7 @@
 \title      {Extraction of Features\nl from Moving Garment}
 %\subtitle   {}
 \author     {Michal Neoral}
-\date       {Květen 2014}
+\date       {May 2014}
 \supervisor {Ing. Pavel Krsek, Ph.D.}
 \studyinfo  {CYBERNETICS AND ROBOTICS, Robotics}  % Study programme etc.
 
@@ -36,38 +36,42 @@
 				\vfil\break \cinspic pdf/CZ.pdf }
 
 \abstractEN {
-The point of this work is design a method to obtain image features of the moving garment that could be useful in the context of the international project CloPeMa which is specialized in robotic manipulation with the garments.
+The point of this work is to~design a~method to obtain image features of~the~moving garment. This features should be further used to estimate the parameters of the dynamic model of the garment.
 
-I concentrated mainly on obtaining these parameters from time series data from the sensor of 3D depth maps and from a standard rgb camera.
+For the purpose of obtaining the parameters of the dynamic model, it is observed the dynamic behavior of the real garment. This dynamic behavior is caused by a short and simple movement of a robotic manipulator which holds the garment in the gripper.
 
-Basis of our measurements is the movement of fabric, or garment, in front of the sensor using a robotic manipulator, which was controled by robot operating system, ROS.
-
-The image data were processed using mathematical programming environment MATLAB.
+I concentrated mainly on obtaining these parameters from time series of data from the rangefinder sensor and from a standard color camera, which is the movement of the garment captured.
 
 Designed solution could be, combined with a model of the garment, provide better  possibilities for motion simulation, motion planning and collision detection in robotic manipulation with the garments.
-The performed experiments we found that the proposed method has high repeatability, becouse it was confirmed that the same garment in the same motion behaves approximately as same way.
 
-Based on the parameters should be possible to create a virtual model of dynamic physical model of the garments.
+%Basis of our measurements is the movement of fabric, or garment, in front of the sensor using a robotic manipulator, which was controled by robot operating system, ROS.
+%The image data were processed using mathematical programming environment MATLAB.
+As part of this work was captured image data consisting of forty-six measurements for eight different types of the garment.
+The method of computation was verified on that data set.
 
-Part of this work is the data set of various garments that can serve as a set for the validation of estimated parameters.
+The experiments verified that the proposed method has satisfactory repeatability.
+%The performed experiments we found that the proposed method has high repeatability, becouse it was confirmed that the same garment in the same motion behaves approximately as same way.
+%Based on the parameters should be possible to create a virtual model of dynamic physical model of the garments.
+%Part of this work is the data set of various garments that can serve as a set for the validation of estimated parameters.
 %This thesis has goal to design method of measurement and extraction of image features for obtaining parameters which will lead to construct the model.
-
 }
 \abstractCZ {
-Cílem této práce je navržená metody pro získání obrazových příznaků z pohybující se látky, která by byla využitelná v rámci mezinárodního projektu CloPeMa, jenž se specializuje na robotickou manipulaci s oděvy.
+Cílem této práce je navržení metody pro získání obrazových příznaků z pohybující se látky. Tyto příznaky by měly být dále využity pro získání parametrů dynamického modelu látky. %, která by byla využitelná v rámci mezinárodního projektu CloPeMa, jenž se specializuje na robotickou manipulaci s oděvy.
 
-Zaměřil jsem se převážně na získání těchto parametrů z časové posloupnosti dat ze senzoru 3D hloubkových map a standartní barevné kamery.
+Pro účely získání parametrů dynamického modelu sledujeme dynamické chování reálné látky. Toto dynamické chování je vyvoláno krátkým a jednoduchým pohybem robotického manipulátoru, který drží tuto látku v chapadle.
 
-Podstatou našeho měření je pohyb látky, či oděvu, před senzorem pomocí robotického manipulátoru, který byl ovládán pomocí robotického operačního systému ROS.
+%Podstatou našeho měření je pohyb látky, či oděvu, před senzorem pomocí robotického manipulátoru, který byl ovládán pomocí robotického operačního systému ROS.
+Zaměřil jsem se převážně na získání těchto parametrů z časové posloupnosti dat z hloubkového senzoru a standardní barevné kamery, jimiž je pohyb látky snímán.
 
-Obrazová data jsem zpracovával pomocí matematického programovacího prostředí MATLAB. 
+%Obrazová data jsem zpracovával pomocí matematického programovacího prostředí MATLAB. 
+Vytvořené řešení by mohlo v kombinaci s modelem látky poskytnout lepší možnosti simulace pohybu, plánování pohybu a detekci kolizí při robotické manipulaci s látkami. 
+ 
+%Provedeným výzkumem jsme zjistili, že navrhnutá metoda má velkou opakovatelnost, jelikož bylo potvrzeno, že se stejná látka při stejném pohybu chová přibližně stejně.
+%Na základě zjištěných parametrů by mělo být možné sestavit virtuální model dynamického fyzikálního modelu látky.
+V rámci této práce byla pořízena obrazová data sestávající z čtyřiceti šesti měření pro osm různých látek. 
+Metoda výpočtů byla ověřována na těchto datech.
 
-Vytvořené řešení by mohlo v kombinaci s modelem látky poskytnout lepší možnosti simulace pohybu, plánování pohybu a detekci kolizí při robotické manipulaci s oděvy. 
-Provedeným výzkumem jsme zjistili, že navrhnutá metoda má velkou opakovatelnost, jelikož bylo potvrzeno, že se stejná látka při stejném pohybu chová přibližně stejně. 
-
-Na základě zjištěných parametrů by mělo být možné sestavit virtuální model dynamického fyzikálního modelu látky.
-
-Součástí této práce je i datová sada různých látek, která může sloužit jako sada pro ověřování odhadnutých parametrů.
+Provedené experimenty ověřily, že navržená metoda má dostatečnou opakovatelnost.
 }
 
 \keywordsEN {%
@@ -112,7 +116,7 @@ Finally, I would like to thank my parents for their support during my studies.
 \input fileformat
 \input dataprocessing
 \input result
-\input discussion
+%\input discussion
 
 % Závěr
 \input conclusion

@@ -113,17 +113,19 @@
 \Xlabel{fig:rgbminoraxes}{5.4}
 \Xlabel{secc:centralCurve}{5.2.3}
 \Xsecc{5.2.3}{Finding Central Curve of the Garment }{18}
+\Xpdfcolork{1 .43 0 0}
 \Xpage{19}
+\Xpdfcolork{0 0 0 1}
 \Xfig{fig:rgbedge}{5.5}{Edge of the silhouette}
 \Xlabel{fig:rgbedge}{5.5}
+\Xpdfcolork{1 .43 0 0}
+\Xpdfcolork{0 0 0 1}
+\Xsecc{5.2.4}{Finding Mathematical Features from RGB images }{19}
+\Xpdfcolork{0 1 1 0}
+\Xpdfcolork{0 0 0 1}
 \Xpage{20}
-\Xfig{fig:centerSil}{5.6}{Sample of founded center curve of the silhouette}
+\Xfig{fig:centerSil}{5.6}{Founded center curve of the silhouette}
 \Xlabel{fig:centerSil}{5.6}
-\Xsecc{5.2.4}{Finding Mathematical Features from RGB images }{20}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
-\Xpdfcolork{1 0 1 0}
-\Xpdfcolork{0 0 0 1}
 \Xpage{21}
 \Xsec{5.3}{Extraction of Features from Depth Map }{21}
 \Xfig{fig:extDepth}{5.7}{Illustration Depth Map from Rangefinder}
@@ -154,8 +156,6 @@
 \Xfig{fig:findPoints}{5.11}{3D point cloud with founded points}
 \Xlabel{fig:findPoints}{5.11}
 \Xsecc{5.3.5}{Finding Mathematical Features from Depth Map }{26}
-\Xpdfcolork{0 1 1 0}
-\Xpdfcolork{0 0 0 1}
 \Xpage{27}
 \Xfig{fig:graphPosition}{5.12}{Dependence of the position of points on the time}
 \Xlabel{fig:graphPosition}{5.12}
@@ -163,6 +163,7 @@
 \Xfig{fig:graphSpeed}{5.13}{Dependence of the speed of points on the time}
 \Xlabel{fig:graphSpeed}{5.13}
 \Xpage{29}
+\Xlabel{chap:results}{6}
 \Xchap{6}{Results and Discussion }{29}
 \Xpage{30}
 \Xfig{fig:graph6pos}{6.1}{Dependence of the position of points and time}
@@ -200,11 +201,12 @@
 \Xbib{rosbagtool}{24}
 \Xbib{hlavac2008}{25}
 \Xbib{haralock1991computer}{26}
-\Xbib{matlabpointcloud}{27}
-\Xbib{pecha2014bac}{28}
+\Xbib{curveIntersect}{27}
+\Xbib{matlabpointcloud}{28}
+\Xbib{pecha2014bac}{29}
 \Xpage{34}
 \Xpage{35}
-\Xchap{A}{Content of included DVD }{35}
+\Xchap{A}{Content of Included DVD }{35}
 \Xpage{36}
 \Xlabel{app:listofdata}{B}
 \Xchap{B}{List of the Measured Dataset }{36}

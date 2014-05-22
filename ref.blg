@@ -10,6 +10,11 @@ I was expecting a `,' or a `}'---line 252 of file ref.bib
 I'm skipping whatever remains of this entry
 I was expecting a `,' or a `}'---line 259 of file ref.bib
  :   
+ :   TITLE  = {{Fast and Robust Curve Intersections}},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 266 of file ref.bib
+ :   
  :   TITLE  = {{A technical drawing of robotic arm Motoman MA1400 - ADJUST}},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
@@ -18,45 +23,45 @@ Warning--to sort, need author or key in yaskawa
 Warning--to sort, need author or key in asus
 Warning--can't use both volume and number fields in quigley2009ros
 Warning--can't use both volume and number fields in terzopoulos1987elastically
-You've used 33 entries,
+You've used 34 entries,
             2118 wiz_defined-function locations,
-            674 strings with 9012 characters,
-and the built_in function-call counts, 10592 in all, are:
-= -- 1053
-> -- 449
+            677 strings with 9055 characters,
+and the built_in function-call counts, 10773 in all, are:
+= -- 1066
+> -- 456
 < -- 12
-+ -- 181
-- -- 146
-* -- 631
-:= -- 1672
-add.period$ -- 108
-call.type$ -- 33
-change.case$ -- 164
++ -- 184
+- -- 148
+* -- 636
+:= -- 1700
+add.period$ -- 109
+call.type$ -- 34
+change.case$ -- 167
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 425
-empty$ -- 906
-format.name$ -- 146
-if$ -- 2311
+cite$ -- 39
+duplicate$ -- 432
+empty$ -- 928
+format.name$ -- 148
+if$ -- 2350
 int.to.chr$ -- 0
-int.to.str$ -- 33
+int.to.str$ -- 34
 missing$ -- 28
-newline$ -- 169
-num.names$ -- 60
-pop$ -- 258
+newline$ -- 172
+num.names$ -- 62
+pop$ -- 266
 preamble$ -- 1
-purify$ -- 137
+purify$ -- 140
 quote$ -- 0
-skip$ -- 319
+skip$ -- 331
 stack$ -- 0
-substring$ -- 569
-swap$ -- 118
+substring$ -- 574
+swap$ -- 119
 text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 122
+type$ -- 126
 warning$ -- 5
-while$ -- 99
-width$ -- 35
-write$ -- 352
-(There were 2 error messages)
+while$ -- 101
+width$ -- 36
+write$ -- 357
+(There were 3 error messages)

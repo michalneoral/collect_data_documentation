@@ -241,7 +241,7 @@
 }
 
 @misc{ rostf,
-  AUTHOR = {Mihelich, Patrick and others},
+  AUTHOR = {Foote, Tully and others},
   TITLE  = {{ROS Wiki} Documentation of tf package},
   howpublished = {\url{http://wiki.ros.org/tf}},
   note = {Accessed: 2014-04-16}
@@ -252,6 +252,13 @@
   TITLE  = {{A technical drawing \verb|12010_00_04_Robot.pdf| - ADJUST}},
   howpublished = {\url{http://clopema.felk.cvut.cz/redmine/attachments/download/121/12010_00_04_Robot.pdf}},
   note = {Accessed: 2013-11-27}
+}
+
+@misc{ gripperPic,
+  AUTHOR = { Douglas Schwarz }
+  TITLE  = {{Fast and Robust Curve Intersections}},
+  howpublished = {{http://www.mathworks.com/matlabcentral/fileexchange/11837-fast-and-robust-curve-intersections}},
+  note = {Accessed: 2014-04-16}
 }
 
 @misc{ motomanPic,

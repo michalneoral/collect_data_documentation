@@ -1,19 +1,20 @@
 \chap Conclusion
 
 %Seznamte se s postupem vytváření dynamických fyzikálních modelů látky.
-In the introduction of this thesis I describe the methods of obtaining parameters of dynamic model of the garment, based on the mechanical stressing of the garment. These methods are not suitable in our case, so I developed procedure of.
-
-%Seznamte se s možnostmi měření a realizace experimentů na robotickém pracovišti projektu CloPeMa.
-
+In the introduction of this thesis I have described the methods of obtaining parameters of dynamic model of the garment, based on the mechanical stressing of the garment. These methods are not suitable in our case, so I have developed a method using  the robot and the sensors that are available on the robot, capture data, which could be used for estimating the parameters of the garment.
 
 %Navrhněte metodu měření a získání obrazových příznaků, které lze použít pro odhad parametrů dynamického fyzikálního modelu látky.
-
+%Seznamte se s možnostmi měření a realizace experimentů na robotickém pracovišti projektu CloPeMa.
+The method is based on extraction features from RGB images and depthmaps. The capturing the movement of the garment was performed in two ways.
+Firstly, RGB video camera captured a silhouette of the garment against the constant background when the garment was moving perpendicular to the optical axis. This way was captured a RGB image sequence of the moving garment in time. Secondly, rangefinder captured the garment when garment was moving along the optical axis. This way was captured a depth map sequence of the moving garment in time. I designed an algorithm to compute the position parameters of the garment from the captured data, which could be used for estimating the parameters of the dynamic physical model of the garment.
 
 %Implementujte navrženou metodu v prostředí Matlab a potřebné části v prostředí ROS.
-
+Due to modularity, proposed to separate measuring data, storing data and subsequent processing, so it is possible to use other methods of processing of the captured data.
+Data capture and storage is implemented in the robotic operating system ROS. Reading data and extraction of image feautures is implemented in MATLAB. 
 
 %Připravte datovou sadu, která bude použita při ověřování metod odhadování parametrů fyzikálního modelu
-
+Within this work, I have captured forty-six experiments with eight different garments. Functionality of an algorithm is documented on selected examples of garments green towel, which was held as shown in the figure~\ref[fig:graph6pos] and~\ref[fig:graph6speed]. It turns out that, even when repeating the experiment getting very similar data. This behavior corresponds to the expectations of it so it can be concluded that the procedure is correct. As part of my work was not verified whether, based on these parameters can build a virtual model of the garment.
+Data are stored on the server of the project, which this work was a part. The selected data is appended to DVD as described in the chapter~\ref[chap:results].
 
 %Vše pečlivě zdokumentujte. 
 
@@ -25,16 +26,16 @@ In the introduction of this thesis I describe the methods of obtaining parameter
 
 
 
-We met the process of creating dynamic physical models of the garment and obtaining the parameters of the real garment. 
+%We met the process of creating dynamic physical models of the garment and obtaining the parameters of the real garment. 
 
-We design own methods of extraction image features, which can be use to estimate the parameters of the dynamic model of garment. These methods are based on extraction features from RGB images and depthmaps. 
+%We design own methods of extraction image features, which can be use to estimate the parameters of the dynamic model of garment. These methods are based on extraction features from RGB images and depthmaps. 
 
-The CloPeMa robotic manipulator was used for the realization of the experiments. Parts of the code that are responsible for controlling the robot and storage of measured data was written in the ROS environment. 
+%The CloPeMa robotic manipulator was used for the realization of the experiments. Parts of the code that are responsible for controlling the robot and storage of measured data was written in the ROS environment. 
 
-Image processing method of depth and RGB cameras were implemented in the MATLAB environment.
+%Image processing method of depth and RGB cameras were implemented in the MATLAB environment.
 
 
-The data set of 46 measurements was prepared to validate the methods for estimation of the model parameters.
+%The data set of 46 measurements was prepared to validate the methods for estimation of the model parameters.
 
 %		\Green
 %		\begitems \style o
